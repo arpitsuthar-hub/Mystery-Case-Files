@@ -1,0 +1,1388 @@
+﻿
+/* =========================================================
+   MYSTERIOUS CASE FILES
+   MAIN DASHBOARD
+   Dark Cinematic Detective Theme
+   ========================================================= */
+/* =========================================================
+   RESET
+   ========================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #080808;
+    color: #e8e2d5;
+    font-family: "Poppins", Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   FIXED TOP NAVIGATION
+   ========================================================= */
+
+.top-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 78px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 50px;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(199, 168, 92, 0.30);
+    z-index: 1500;
+    transition: background 0.3s ease;
+}
+
+
+/* =========================================================
+   CURRENT DATE
+   ========================================================= */
+
+.current-date {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    justify-self: start;
+    color: #a99f8e;
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+}
+
+    .current-date i {
+        color: #c7a85c;
+        font-size: 13px;
+    }
+
+
+/* =========================================================
+   CENTER WEBSITE TITLE
+   ========================================================= */
+
+.logo {
+    justify-self: center;
+    text-align: center;
+    white-space: nowrap;
+}
+
+    .logo span {
+        font-family: "Cinzel", serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 3px;
+        word-spacing: 10px;
+        color: #c4a259;
+        text-transform: uppercase;
+    }
+
+
+/* =========================================================
+   NAVIGATION LINKS
+   ========================================================= */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    justify-self: end;
+}
+
+    .nav-links a {
+        position: relative;
+        color: #aaa398;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 1px;
+            background: #c7a85c;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #c7a85c;
+        }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+
+/* =========================================================
+   HEADER / HERO SECTION
+   ========================================================= */
+
+.header-section {
+    min-height: 720px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 78px;
+    overflow: hidden;
+    background-image: linear-gradient( 90deg, rgba(5, 5, 7, 0.93), rgba(5, 5, 7, 0.72), rgba(5, 5, 7, 0.32) ), url("../../Images/Main_Dashboard/Hero7.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+    width: min(1100px, 90%);
+    padding: 125px 20px 80px;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+
+/* =========================================================
+   HERO SMALL TITLE
+   ========================================================= */
+
+.hero-small-title {
+    color: #c7a85c;
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+}
+
+    .hero-small-title i {
+        margin-right: 9px;
+    }
+
+
+/* =========================================================
+   HERO MAIN TITLE
+   ========================================================= */
+
+.hero-title {
+    max-width: 850px;
+    font-family: "Cinzel", serif;
+    font-size: clamp(32px, 4.5vw, 58px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 2.5px;
+    color: #eee8db;
+    margin-bottom: 28px;
+}
+
+    .hero-title span {
+        display: block;
+        color: #c7a85c;
+        margin-top: 8px;
+        font-size: 0.78em;
+        letter-spacing: 3px;
+    }
+
+
+/* =========================================================
+   HERO DESCRIPTION
+   ========================================================= */
+
+.hero-description {
+    max-width: 650px;
+    color: #b8b1a4;
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   HERO QUOTE
+   ========================================================= */
+
+.hero-quote {
+    max-width: 700px;
+    padding-left: 18px;
+    border-left: 2px solid #b28a3e;
+    color: #ddd5c5;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 190px;
+    padding: 14px 23px;
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* PRIMARY BUTTON */
+
+.btn-primary {
+    background: #b28a3e;
+    color: #0a0a0a;
+    border: 1px solid #b28a3e;
+}
+
+    .btn-primary:hover {
+        background: #d0ae63;
+        border-color: #d0ae63;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(201, 166, 93, 0.15);
+    }
+
+
+/* SECONDARY BUTTON */
+
+.btn-secondary {
+    color: #c9b27c;
+    border: 1px solid rgba(195, 161, 87, 0.6);
+    background: rgba(0, 0, 0, 0.25);
+}
+
+    .btn-secondary:hover {
+        background: rgba(185, 147, 67, 0.12);
+        border-color: #d0ae63;
+        color: #d0ae63;
+        transform: translateY(-3px);
+    }
+
+
+/* =========================================================
+   HERO BOTTOM FADE
+   ========================================================= */
+
+.hero-bottom-fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 150px;
+    background: linear-gradient( transparent, #080808 );
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: #8f897e;
+    font-size: 8px;
+    letter-spacing: 3px;
+    z-index: 3;
+}
+
+    .scroll-indicator i {
+        color: #b28a3e;
+        animation: scrollArrow 1.5s infinite;
+    }
+
+@keyframes scrollArrow {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(7px);
+    }
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+    position: relative;
+    padding: 120px 5%;
+    overflow: hidden;
+    background-image: linear-gradient( 90deg, rgba(5, 5, 5, 0.96), rgba(5, 5, 5, 0.84), rgba(5, 5, 5, 0.66) ), url("../../Images/Main_Dashboard/Hero15.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.about-container {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 70px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   ABOUT IMAGE
+   ========================================================= */
+
+.about-image {
+    position: relative;
+    height: 530px;
+    overflow: hidden;
+    border: 1px solid rgba(181, 143, 69, 0.35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+}
+
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(0%) brightness(0.85) contrast(1.08);
+        transform: scale(1.04);
+        transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+    .about-image:hover img {
+        transform: scale(1.08);
+        filter: grayscale(0%) brightness(0.95) contrast(1.08);
+    }
+
+.about-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( to top, rgba(4, 4, 4, 0.65), transparent 55% );
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   ABOUT CONTENT
+   ========================================================= */
+
+.about-content {
+    max-width: 650px;
+}
+
+    .about-content h2 {
+        font-family: "Cinzel", serif;
+        font-size: clamp(34px, 4vw, 55px);
+        line-height: 1.15;
+        letter-spacing: 3px;
+        color: #e6dfd0;
+        margin-bottom: 22px;
+    }
+
+        .about-content h2 span {
+            display: block;
+            color: #b89650;
+        }
+
+    .about-content p {
+        color: #aaa398;
+        font-size: 14px;
+        line-height: 1.9;
+        margin-bottom: 18px;
+    }
+
+.about-main-text {
+    color: #c9c1b2 !important;
+    font-size: 16px !important;
+}
+
+    .about-main-text strong {
+        color: #d0ae63;
+    }
+
+
+/* =========================================================
+   ABOUT FEATURES
+   ========================================================= */
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.about-feature {
+    padding: 18px;
+    background: rgba(10, 10, 10, 0.65);
+    border: 1px solid rgba(172, 137, 65, 0.18);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+    .about-feature:hover {
+        border-color: rgba(201, 166, 93, 0.55);
+        background: rgba(25, 22, 16, 0.8);
+    }
+
+    .about-feature i {
+        color: #c4a259;
+        font-size: 19px;
+    }
+
+    .about-feature h3 {
+        font-family: "Cinzel", serif;
+        color: #ded6c6;
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .about-feature span {
+        display: block;
+        color: #77736b;
+        font-size: 9px;
+        margin-top: 4px;
+    }
+
+
+/* =========================================================
+   COMMON SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+    max-width: 850px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.section-small-title {
+    display: block;
+    color: #a7874b;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+    .section-small-title i {
+        margin-right: 6px;
+    }
+
+.section-heading h2 {
+    font-family: "Cinzel", serif;
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #e6dfd0;
+}
+
+    .section-heading h2 span {
+        color: #b89650;
+    }
+
+.section-line {
+    width: 90px;
+    height: 1px;
+    background: #a17b39;
+    margin: 25px auto;
+}
+
+.section-heading p {
+    max-width: 680px;
+    margin: auto;
+    color: #9d978c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   DETECTIVE SECTION
+   ========================================================= */
+
+.detective-section {
+    position: relative;
+    padding: 120px 5%;
+    overflow: hidden;
+    background-image: linear-gradient( rgba(5, 5, 5, 0.93), rgba(5, 5, 5, 0.88) ), url("../../Images/Main_Dashboard/Hero9.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* =========================================================
+   DETECTIVE GRID
+   Four detective cards + View More
+   ========================================================= */
+
+.detective-grid {
+    max-width: 1450px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) auto;
+    gap: 24px;
+    align-items: center;
+}
+
+
+/* =========================================================
+   DETECTIVE CARD
+   ========================================================= */
+
+.detective-card {
+    min-width: 0;
+    background: rgba(15, 15, 15, 0.92);
+    border: 1px solid rgba(176, 139, 63, 0.20);
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+    .detective-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(196, 159, 82, 0.65);
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(165, 126, 50, 0.08);
+    }
+
+
+/* =========================================================
+   DETECTIVE IMAGE
+   ========================================================= */
+
+.detective-image {
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    background: #171717;
+}
+
+    .detective-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(30%) contrast(1.05) brightness(0.78);
+        transition: transform 0.6s ease, filter 0.6s ease;
+    }
+
+.detective-card:hover .detective-image img {
+    transform: scale(1.06);
+    filter: grayscale(0%) contrast(1.05) brightness(0.9);
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( to top, rgba(0, 0, 0, 0.50), transparent 65% );
+    pointer-events: none;
+}
+
+.detective-number {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #d0ae63;
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+/* =========================================================
+   DETECTIVE CONTENT
+   ========================================================= */
+
+.detective-content {
+    padding: 25px 22px 30px;
+}
+
+.detective-country {
+    color: #a68548;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.detective-content h3 {
+    margin-top: 10px;
+    font-family: "Cinzel", serif;
+    font-size: 19px;
+    line-height: 1.35;
+    letter-spacing: 1px;
+    color: #e5dfd2;
+}
+
+.card-line {
+    width: 45px;
+    height: 1px;
+    background: #a17b39;
+    margin: 17px 0;
+}
+
+.detective-content p {
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    color: #aaa397;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   VIEW MORE LINK
+   ========================================================= */
+
+.view-more-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+    color: #a7874b;
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    .view-more-link i {
+        font-size: 9px;
+        transition: transform 0.3s ease;
+    }
+
+    .view-more-link:hover {
+        color: #d0ae63;
+        transform: translateX(2px);
+    }
+
+        .view-more-link:hover i {
+            transform: translateX(4px);
+        }
+
+
+/* =========================================================
+   DETECTIVE NOTE
+   ========================================================= */
+
+.detective-note {
+    max-width: 700px;
+    margin: 65px auto 0;
+    text-align: center;
+}
+
+    .detective-note > i {
+        color: #a7874b;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .detective-note p {
+        color: #d0ae63;
+        font-family: "Playfair Display", serif;
+        font-size: 22px;
+        font-style: italic;
+        line-height: 1.8;
+        letter-spacing: 1px;
+    }
+
+
+/* =========================================================
+   HOW TO PLAY SECTION
+   ========================================================= */
+
+.how-to-section {
+    position: relative;
+    padding: 120px 5%;
+    overflow: hidden;
+    background-image: linear-gradient( rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.90) ), url("../../Images/Main_Dashboard/Hero8.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.how-to-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+
+/* =========================================================
+   INSTRUCTION GRID
+   ========================================================= */
+
+.instruction-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* =========================================================
+   INSTRUCTION CARD
+   ========================================================= */
+
+.instruction-card {
+    position: relative;
+    min-height: 230px;
+    padding: 35px 30px;
+    background: rgba(18, 18, 18, 0.82);
+    border: 1px solid rgba(172, 137, 65, 0.18);
+    transition: transform 0.35s ease, border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+    .instruction-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(194, 158, 82, 0.55);
+        background: rgba(24, 24, 24, 0.95);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+.instruction-number {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    font-family: "Cinzel", serif;
+    color: rgba(190, 151, 75, 0.25);
+    font-size: 35px;
+}
+
+.instruction-icon {
+    width: 52px;
+    height: 52px;
+    border: 1px solid #8f6d31;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c4a259;
+    margin-bottom: 23px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.instruction-card:hover .instruction-icon {
+    background: rgba(201, 166, 93, 0.10);
+    color: #e0bd70;
+}
+
+.instruction-card h3 {
+    font-family: "Cinzel", serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    color: #ded6c6;
+    margin-bottom: 12px;
+}
+
+.instruction-card p {
+    color: #969087;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.main-footer {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px 40px;
+    overflow: hidden;
+    background-image: linear-gradient( rgba(4, 4, 4, 0.93), rgba(4, 4, 4, 0.96) ), url("../../Images/Main_Dashboard/Hero17.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border-top: 1px solid rgba(179, 141, 68, 0.25);
+}
+
+
+/* =========================================================
+   FOOTER SYMBOL
+   ========================================================= */
+
+.footer-symbol {
+    position: relative;
+    z-index: 2;
+    color: #a78444;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   FOOTER TITLE
+   ========================================================= */
+
+.main-footer h3 {
+    position: relative;
+    z-index: 2;
+    font-family: "Cinzel", serif;
+    color: #c5a55f;
+    letter-spacing: 4px;
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   FOOTER DESCRIPTION
+   ========================================================= */
+
+.main-footer p {
+    position: relative;
+    z-index: 2;
+    margin-top: 12px;
+    color: #aaa398;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FOOTER LINE
+   ========================================================= */
+
+.footer-line {
+    position: relative;
+    z-index: 2;
+    width: 60px;
+    height: 1px;
+    background: #765c2c;
+    margin: 25px auto;
+}
+
+
+/* =========================================================
+   FOOTER COPYRIGHT
+   ========================================================= */
+
+.main-footer > span {
+    position: relative;
+    z-index: 2;
+    color: #6e6961;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   ANCHOR SCROLL OFFSET
+   Prevent headings from hiding behind fixed navigation
+   ========================================================= */
+
+#about,
+#detectives,
+#how-to-play {
+    scroll-margin-top: 90px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    /* Navigation */
+
+    .top-navigation {
+        padding: 0 35px;
+    }
+
+    .logo span {
+        font-size: 23px;
+        letter-spacing: 2px;
+        word-spacing: 4px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+        .nav-links a {
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+
+    /* Detective Cards */
+
+    .detective-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 25px;
+    }
+
+    .view-more-link {
+        justify-self: start;
+        grid-column: 1 / -1;
+        margin-top: 5px;
+        font-size: 11px;
+    }
+
+
+    /* About */
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-image {
+        max-width: 650px;
+        width: 100%;
+        margin: auto;
+    }
+
+    .about-content {
+        max-width: 850px;
+        margin: auto;
+    }
+
+
+    /* Instructions */
+
+    .instruction-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLETS
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .top-navigation {
+        grid-template-columns: auto 1fr;
+        height: 70px;
+        padding: 0 25px;
+    }
+
+    .current-date {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+        .current-date i {
+            font-size: 11px;
+        }
+
+    .logo {
+        justify-self: end;
+    }
+
+        .logo span {
+            font-size: 18px;
+            letter-spacing: 1.5px;
+            word-spacing: 2px;
+        }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    /* -----------------------------------------------------
+       FIXED TOP NAVIGATION
+       ----------------------------------------------------- */
+
+    .top-navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        grid-template-columns: auto 1fr;
+        height: 70px;
+        padding: 0 20px;
+        background: rgba(5, 5, 5, 0.97);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        z-index: 1000;
+    }
+
+    .current-date {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+        .current-date i {
+            font-size: 11px;
+        }
+
+    .logo {
+        justify-self: end;
+    }
+
+        .logo span {
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            word-spacing: normal;
+        }
+
+    .nav-links {
+        display: none;
+    }
+
+
+    /* -----------------------------------------------------
+       BACKGROUND FIX
+       ----------------------------------------------------- */
+
+    .header-section,
+    .about-section,
+    .detective-section,
+    .how-to-section,
+    .main-footer {
+        background-attachment: scroll;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .header-section {
+        min-height: 700px;
+        padding-top: 70px;
+    }
+
+    .hero-content {
+        width: 92%;
+        padding: 110px 10px 80px;
+        text-align: center;
+    }
+
+    .hero-small-title {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        letter-spacing: 1.5px;
+    }
+
+        .hero-title span {
+            font-size: 0.72em;
+            letter-spacing: 2px;
+        }
+
+    .hero-description {
+        font-size: 13px;
+        line-height: 1.8;
+    }
+
+    .hero-quote {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 290px;
+    }
+
+
+    /* -----------------------------------------------------
+       COMMON SECTIONS
+       ----------------------------------------------------- */
+
+    .about-section,
+    .detective-section,
+    .how-to-section {
+        padding: 85px 18px;
+    }
+
+
+    /* -----------------------------------------------------
+       ABOUT
+       ----------------------------------------------------- */
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image {
+        height: 400px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+        .about-content h2 {
+            font-size: 32px;
+        }
+
+        .about-content p {
+            font-size: 13px;
+        }
+
+    .about-main-text {
+        font-size: 14px !important;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+
+    .about-feature {
+        text-align: left;
+    }
+
+
+    /* -----------------------------------------------------
+       DETECTIVES
+       ----------------------------------------------------- */
+
+    .detective-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .detective-card {
+        width: 100%;
+    }
+
+    .detective-image {
+        height: 360px;
+    }
+
+    .detective-content {
+        padding: 23px 20px 27px;
+    }
+
+        .detective-content h3 {
+            font-size: 18px;
+        }
+
+        .detective-content p {
+            font-size: 14px;
+        }
+
+    .view-more-link {
+        grid-column: auto;
+        justify-self: center;
+        margin-top: 5px;
+        font-size: 11px;
+    }
+
+    .detective-note {
+        margin-top: 45px;
+    }
+
+        .detective-note p {
+            font-size: 18px;
+        }
+
+
+    /* -----------------------------------------------------
+       HOW TO PLAY
+       ----------------------------------------------------- */
+
+    .instruction-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .instruction-card {
+        min-height: 210px;
+        padding: 30px 25px;
+    }
+
+        .instruction-card h3 {
+            font-size: 15px;
+        }
+
+        .instruction-card p {
+            font-size: 13px;
+        }
+
+
+    /* -----------------------------------------------------
+       SECTION HEADING
+       ----------------------------------------------------- */
+
+    .section-heading {
+        margin-bottom: 45px;
+    }
+
+    .section-small-title {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        line-height: 1.8;
+    }
+
+    .section-heading h2 {
+        font-size: 31px;
+        letter-spacing: 1.5px;
+    }
+
+    .section-heading p {
+        font-size: 13px;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    .main-footer {
+        padding: 65px 18px 35px;
+    }
+
+        .main-footer h3 {
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+
+        .main-footer p {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .main-footer > span {
+            font-size: 9px;
+            line-height: 1.8;
+        }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE DEVICES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .top-navigation {
+        padding: 0 12px;
+    }
+
+    .current-date {
+        gap: 5px;
+        font-size: 8px;
+    }
+
+    .logo span {
+        font-size: 11px;
+        letter-spacing: 1px;
+    }
+
+    .hero-title {
+        font-size: 27px;
+    }
+
+    .hero-small-title {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .about-image {
+        height: 320px;
+    }
+
+    .detective-image {
+        height: 300px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

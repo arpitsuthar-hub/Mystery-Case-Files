@@ -1,0 +1,672 @@
+﻿/* =========================================================
+MYSTERIOUS CASE FILES
+SEARCH DETECTIVE PAGE
+
+THEME: CINEMATIC NOIR / BLACK & GOLD
+========================================================= */
+
+/* =========================================================
+01. ROOT VARIABLES
+========================================================= */
+
+:root {
+    --search-bg: #080b0e;
+    --search-panel: #101519;
+    --search-panel-light: #151c21;
+    --search-gold: #c49a45;
+    --search-gold-light: #e5c477;
+    --search-text: #eee9df;
+    --search-muted: #929ba2;
+    --search-border: rgba(196, 154, 69, 0.22);
+    --search-red: #df7770;
+    --search-green: #83c59d;
+    --search-radius: 14px;
+    --search-transition: all 0.25s ease;
+}
+
+/* =========================================================
+02. MAIN PAGE
+========================================================= */
+
+.search-detective-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 35px 40px;
+    box-sizing: border-box;
+    color: var(--search-text);
+    background: radial-gradient( circle at 85% 5%, rgba(196, 154, 69, 0.07), transparent 28% ), var(--search-bg);
+    font-family: 'Poppins', sans-serif;
+}
+
+    .search-detective-page *,
+    .search-detective-page *::before,
+    .search-detective-page *::after {
+        box-sizing: border-box;
+    }
+
+    /* =========================================================
+03. PAGE HEADER
+========================================================= */
+
+    .search-detective-page .page-header {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid var(--search-border);
+    }
+
+    .search-detective-page .header-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 68px;
+        height: 68px;
+        min-width: 68px;
+        border: 1px solid rgba(196, 154, 69, 0.45);
+        border-radius: 16px;
+        background: linear-gradient( 145deg, rgba(196, 154, 69, 0.17), rgba(196, 154, 69, 0.04) );
+        color: var(--search-gold-light);
+        font-size: 27px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-detective-page .header-content {
+        min-width: 0;
+    }
+
+    .search-detective-page .page-eyebrow {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--search-gold);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+    }
+
+    .search-detective-page .header-content h1 {
+        margin: 0;
+        color: var(--search-text);
+        font-family: 'Cinzel', serif;
+        font-size: clamp(25px, 3vw, 34px);
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+
+    .search-detective-page .header-content p {
+        margin: 8px 0 0;
+        color: var(--search-muted);
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* =========================================================
+04. PANELS
+========================================================= */
+
+    .search-detective-page .detective-panel {
+        position: relative;
+        margin-bottom: 25px;
+        padding: 28px;
+        overflow: hidden;
+        border: 1px solid var(--search-border);
+        border-radius: var(--search-radius);
+        background: linear-gradient( 145deg, rgba(21, 28, 33, 0.98), rgba(12, 16, 19, 0.98) );
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+    }
+
+        .search-detective-page .detective-panel::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 28px;
+            width: 65px;
+            height: 2px;
+            background: var(--search-gold);
+        }
+
+    /* =========================================================
+05. PANEL HEADINGS
+========================================================= */
+
+    .search-detective-page .panel-heading {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 27px;
+    }
+
+    .search-detective-page .panel-heading-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        min-width: 46px;
+        border: 1px solid var(--search-border);
+        border-radius: 12px;
+        background: rgba(196, 154, 69, 0.09);
+        color: var(--search-gold-light);
+        font-size: 18px;
+    }
+
+    .search-detective-page .panel-heading h2 {
+        margin: 0;
+        color: var(--search-text);
+        font-family: 'Cinzel', serif;
+        font-size: 19px;
+        font-weight: 600;
+    }
+
+    .search-detective-page .panel-heading p {
+        margin: 6px 0 0;
+        color: var(--search-muted);
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .search-detective-page .result-badge {
+        margin-left: auto;
+        padding: 8px 11px;
+        border: 1px solid rgba(196, 154, 69, 0.28);
+        border-radius: 6px;
+        background: rgba(196, 154, 69, 0.07);
+        color: var(--search-gold-light);
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+
+    /* =========================================================
+06. SEARCH GRID
+========================================================= */
+
+    .search-detective-page .search-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 22px;
+    }
+
+    .search-detective-page .search-field {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        gap: 12px;
+        padding: 19px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        background: rgba(5, 9, 12, 0.35);
+        transition: var(--search-transition);
+    }
+
+        .search-detective-page .search-field:hover {
+            border-color: rgba(196, 154, 69, 0.24);
+            background: rgba(196, 154, 69, 0.025);
+        }
+
+    .search-detective-page .form-label {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #d6d1c8;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+        .search-detective-page .form-label i {
+            color: var(--search-gold);
+            font-size: 14px;
+        }
+
+    /* =========================================================
+07. INPUT FIELDS
+========================================================= */
+
+    .search-detective-page .form-control {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        min-height: 45px;
+        padding: 12px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.10);
+        border-radius: 7px;
+        outline: none;
+        background: #0b1014;
+        color: var(--search-text);
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        transition: var(--search-transition);
+    }
+
+        .search-detective-page .form-control::placeholder {
+            color: #69737b;
+            opacity: 1;
+        }
+
+        .search-detective-page .form-control:hover {
+            border-color: rgba(196, 154, 69, 0.35);
+        }
+
+        .search-detective-page .form-control:focus {
+            border-color: var(--search-gold);
+            background: #0d1317;
+            box-shadow: 0 0 0 3px rgba(196, 154, 69, 0.10);
+        }
+
+    .search-detective-page select.form-control {
+        cursor: pointer;
+    }
+
+        .search-detective-page select.form-control option {
+            background: #101519;
+            color: var(--search-text);
+        }
+
+    /* =========================================================
+08. BUTTONS
+========================================================= */
+
+    .search-detective-page .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        min-height: 42px;
+        padding: 11px 15px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--search-transition);
+    }
+
+    .search-detective-page .btn-primary {
+        border-color: var(--search-gold);
+        background: var(--search-gold);
+        color: #101010;
+    }
+
+        .search-detective-page .btn-primary:hover {
+            border-color: var(--search-gold-light);
+            background: var(--search-gold-light);
+            box-shadow: 0 5px 18px rgba(196, 154, 69, 0.16);
+            transform: translateY(-2px);
+        }
+
+    .search-detective-page .btn-secondary {
+        width: auto;
+        min-width: 130px;
+        border-color: rgba(255, 255, 255, 0.14);
+        background: transparent;
+        color: #c5cbd0;
+    }
+
+        .search-detective-page .btn-secondary:hover {
+            border-color: rgba(196, 154, 69, 0.55);
+            background: rgba(196, 154, 69, 0.07);
+            color: var(--search-gold-light);
+        }
+
+    /* =========================================================
+09. SEARCH FOOTER
+========================================================= */
+
+    .search-detective-page .search-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 23px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .search-detective-page .search-info {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--search-muted);
+        font-size: 11px;
+    }
+
+        .search-detective-page .search-info i {
+            color: var(--search-gold);
+        }
+
+    /* =========================================================
+10. RESULTS TABLE
+========================================================= */
+
+    .search-detective-page .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 9px;
+        background: #0b1014;
+        scrollbar-width: thin;
+        scrollbar-color: var(--search-gold) #101519;
+    }
+
+        .search-detective-page .table-wrapper::-webkit-scrollbar {
+            height: 7px;
+        }
+
+        .search-detective-page .table-wrapper::-webkit-scrollbar-track {
+            background: #101519;
+        }
+
+        .search-detective-page .table-wrapper::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: #8d6b31;
+        }
+
+    .search-detective-page .detective-grid {
+        width: 100%;
+        min-width: 850px;
+        border: none;
+        border-collapse: collapse;
+        color: var(--search-text);
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+    }
+
+        .search-detective-page .detective-grid th {
+            padding: 15px 14px;
+            border: none;
+            border-bottom: 1px solid rgba(196, 154, 69, 0.35);
+            background: #171e23;
+            color: var(--search-gold-light);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .search-detective-page .detective-grid td {
+            padding: 14px;
+            border: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+            color: #c7cdd1;
+            line-height: 1.7;
+            vertical-align: middle;
+        }
+
+        .search-detective-page .detective-grid tr:last-child td {
+            border-bottom: none;
+        }
+
+        .search-detective-page .detective-grid tr:hover td {
+            background: rgba(196, 154, 69, 0.045);
+        }
+
+        .search-detective-page .detective-grid th:first-child,
+        .search-detective-page .detective-grid td:first-child {
+            padding-left: 18px;
+        }
+
+        .search-detective-page .detective-grid td:last-child {
+            min-width: 145px;
+        }
+
+    /* =========================================================
+11. ACTION LINKS
+========================================================= */
+
+    .search-detective-page .action-buttons {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .search-detective-page .action-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 58px;
+        padding: 7px 10px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: var(--search-transition);
+    }
+
+    .search-detective-page .edit-link {
+        border-color: rgba(196, 154, 69, 0.30);
+        background: rgba(196, 154, 69, 0.09);
+        color: var(--search-gold-light);
+    }
+
+        .search-detective-page .edit-link:hover {
+            border-color: var(--search-gold);
+            background: var(--search-gold);
+            color: #101010;
+        }
+
+    .search-detective-page .delete-link {
+        border-color: rgba(223, 119, 112, 0.27);
+        background: rgba(223, 119, 112, 0.08);
+        color: #ed928b;
+    }
+
+        .search-detective-page .delete-link:hover {
+            border-color: var(--search-red);
+            background: var(--search-red);
+            color: #ffffff;
+        }
+
+    /* =========================================================
+12. RESULT INFORMATION
+========================================================= */
+
+    .search-detective-page .result-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 18px;
+        color: var(--search-muted);
+        font-size: 11px;
+        line-height: 1.7;
+    }
+
+        .search-detective-page .result-note i {
+            margin-top: 3px;
+            color: var(--search-gold);
+        }
+
+    /* =========================================================
+13. EMPTY GRID MESSAGE
+========================================================= */
+
+    .search-detective-page .detective-grid td[colspan] {
+        padding: 30px 18px;
+        color: #8e989e;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    /* =========================================================
+14. PAGE FOOTER
+========================================================= */
+
+    .search-detective-page .page-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 8px 2px 15px;
+        color: #69737b;
+        font-size: 9px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+    }
+
+        .search-detective-page .page-footer span:first-child {
+            color: var(--search-gold);
+        }
+
+    /* =========================================================
+15. ACCESSIBILITY
+========================================================= */
+
+    .search-detective-page .btn:focus-visible,
+    .search-detective-page .action-link:focus-visible {
+        outline: 2px solid var(--search-gold-light);
+        outline-offset: 3px;
+    }
+
+/* =========================================================
+16. RESPONSIVE - TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    
+    .search-detective-page {
+        padding: 28px 24px;
+    }
+
+    .search-detective-page .detective-panel {
+        padding: 24px;
+    }
+
+    .search-detective-page .search-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    
+}
+
+/* =========================================================
+17. RESPONSIVE - MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    
+    .search-detective-page {
+        padding: 22px 14px;
+    }
+
+    .search-detective-page .page-header {
+        align-items: flex-start;
+        gap: 13px;
+        margin-bottom: 22px;
+        padding-bottom: 20px;
+    }
+
+    .search-detective-page .header-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        border-radius: 12px;
+        font-size: 21px;
+    }
+
+    .search-detective-page .page-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.7px;
+    }
+
+    .search-detective-page .header-content h1 {
+        font-size: 23px;
+    }
+
+    .search-detective-page .header-content p {
+        font-size: 11px;
+    }
+
+    .search-detective-page .detective-panel {
+        padding: 20px 16px;
+        margin-bottom: 20px;
+    }
+
+        .search-detective-page .detective-panel::before {
+            left: 16px;
+        }
+
+    .search-detective-page .panel-heading {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .search-detective-page .panel-heading-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 16px;
+    }
+
+    .search-detective-page .panel-heading h2 {
+        font-size: 16px;
+    }
+
+    .search-detective-page .panel-heading p {
+        font-size: 11px;
+    }
+
+    .search-detective-page .result-badge {
+        margin-left: 0;
+        font-size: 8px;
+    }
+
+    .search-detective-page .search-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .search-detective-page .search-field {
+        padding: 16px;
+    }
+
+    .search-detective-page .search-footer {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .search-detective-page .btn-secondary {
+        width: 100%;
+    }
+
+    .search-detective-page .page-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 8px;
+    }
+
+    
+}
+
+/* =========================================================
+18. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    
+    .search-detective-page *,
+    .search-detective-page *::before,
+    .search-detective-page *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    
+}

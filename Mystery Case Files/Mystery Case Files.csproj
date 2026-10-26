@@ -1,0 +1,448 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E37EEE2-3F88-4439-AA43-E7EE985B580B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mystery_Case_Files</RootNamespace>
+    <AssemblyName>Mystery Case Files</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44316</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Case-Management_Module\AddNew_Case.aspx" />
+    <Content Include="Case-Management_Module\All_Case.aspx" />
+    <Content Include="Case-Management_Module\Assign_Case.aspx" />
+    <Content Include="Case-Management_Module\DetailsOf_Case.aspx" />
+    <Content Include="Case-Management_Module\Edit_Case.aspx" />
+    <Content Include="Case-Management_Module\Dashboard_Case.aspx" />
+    <Content Include="Case-Management_Module\Search_Case.aspx" />
+    <Content Include="Chief-Detective_Module\Chief-Detective_Login.aspx" />
+    <Content Include="Chief-Detective_Module\Chief-Detective_Logout.aspx" />
+    <Content Include="Chief-Detective_Module\Chief_Dashboard.aspx" />
+    <Content Include="CSS\Case-Management\AddNew_Case.css" />
+    <Content Include="CSS\Case-Management\All_Case.css" />
+    <Content Include="CSS\Case-Management\Assign_Case.css" />
+    <Content Include="CSS\Case-Management\DetailsOf_Case.css" />
+    <Content Include="CSS\Case-Management\Edit_Case.css" />
+    <Content Include="CSS\Case-Management\Dashboard_Case.css" />
+    <Content Include="CSS\Case-Management\Search_Case.css" />
+    <Content Include="CSS\Chief_Detective\Chief-Detective_Dashboard.css" />
+    <Content Include="CSS\Detective_Module\AddNew_Detective.css" />
+    <Content Include="CSS\Detective_Module\All_Detective.css" />
+    <Content Include="CSS\Detective_Module\Dashboard_Detective.css" />
+    <Content Include="CSS\Detective_Module\Edit_Detective.css" />
+    <Content Include="CSS\Detective_Module\Search_Detective.css" />
+    <Content Include="CSS\Master\Detective_Module.css" />
+    <Content Include="CSS\Master\Case.css" />
+    <Content Include="Detective-Master_Module\Detective_AssignedCase.aspx" />
+    <Content Include="Detective-Master_Module\Detective_Dashboard.aspx" />
+    <Content Include="Detective-Master_Module\Detective_PendingCase.aspx" />
+    <Content Include="Detective-Master_Module\Detective_Profile.aspx" />
+    <Content Include="Detective-Master_Module\Detective_SolvedCase.aspx" />
+    <Content Include="Detective_Module\Dashboard_Detective.aspx" />
+    <Content Include="Images\Admin_Login\Admin_Logout.png" />
+    <Content Include="Images\Chief_Dashboard\Case_Module.png" />
+    <Content Include="Images\Chief_Dashboard\Detective_Module.png" />
+    <Content Include="Images\Chief_Dashboard\Header_Module.png" />
+    <Content Include="Images\Chief_Dashboard\Quiz_Module.png" />
+    <Content Include="Images\Main_Dashboard\Hero16.jpg" />
+    <Content Include="Quiz_Module\All_Quiz.aspx" />
+    <Content Include="Detective_Module\AddNew_Detective.aspx" />
+    <Content Include="Detective_Module\All_Detective.aspx" />
+    <Content Include="Detective_Module\Edit_Detective.aspx" />
+    <Content Include="Detective_Module\Search_Detective.aspx" />
+    <Content Include="Images\Admin_Login\Admin_Login1.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login10.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login2.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login3.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login4.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login5.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login6.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login7.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login8.jpg" />
+    <Content Include="Images\Admin_Login\Admin_Login9.jpeg" />
+    <Content Include="Images\Detective.jpeg" />
+    <Content Include="Images\Detective2.jpeg" />
+    <Content Include="Images\Detectives\Allan_Pinkerton.png" />
+    <Content Include="Images\Detectives\Allan_Pinkerton1.png" />
+    <Content Include="Images\Detectives\Arkady_Koshko.png" />
+    <Content Include="Images\Detectives\Colin_Winchester.png" />
+    <Content Include="Images\Detectives\Edward_Henry.png" />
+    <Content Include="Images\Detectives\Ernst_Gennat.png" />
+    <Content Include="Images\Detectives\Frances_Glessner_Lee.png" />
+    <Content Include="Images\Detectives\Giovanni_Falcone.png" />
+    <Content Include="Images\Detectives\John_Wilson_Murray.png" />
+    <Content Include="Images\Detectives\K_F_Rustamji.png" />
+    <Content Include="Images\Detectives\Seicho_Matsumoto.png" />
+    <Content Include="Images\Detective_Room.jpeg" />
+    <Content Include="Images\Detective_Table.jpeg" />
+    <Content Include="Images\Main_Dashboard\Hero1.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero10.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero11.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero12.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero13.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero14.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero15.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero17.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero2.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero3.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero4.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero5.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero6.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero7.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero8.jpg" />
+    <Content Include="Images\Main_Dashboard\Hero9.jpg" />
+    <Content Include="Images\Detectives\Kate_Warna.png" />
+    <Content Include="Images\Detectives\Vidocq.png" />
+    <Content Include="Images\User_Login\User_Login1.jpg" />
+    <Content Include="Images\User_Login\User_Login2.jpg" />
+    <Content Include="Images\User_Login\User_Login3.png" />
+    <Content Include="Main_Module\Legendary_Detectives.aspx" />
+    <Content Include="CSS\Legendary_Detectives.css" />
+    <Content Include="Main_Module\Main_Dashboard.aspx" />
+    <Content Include="CSS\Main_Dashboard.css" />
+    <Content Include="Detective-Master_Module\Detective_Login.aspx" />
+    <Content Include="Detective-Master_Module\Detective_Logout.aspx" />
+    <Content Include="Quiz_Module\Quiz_AddNew.aspx" />
+    <Content Include="Quiz_Module\Quiz_Dashboard.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Case-Management_Module\AddNew_Case.aspx.cs">
+      <DependentUpon>AddNew_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\AddNew_Case.aspx.designer.cs">
+      <DependentUpon>AddNew_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\All_Case.aspx.cs">
+      <DependentUpon>All_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\All_Case.aspx.designer.cs">
+      <DependentUpon>All_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\Assign_Case.aspx.cs">
+      <DependentUpon>Assign_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\Assign_Case.aspx.designer.cs">
+      <DependentUpon>Assign_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\DetailsOf_Case.aspx.cs">
+      <DependentUpon>DetailsOf_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\DetailsOf_Case.aspx.designer.cs">
+      <DependentUpon>DetailsOf_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\Edit_Case.aspx.cs">
+      <DependentUpon>Edit_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\Edit_Case.aspx.designer.cs">
+      <DependentUpon>Edit_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\Dashboard_Case.aspx.cs">
+      <DependentUpon>Dashboard_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\Dashboard_Case.aspx.designer.cs">
+      <DependentUpon>Dashboard_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Case-Management_Module\Search_Case.aspx.cs">
+      <DependentUpon>Search_Case.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Case-Management_Module\Search_Case.aspx.designer.cs">
+      <DependentUpon>Search_Case.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief-Detective_Login.aspx.cs">
+      <DependentUpon>Chief-Detective_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief-Detective_Login.aspx.designer.cs">
+      <DependentUpon>Chief-Detective_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief-Detective_Logout.aspx.cs">
+      <DependentUpon>Chief-Detective_Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief-Detective_Logout.aspx.designer.cs">
+      <DependentUpon>Chief-Detective_Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief_Dashboard.aspx.cs">
+      <DependentUpon>Chief_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chief-Detective_Module\Chief_Dashboard.aspx.designer.cs">
+      <DependentUpon>Chief_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_AssignedCase.aspx.cs">
+      <DependentUpon>Detective_AssignedCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_AssignedCase.aspx.designer.cs">
+      <DependentUpon>Detective_AssignedCase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Dashboard.aspx.cs">
+      <DependentUpon>Detective_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Dashboard.aspx.designer.cs">
+      <DependentUpon>Detective_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_PendingCase.aspx.cs">
+      <DependentUpon>Detective_PendingCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_PendingCase.aspx.designer.cs">
+      <DependentUpon>Detective_PendingCase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Profile.aspx.cs">
+      <DependentUpon>Detective_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Profile.aspx.designer.cs">
+      <DependentUpon>Detective_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_SolvedCase.aspx.cs">
+      <DependentUpon>Detective_SolvedCase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_SolvedCase.aspx.designer.cs">
+      <DependentUpon>Detective_SolvedCase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective_Module\Dashboard_Detective.aspx.cs">
+      <DependentUpon>Dashboard_Detective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective_Module\Dashboard_Detective.aspx.designer.cs">
+      <DependentUpon>Dashboard_Detective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz_Module\All_Quiz.aspx.cs">
+      <DependentUpon>All_Quiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quiz_Module\All_Quiz.aspx.designer.cs">
+      <DependentUpon>All_Quiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective_Module\AddNew_Detective.aspx.cs">
+      <DependentUpon>AddNew_Detective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective_Module\AddNew_Detective.aspx.designer.cs">
+      <DependentUpon>AddNew_Detective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective_Module\All_Detective.aspx.cs">
+      <DependentUpon>All_Detective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective_Module\All_Detective.aspx.designer.cs">
+      <DependentUpon>All_Detective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective_Module\Edit_Detective.aspx.cs">
+      <DependentUpon>Edit_Detective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective_Module\Edit_Detective.aspx.designer.cs">
+      <DependentUpon>Edit_Detective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective_Module\Search_Detective.aspx.cs">
+      <DependentUpon>Search_Detective.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective_Module\Search_Detective.aspx.designer.cs">
+      <DependentUpon>Search_Detective.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Module\Legendary_Detectives.aspx.cs">
+      <DependentUpon>Legendary_Detectives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main_Module\Legendary_Detectives.aspx.designer.cs">
+      <DependentUpon>Legendary_Detectives.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Main_Module\Main_Dashboard.aspx.cs">
+      <DependentUpon>Main_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main_Module\Main_Dashboard.aspx.designer.cs">
+      <DependentUpon>Main_Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\Case.Master.cs">
+      <DependentUpon>Case.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\Case.Master.designer.cs">
+      <DependentUpon>Case.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\Chief_Detective.Master.cs">
+      <DependentUpon>Chief_Detective.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\Chief_Detective.Master.designer.cs">
+      <DependentUpon>Chief_Detective.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\Detective.Master.cs">
+      <DependentUpon>Detective.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\Detective.Master.designer.cs">
+      <DependentUpon>Detective.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\Detective_Module.Master.cs">
+      <DependentUpon>Detective_Module.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\Detective_Module.Master.designer.cs">
+      <DependentUpon>Detective_Module.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master_Pages\Quiz.Master.cs">
+      <DependentUpon>Quiz.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master_Pages\Quiz.Master.designer.cs">
+      <DependentUpon>Quiz.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Detective-Master_Module\Detective_Login.aspx.cs">
+      <DependentUpon>Detective_Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Login.aspx.designer.cs">
+      <DependentUpon>Detective_Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Logout.aspx.cs">
+      <DependentUpon>Detective_Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Detective-Master_Module\Detective_Logout.aspx.designer.cs">
+      <DependentUpon>Detective_Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz_Module\Quiz_AddNew.aspx.cs">
+      <DependentUpon>Quiz_AddNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quiz_Module\Quiz_AddNew.aspx.designer.cs">
+      <DependentUpon>Quiz_AddNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Quiz_Module\Quiz_Dashboard.aspx.cs">
+      <DependentUpon>Quiz_Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Quiz_Module\Quiz_Dashboard.aspx.designer.cs">
+      <DependentUpon>Quiz_Dashboard.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Master_Pages\Chief_Detective.Master" />
+    <Content Include="Master_Pages\Detective_Module.Master" />
+    <Content Include="Master_Pages\Case.Master" />
+    <Content Include="Master_Pages\Detective.Master" />
+    <Content Include="Master_Pages\Quiz.Master" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50073</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44316/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+</Project>

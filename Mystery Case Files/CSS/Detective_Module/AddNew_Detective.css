@@ -1,0 +1,755 @@
+﻿/* =========================================================
+   MYSTERIOUS CASE FILES
+   ADD NEW DETECTIVE
+   PREMIUM INVESTIGATION MANAGEMENT INTERFACE
+   THEME: CINEMATIC NOIR / ANTIQUE GOLD
+========================================================= */
+/* =========================================================
+   01. DESIGN TOKENS
+========================================================= */
+:root {
+    --detective-bg: #080b0e;
+    --detective-panel: #0e1318;
+    --detective-panel-light: #131a20;
+    --detective-gold: #c49a45;
+    --detective-gold-light: #f0d18b;
+    --detective-gold-dark: #775925;
+    --detective-text: #eee7da;
+    --detective-muted: #969da5;
+    --detective-border: rgba(196, 154, 69, 0.22);
+    --detective-border-hover: rgba(196, 154, 69, 0.55);
+    --detective-success: #77c89b;
+    --detective-radius: 10px;
+    --detective-transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   02. PAGE WRAPPER
+========================================================= */
+
+.detective-page {
+    position: relative;
+    width: 100%;
+    max-width: 1450px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 28px 32px 35px;
+    color: var(--detective-text);
+    font-family: "Poppins", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+    .detective-page *,
+    .detective-page *::before,
+    .detective-page *::after {
+        box-sizing: border-box;
+    }
+
+
+/* =========================================================
+   03. PAGE HEADER
+========================================================= */
+
+.page-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-bottom: 28px;
+    padding: 27px 30px;
+    overflow: hidden;
+    background: radial-gradient( ellipse at 95% 0%, rgba(196, 154, 69, 0.10), transparent 42% ), linear-gradient( 120deg, #10161b 0%, #0b1014 65%, #111519 100% );
+    border: 1px solid var(--detective-border);
+    border-radius: var(--detective-radius);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+}
+
+    .page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 30px;
+        right: 30px;
+        height: 2px;
+        background: linear-gradient( 90deg, transparent, var(--detective-gold), var(--detective-gold-light), transparent );
+    }
+
+    .page-header::after {
+        content: "";
+        position: absolute;
+        right: -55px;
+        bottom: -100px;
+        width: 220px;
+        height: 220px;
+        border: 1px solid rgba(196, 154, 69, 0.08);
+        border-radius: 50%;
+        box-shadow: 0 0 0 25px rgba(196, 154, 69, 0.025), 0 0 0 50px rgba(196, 154, 69, 0.018);
+        pointer-events: none;
+    }
+
+
+/* =========================================================
+   04. HEADER ICON
+========================================================= */
+
+.page-header-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    min-width: 68px;
+    color: var(--detective-gold-light);
+    font-size: 27px;
+    background: linear-gradient( 145deg, rgba(196, 154, 69, 0.16), rgba(196, 154, 69, 0.035) );
+    border: 1px solid rgba(196, 154, 69, 0.40);
+    border-radius: 10px;
+    box-shadow: inset 0 0 20px rgba(196, 154, 69, 0.035);
+}
+
+
+/* =========================================================
+   05. HEADER CONTENT
+========================================================= */
+
+.page-header-content {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+}
+
+    .page-header-content h1 {
+        margin: 0;
+        color: var(--detective-text);
+        font-family: "Cinzel", Georgia, serif;
+        font-size: clamp(23px, 2.4vw, 31px);
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: 0.6px;
+        overflow-wrap: anywhere;
+    }
+
+    .page-header-content p {
+        margin: 9px 0 0;
+        color: var(--detective-muted);
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+
+/* =========================================================
+   06. REGISTRATION CARD
+========================================================= */
+
+.detective-form-card {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    background: linear-gradient( 145deg, rgba(17, 23, 28, 0.98), rgba(10, 14, 18, 0.99) );
+    border: 1px solid var(--detective-border);
+    border-radius: var(--detective-radius);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.015);
+}
+
+
+/* =========================================================
+   07. FORM CARD HEADER
+========================================================= */
+
+.form-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 27px 30px;
+    background: rgba(255, 255, 255, 0.012);
+    border-bottom: 1px solid var(--detective-border);
+}
+
+    .form-card-header h2 {
+        margin: 0;
+        color: var(--detective-gold-light);
+        font-family: "Cinzel", Georgia, serif;
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1.5;
+    }
+
+    .form-card-header p {
+        margin: 7px 0 0;
+        color: var(--detective-muted);
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+
+/* =========================================================
+   08. OFFICIAL RECORD BADGE
+========================================================= */
+
+.form-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    flex-shrink: 0;
+    padding: 11px 14px;
+    color: var(--detective-gold-light);
+    background: rgba(196, 154, 69, 0.07);
+    border: 1px solid rgba(196, 154, 69, 0.27);
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    white-space: nowrap;
+}
+
+    .form-badge i {
+        font-size: 13px;
+    }
+
+
+/* =========================================================
+   09. FORM SECTIONS
+========================================================= */
+
+.form-section {
+    position: relative;
+    padding: 29px 30px 32px;
+}
+
+    .form-section + .form-section {
+        border-top: 1px solid rgba(196, 154, 69, 0.14);
+    }
+
+    .form-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 42px;
+        background: linear-gradient( 180deg, var(--detective-gold), transparent );
+        opacity: 0.65;
+    }
+
+
+/* =========================================================
+   10. SECTION HEADING
+========================================================= */
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 27px;
+}
+
+.section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    color: var(--detective-gold-light);
+    background: rgba(196, 154, 69, 0.09);
+    border: 1px solid rgba(196, 154, 69, 0.25);
+    border-radius: 8px;
+    font-size: 17px;
+}
+
+.section-heading h3 {
+    margin: 0;
+    color: #e8dfce;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.section-heading p {
+    margin: 5px 0 0;
+    color: var(--detective-muted);
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. FORM GRID
+========================================================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 28px;
+    width: 100%;
+    min-width: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   12. FIELD LABELS
+========================================================= */
+
+.form-label {
+    display: block;
+    color: #ded7ca;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.7;
+}
+
+    .form-label::after {
+        content: "";
+    }
+
+
+/* =========================================================
+   13. INPUT FIELDS
+========================================================= */
+
+.form-control {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 47px;
+    margin: 0;
+    padding: 12px 14px;
+    color: var(--detective-text);
+    background: #090e12;
+    border: 1px solid #30363b;
+    border-radius: 6px;
+    outline: none;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.6;
+    transition: border-color var(--detective-transition), box-shadow var(--detective-transition), background var(--detective-transition);
+}
+
+    .form-control::placeholder {
+        color: #737b82;
+        opacity: 1;
+    }
+
+    .form-control:hover {
+        border-color: rgba(196, 154, 69, 0.50);
+    }
+
+    .form-control:focus {
+        color: #fff4df;
+        background: #0c1216;
+        border-color: var(--detective-gold);
+        box-shadow: 0 0 0 3px rgba(196, 154, 69, 0.09);
+    }
+
+    .form-control:disabled,
+    .form-control[readonly] {
+        color: #a5a19a;
+        background: #101519;
+        border-color: #292e32;
+        cursor: not-allowed;
+    }
+
+
+/* =========================================================
+   14. ADDRESS TEXTAREA
+========================================================= */
+
+.address-control {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   15. GENDER OPTIONS
+========================================================= */
+
+.gender-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-height: 47px;
+}
+
+.gender-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 10px 15px;
+    color: #ded7ca;
+    background: #0a0f12;
+    border: 1px solid #30363b;
+    border-radius: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: border-color var(--detective-transition), background var(--detective-transition), color var(--detective-transition);
+}
+
+    .gender-option input[type="radio"] {
+        width: 14px;
+        height: 14px;
+        margin: 0;
+        accent-color: var(--detective-gold);
+        cursor: pointer;
+    }
+
+    .gender-option:hover {
+        color: var(--detective-gold-light);
+        background: rgba(196, 154, 69, 0.06);
+        border-color: var(--detective-gold-dark);
+    }
+
+
+/* =========================================================
+   16. FORM ACTIONS
+========================================================= */
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 13px;
+    padding: 24px 30px;
+    background: rgba(4, 7, 9, 0.38);
+    border-top: 1px solid var(--detective-border);
+}
+
+
+/* =========================================================
+   17. BUTTON BASE
+========================================================= */
+
+.btn-reset,
+.btn-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-width: 145px;
+    min-height: 46px;
+    margin: 0;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-family: "Poppins", Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--detective-transition), background var(--detective-transition), border-color var(--detective-transition), box-shadow var(--detective-transition);
+}
+
+    .btn-reset:focus-visible,
+    .btn-submit:focus-visible {
+        outline: 2px solid var(--detective-gold-light);
+        outline-offset: 3px;
+    }
+
+
+/* =========================================================
+   18. CLEAR FORM BUTTON
+========================================================= */
+
+.btn-reset {
+    color: #d1c6b2;
+    background: transparent;
+    border: 1px solid #46413a;
+}
+
+    .btn-reset:hover {
+        color: var(--detective-gold-light);
+        background: rgba(196, 154, 69, 0.06);
+        border-color: var(--detective-gold-dark);
+    }
+
+
+/* =========================================================
+   19. REGISTER DETECTIVE BUTTON
+========================================================= */
+
+.btn-submit {
+    color: #171109;
+    background: linear-gradient( 135deg, #e5c477, #bd913d );
+    border: 1px solid #d2aa59;
+    box-shadow: 0 5px 16px rgba(196, 154, 69, 0.10);
+}
+
+    .btn-submit:hover {
+        color: #100d07;
+        background: linear-gradient( 135deg, #f3d99c, #d0a650 );
+        border-color: var(--detective-gold-light);
+        box-shadow: 0 7px 20px rgba(196, 154, 69, 0.17);
+        transform: translateY(-2px);
+    }
+
+    .btn-submit:active,
+    .btn-reset:active {
+        transform: translateY(0);
+    }
+
+
+/* =========================================================
+   20. SECURITY NOTE
+========================================================= */
+
+.security-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 17px 20px;
+    color: #a7a49b;
+    background: rgba(196, 154, 69, 0.035);
+    border: 1px solid rgba(196, 154, 69, 0.16);
+    border-radius: 7px;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+    .security-note i {
+        flex-shrink: 0;
+        margin-top: 2px;
+        color: var(--detective-gold-light);
+        font-size: 15px;
+    }
+
+
+/* =========================================================
+   21. TABLET RESPONSIVE
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .detective-page {
+        padding: 23px 22px 30px;
+    }
+
+    .page-header {
+        padding: 23px;
+    }
+
+    .page-header-icon {
+        width: 59px;
+        height: 59px;
+        min-width: 59px;
+        font-size: 24px;
+    }
+
+    .form-card-header,
+    .form-section {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .form-grid {
+        gap: 23px 20px;
+    }
+
+    .form-actions {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+}
+
+
+/* =========================================================
+   22. MOBILE RESPONSIVE
+========================================================= */
+
+@media screen and (max-width: 600px) {
+
+    .detective-page {
+        padding: 14px 12px 25px;
+    }
+
+    .page-header {
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 20px;
+        padding: 19px 16px;
+    }
+
+        .page-header::before {
+            left: 16px;
+            right: 16px;
+        }
+
+    .page-header-icon {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+        font-size: 20px;
+    }
+
+    .page-header-content h1 {
+        font-size: 21px;
+    }
+
+    .page-header-content p {
+        margin-top: 6px;
+        font-size: 10px;
+    }
+
+    .form-card-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+        padding: 22px 18px;
+    }
+
+        .form-card-header h2 {
+            font-size: 17px;
+        }
+
+    .form-section {
+        padding: 23px 18px 26px;
+    }
+
+    .section-heading {
+        gap: 12px;
+        margin-bottom: 23px;
+    }
+
+    .section-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 15px;
+    }
+
+    .section-heading h3 {
+        font-size: 13px;
+    }
+
+    .section-heading p {
+        font-size: 9px;
+    }
+
+    .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .form-control {
+        min-height: 45px;
+    }
+
+    .address-control {
+        min-height: 100px;
+    }
+
+    .gender-options {
+        gap: 8px;
+    }
+
+    .gender-option {
+        padding: 9px 12px;
+    }
+
+    .form-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 19px 18px;
+    }
+
+    .btn-reset,
+    .btn-submit {
+        min-width: 0;
+        width: 100%;
+        padding: 12px 8px;
+        font-size: 10px;
+    }
+
+    .security-note {
+        padding: 14px;
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   23. EXTRA SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .detective-page {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .page-header {
+        padding: 16px 12px;
+    }
+
+    .page-header-icon {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 17px;
+    }
+
+    .page-header-content h1 {
+        font-size: 18px;
+    }
+
+    .form-card-header,
+    .form-section {
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .form-actions {
+        grid-template-columns: minmax(0, 1fr);
+        padding-right: 13px;
+        padding-left: 13px;
+    }
+
+    .btn-reset,
+    .btn-submit {
+        min-height: 44px;
+    }
+}
+
+
+/* =========================================================
+   24. REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .detective-page *,
+    .detective-page *::before,
+    .detective-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+

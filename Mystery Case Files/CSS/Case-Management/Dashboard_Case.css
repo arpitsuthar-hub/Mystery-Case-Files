@@ -1,0 +1,654 @@
+﻿
+/* =========================================================
+   MYSTERIOUS CASE FILES
+   CASE MANAGEMENT DASHBOARD
+
+   THEME: CINEMATIC NOIR / BLACK & GOLD
+========================================================= */
+/* =========================================================
+   01. MAIN CONTAINER
+========================================================= */
+.case-home {
+    min-height: 100vh;
+    padding: 35px 30px 25px;
+    background: #080b0e;
+    color: #e8e2d6;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.case-home *,
+.case-home *::before,
+.case-home *::after {
+    box-sizing: border-box;
+}
+
+.case-home-header,
+.case-stats-grid,
+.case-section,
+.case-home-footer {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   02. DASHBOARD HEADER
+========================================================= */
+
+.case-home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.case-home-heading {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.case-home-icon {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(196,154,69,0.08);
+    border: 1px solid #806735;
+    border-radius: 12px;
+    color: #d4af67;
+    font-size: 29px;
+}
+
+.case-eyebrow {
+    display: block;
+    color: #a28b60;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+}
+
+.case-home-heading h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #d4af67;
+    margin: 0;
+}
+
+.case-home-heading p {
+    color: #8f999f;
+    font-size: 12px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+.case-date-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #11171b;
+    border: 1px solid #30383d;
+    border-radius: 8px;
+}
+
+    .case-date-card > i {
+        color: #c49a45;
+        font-size: 24px;
+    }
+
+    .case-date-card div {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+        .case-date-card div > span {
+            color: #828d93;
+            font-size: 11px;
+        }
+
+.case-current-date {
+    color: #e1d1ad;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   03. STATISTICS
+========================================================= */
+
+.case-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.case-stat-card {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    background: linear-gradient(145deg, #131a1f, #0d1216);
+    border: 1px solid #30383d;
+    border-radius: 10px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+    .case-stat-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #806735;
+        opacity: 0.8;
+    }
+
+    .case-stat-card:hover {
+        transform: translateY(-4px);
+        border-color: #806735;
+    }
+
+.case-stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.case-stat-icon {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    font-size: 18px;
+}
+
+    .case-stat-icon.gold {
+        color: #d4af67;
+        background: rgba(196,154,69,0.12);
+    }
+
+    .case-stat-icon.blue {
+        color: #78aee0;
+        background: rgba(70,130,180,0.12);
+    }
+
+    .case-stat-icon.purple {
+        color: #b69ae6;
+        background: rgba(140,100,200,0.12);
+    }
+
+    .case-stat-icon.green {
+        color: #77cba0;
+        background: rgba(60,170,110,0.12);
+    }
+
+.case-stat-label {
+    color: #7e898f;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+
+.case-stat-card h2 {
+    color: #eee5d2;
+    font-family: 'Cinzel', serif;
+    font-size: 34px;
+    font-weight: 700;
+    margin-top: 22px;
+    line-height: 1;
+}
+
+.case-stat-card > p {
+    color: #8c979d;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+
+/* =========================================================
+   04. SECTIONS
+========================================================= */
+
+.case-section {
+    margin-bottom: 40px;
+}
+
+.case-section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.case-section-eyebrow {
+    display: block;
+    color: #9b8356;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.case-section-heading h2 {
+    color: #ded3bc;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.case-section-description {
+    color: #7f8a90;
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   05. QUICK ACTIONS
+========================================================= */
+
+.case-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.case-action-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    background: #11171b;
+    border: 1px solid #30383d;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+    .case-action-card:hover {
+        background: #171f24;
+        border-color: #806735;
+        transform: translateY(-3px);
+    }
+
+.case-action-icon {
+    width: 49px;
+    height: 49px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #d4af67;
+    background: rgba(196,154,69,0.09);
+    border: 1px solid rgba(196,154,69,0.2);
+    border-radius: 9px;
+    font-size: 20px;
+}
+
+.case-action-content {
+    flex: 1;
+    min-width: 0;
+}
+
+    .case-action-content h3 {
+        color: #e0d5bd;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 2px 0 10px;
+    }
+
+    .case-action-content p {
+        color: #879197;
+        font-size: 11px;
+        line-height: 1.8;
+        margin: 0;
+    }
+
+.case-action-arrow {
+    color: #7e6b48;
+    font-size: 13px;
+    align-self: center;
+    transition: 0.3s;
+}
+
+.case-action-card:hover .case-action-arrow {
+    color: #d4af67;
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   06. RECENT CASES TABLE
+========================================================= */
+
+.case-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    background: #101519;
+    border: 1px solid #30383d;
+    border-radius: 9px;
+}
+
+.case-recent-grid {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+    .case-recent-grid th {
+        padding: 17px 18px;
+        background: #171e23;
+        color: #c6a25f;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-align: left;
+        white-space: nowrap;
+        border-bottom: 1px solid #806735;
+    }
+
+    .case-recent-grid td {
+        padding: 17px 18px;
+        color: #cbd0d2;
+        font-size: 12px;
+        vertical-align: middle;
+        border-bottom: 1px solid #252d32;
+    }
+
+    .case-recent-grid tr:last-child td {
+        border-bottom: none;
+    }
+
+    .case-recent-grid tr:nth-child(even) td {
+        background: rgba(255,255,255,0.015);
+    }
+
+    .case-recent-grid tr:hover td {
+        background: #192126;
+    }
+
+.case-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #d4af67;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+    .case-view-all:hover {
+        color: #f1ce83;
+    }
+
+.case-view-button {
+    display: inline-block;
+    padding: 8px 12px;
+    color: #d4af67;
+    background: rgba(196,154,69,0.08);
+    border: 1px solid rgba(196,154,69,0.3);
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+    .case-view-button:hover {
+        color: #101214;
+        background: #c49a45;
+    }
+
+
+/* =========================================================
+   07. STATUS BADGES
+========================================================= */
+
+.case-status-badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-badge-open {
+    color: #e4c37b;
+    background: rgba(196,154,69,0.12);
+}
+
+.status-badge-assigned {
+    color: #93bde9;
+    background: rgba(70,130,180,0.13);
+}
+
+.status-badge-investigation {
+    color: #c5a5f2;
+    background: rgba(140,100,200,0.13);
+}
+
+.status-badge-solved {
+    color: #86d5a7;
+    background: rgba(60,170,110,0.13);
+}
+
+.status-badge-unknown {
+    color: #c2c7ca;
+    background: rgba(150,160,170,0.12);
+}
+
+
+/* =========================================================
+   08. CASE STATUS OVERVIEW
+========================================================= */
+
+.case-status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.case-status-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 20px;
+    background: #101519;
+    border: 1px solid #30383d;
+    border-radius: 8px;
+}
+
+.status-indicator {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    margin-top: 5px;
+    border-radius: 50%;
+}
+
+.status-open {
+    background: #d4af67;
+    box-shadow: 0 0 10px rgba(212,175,103,0.25);
+}
+
+.status-assigned {
+    background: #78aee0;
+    box-shadow: 0 0 10px rgba(120,174,224,0.25);
+}
+
+.status-investigation {
+    background: #b69ae6;
+    box-shadow: 0 0 10px rgba(182,154,230,0.25);
+}
+
+.status-solved {
+    background: #77cba0;
+    box-shadow: 0 0 10px rgba(119,203,160,0.25);
+}
+
+.case-status-card h3 {
+    color: #ded5c3;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.case-status-card p {
+    color: #879197;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   09. FOOTER
+========================================================= */
+
+.case-home-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px 10px 5px;
+    color: #69747a;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-align: center;
+    border-top: 1px solid #252d32;
+}
+
+    .case-home-footer > i {
+        color: #9d8049;
+        font-size: 13px;
+    }
+
+.footer-divider {
+    color: #806735;
+    margin: 0 6px;
+}
+
+
+/* =========================================================
+   10. RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .case-stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .case-status-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+
+    .case-home {
+        padding: 25px 14px;
+    }
+
+    .case-home-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .case-home-heading {
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .case-home-icon {
+        width: 53px;
+        height: 53px;
+        font-size: 21px;
+    }
+
+    .case-home-heading h1 {
+        font-size: 21px;
+    }
+
+    .case-date-card {
+        width: 100%;
+    }
+
+    .case-stats-grid {
+        gap: 12px;
+    }
+
+    .case-stat-card {
+        padding: 18px;
+    }
+
+    .case-stat-label {
+        font-size: 8px;
+    }
+
+    .case-stat-card h2 {
+        font-size: 28px;
+    }
+
+    .case-actions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+        .case-section-heading h2 {
+            font-size: 17px;
+        }
+
+    .case-status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-home-footer {
+        flex-wrap: wrap;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .case-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-home-heading h1 {
+        font-size: 18px;
+    }
+
+    .case-action-card {
+        padding: 18px 14px;
+        gap: 12px;
+    }
+
+    .case-action-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}

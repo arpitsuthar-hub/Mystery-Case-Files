@@ -1,0 +1,165 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Detective_Module.Master.cs"
+    Inherits="Mystery_Case_Files.Master_Pages.Detective_Master" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Detective Module | Mystery Case Files</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- External CSS -->
+    <link href="../CSS/Master/Detective_Module.css"
+        rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <!-- =========================================
+             DETECTIVE MODULE HEADER
+        ========================================== -->
+
+        <header class="detective-header">
+
+            <div class="header-inner">
+
+                <a href="../Detective_Module/Home_Detective.aspx"
+                    class="brand">
+
+                    <span class="brand-icon">
+                        <i class="fa-solid fa-user-secret"></i>
+                    </span>
+
+                    <span class="brand-text">
+                        <span class="brand-small">MYSTERY CASE FILES</span>
+                        <span class="brand-title">Detective Module</span>
+                    </span>
+
+                </a>
+
+                <div class="header-status">
+                    <span class="status-dot"></span>
+                    <span>INVESTIGATION SYSTEM</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             NAVIGATION
+        ========================================== -->
+
+        <nav class="detective-nav">
+
+            <div class="nav-inner">
+
+                <a href="../Detective_Module/Home_Detective.aspx"
+                    class="nav-link">
+
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+
+                </a>
+
+                <a href="../Detective_Module/AddNew_Detective.aspx"
+                    class="nav-link">
+
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Add Detective</span>
+
+                </a>
+
+                <a href="../Detective_Module/Search_Detective.aspx"
+                    class="nav-link">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Search Detective</span>
+
+                </a>
+
+                <a href="../Detective_Module/All_Detective.aspx"
+                    class="nav-link">
+
+                    <i class="fa-solid fa-users"></i>
+                    <span>All Detectives</span>
+
+                </a>
+
+               
+                <a href="../Chief-Detective_Module/Chief-Detective_Logout.aspx" class="nav-link logout-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+               
+
+
+            </div>
+
+        </nav>
+
+
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================== -->
+
+        <main class="detective-main">
+
+            <asp:ContentPlaceHolder
+                ID="ContentPlaceHolder1"
+                runat="server">
+            </asp:ContentPlaceHolder>
+
+        </main>
+
+
+        <!-- =========================================
+             FOOTER
+        ========================================== -->
+
+        <footer class="detective-footer">
+
+            <p>
+                <i class="fa-solid fa-shield-halved"></i>
+                MYSTERY CASE FILES
+                <span class="footer-divider">|</span>
+                Detective Investigation System
+            </p>
+
+            <span class="footer-copy">Every clue matters. Every detail counts.
+            </span>
+
+        </footer>
+
+    </form>
+
+</body>
+
+</html>

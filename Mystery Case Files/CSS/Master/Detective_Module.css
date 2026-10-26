@@ -1,0 +1,585 @@
+﻿/* =========================================================
+   MYSTERY CASE FILES
+   DETECTIVE MODULE MASTER PAGE
+
+   THEME: CINEMATIC NOIR / BLACK & GOLD
+========================================================= */
+/* =========================================================
+   01. ROOT VARIABLES
+========================================================= */
+:root {
+    --bg: #05090c;
+    --panel: #0c1013;
+    --panel-light: #11181c;
+    --gold: #c49a45;
+    --gold-light: #f0cb75;
+    --gold-dark: #70501f;
+    --text: #f0e8d9;
+    --muted: #aaa9a4;
+    --border: rgba(196, 154, 69, 0.35);
+    --transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   02. GLOBAL RESET
+========================================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: radial-gradient( ellipse at top, #101619 0%, #05090c 65% );
+    color: var(--text);
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+#form1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   03. HEADER
+========================================================= */
+
+.detective-header {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient( 100deg, rgba(5, 9, 12, 0.98), rgba(12, 16, 19, 0.96) );
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+    .detective-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient( 90deg, transparent, var(--gold-light), transparent );
+    }
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 110px;
+    margin: 0 auto;
+    padding: 20px 4%;
+}
+
+
+/* =========================================================
+   04. BRAND
+========================================================= */
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-width: 0;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    border: 1px solid var(--gold-dark);
+    border-radius: 9px;
+    background: rgba(196, 154, 69, 0.08);
+    color: var(--gold-light);
+    font-size: 29px;
+    box-shadow: inset 0 0 20px rgba(196, 154, 69, 0.04);
+    transition: var(--transition);
+}
+
+.brand:hover .brand-icon {
+    border-color: var(--gold-light);
+    background: rgba(196, 154, 69, 0.15);
+    transform: translateY(-2px);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.brand-small {
+    color: var(--gold-light);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.brand-title {
+    color: #f5eee2;
+    font-family: "Cinzel", Georgia, serif;
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: 700;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   05. SYSTEM STATUS
+========================================================= */
+
+.header-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    padding: 12px 16px;
+    border: 1px solid var(--gold-dark);
+    border-radius: 6px;
+    background: rgba(5, 7, 8, 0.78);
+    color: var(--gold-light);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.status-dot {
+    width: 9px;
+    height: 9px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #8bc77b;
+    box-shadow: 0 0 12px rgba(139, 199, 123, 0.65);
+}
+
+
+/* =========================================================
+   06. NAVIGATION BAR
+========================================================= */
+
+.detective-nav {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    border-bottom: 1px solid rgba(196, 154, 69, 0.2);
+    background: rgba(8, 12, 15, 0.96);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+}
+
+.nav-inner {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 65px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+
+
+/* =========================================================
+   07. NAVIGATION LINKS
+========================================================= */
+
+.nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-height: 65px;
+    padding: 0 22px;
+    border-bottom: 2px solid transparent;
+    color: #c8c4bc;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+    .nav-link i {
+        color: var(--gold);
+        font-size: 15px;
+        transition: var(--transition);
+    }
+
+    .nav-link:hover {
+        border-bottom-color: var(--gold-light);
+        background: rgba(196, 154, 69, 0.06);
+        color: var(--gold-light);
+    }
+
+        .nav-link:hover i {
+            color: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+    .nav-link:focus-visible {
+        outline: 2px solid var(--gold-light);
+        outline-offset: -4px;
+    }
+
+
+/* =========================================================
+   08. MAIN CONTENT
+========================================================= */
+
+.detective-main {
+    flex: 1;
+    width: 100%;
+    max-width: 1600px;
+    min-width: 0;
+    margin: 0 auto;
+    padding: 35px 4% 45px;
+}
+
+
+    /* =========================================================
+   09. CONTENT DEFAULTS
+========================================================= */
+
+    .detective-main h1,
+    .detective-main h2,
+    .detective-main h3,
+    .detective-main h4 {
+        color: #f0e8d9;
+        font-family: "Cinzel", Georgia, serif;
+    }
+
+    .detective-main p {
+        line-height: 1.8;
+    }
+
+    .detective-main input,
+    .detective-main select,
+    .detective-main textarea,
+    .detective-main button {
+        font-family: "Poppins", Arial, sans-serif;
+    }
+
+
+/* =========================================================
+   10. FOOTER
+========================================================= */
+
+.detective-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    width: 100%;
+    margin-top: auto;
+    padding: 22px 20px;
+    border-top: 1px solid var(--border);
+    background: rgba(5, 9, 12, 0.95);
+    text-align: center;
+}
+
+    .detective-footer p {
+        margin: 0;
+        color: var(--gold-light);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        line-height: 1.8;
+    }
+
+        .detective-footer p i {
+            margin-right: 7px;
+        }
+
+.footer-divider {
+    margin: 0 8px;
+    color: var(--gold-dark);
+}
+
+.footer-copy {
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   11. RESPONSIVE - LAPTOP
+========================================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .header-inner {
+        padding: 18px 3%;
+    }
+
+    .nav-inner {
+        padding: 0 3%;
+    }
+
+    .nav-link {
+        padding: 0 15px;
+        font-size: 11px;
+    }
+
+    .detective-main {
+        padding: 30px 3% 40px;
+    }
+}
+
+
+/* =========================================================
+   12. RESPONSIVE - TABLET
+========================================================= */
+
+@media screen and (max-width: 760px) {
+
+    .header-inner {
+        gap: 15px;
+        min-height: 95px;
+        padding: 16px 20px;
+    }
+
+    .brand {
+        gap: 12px;
+    }
+
+    .brand-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+
+    .brand-small {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .brand-title {
+        font-size: 21px;
+    }
+
+    .header-status {
+        padding: 10px;
+        font-size: 8px;
+    }
+
+    .nav-inner {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0;
+        padding: 0 12px;
+    }
+
+    .nav-link {
+        flex: 1 1 auto;
+        min-height: 58px;
+        padding: 0 12px;
+        font-size: 10px;
+    }
+
+    .detective-main {
+        padding: 25px 20px 35px;
+    }
+}
+
+
+/* =========================================================
+   13. RESPONSIVE - MOBILE
+========================================================= */
+
+@media screen and (max-width: 520px) {
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+        padding: 18px 15px;
+    }
+
+    .brand {
+        width: 100%;
+    }
+
+    .brand-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+    }
+
+    .brand-small {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .brand-title {
+        font-size: 19px;
+    }
+
+    .header-status {
+        align-self: flex-start;
+        padding: 8px 10px;
+        font-size: 8px;
+    }
+
+
+    /* MOBILE NAVIGATION */
+
+    .nav-inner {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+        padding: 12px;
+    }
+
+    .nav-link {
+        justify-content: flex-start;
+        gap: 9px;
+        min-height: 48px;
+        padding: 10px;
+        border: 1px solid rgba(196, 154, 69, 0.2);
+        border-radius: 6px;
+        background: rgba(196, 154, 69, 0.025);
+        font-size: 10px;
+        white-space: normal;
+    }
+
+        .nav-link:hover {
+            border-color: var(--gold-dark);
+        }
+
+        .nav-link i {
+            font-size: 13px;
+        }
+
+
+    /* MAIN CONTENT */
+
+    .detective-main {
+        padding: 22px 14px 30px;
+    }
+
+
+    /* FOOTER */
+
+    .detective-footer {
+        padding: 18px 12px;
+    }
+
+        .detective-footer p {
+            font-size: 9px;
+            letter-spacing: 1px;
+        }
+
+    .footer-copy {
+        font-size: 8px;
+    }
+}
+
+
+/* =========================================================
+   14. EXTRA SMALL MOBILE
+========================================================= */
+
+@media screen and (max-width: 350px) {
+
+    .brand-title {
+        font-size: 17px;
+    }
+
+    .brand-small {
+        font-size: 6px;
+        letter-spacing: 1px;
+    }
+
+    .nav-inner {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .nav-link {
+        min-height: 43px;
+    }
+
+    .detective-main {
+        padding: 18px 10px 25px;
+    }
+}
+
+
+/* =========================================================
+   15. ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* =========================================
+   LOGOUT NAVIGATION LINK
+========================================= */
+.logout-link {
+    margin-left: auto;
+    color: #e5a09a;
+}
+
+.logout-link i {
+    color: #e57373;
+}
+
+.logout-link:hover {
+    color: #ff8a80;
+    background: rgba(180, 50, 50, 0.10);
+    border-bottom-color: #e57373;
+}
+
+    .logout-link:hover i {
+        color: #ff8a80;
+    }
+
+/* Mobile navigation */
+@media screen and (max-width: 520px) {
+    .logout-link {
+        margin-left: 0;
+    }
+}
+

@@ -1,0 +1,433 @@
+﻿/* =========================================================
+   MYSTERIOUS CASE FILES
+   SEARCH CASE PAGE
+   THEME: CINEMATIC NOIR / BLACK & GOLD
+========================================================= */
+
+.search-case-page {
+    min-height: 100vh;
+    padding: 40px 25px 70px;
+    background: #080b0e;
+    color: #e8e2d6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.search-case-container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* ================= PAGE HEADER ================= */
+
+.search-page-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.search-header-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(196,154,69,0.08);
+    border: 1px solid #806735;
+    border-radius: 50%;
+    color: #c49a45;
+    font-size: 25px;
+}
+
+.search-page-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 30px;
+    color: #d4af67;
+    letter-spacing: 2px;
+}
+
+.search-page-header p {
+    margin-top: 10px;
+    color: #939ba0;
+    font-size: 13px;
+}
+
+.search-header-line {
+    width: 100px;
+    height: 3px;
+    background: #c49a45;
+    margin: 20px auto;
+}
+
+/* ================= SEARCH PANEL ================= */
+
+.search-panel {
+    background: #101519;
+    border: 1px solid #30363a;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #d4af67;
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-bottom: 18px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #343a3f;
+}
+
+.search-type-section {
+    margin-bottom: 25px;
+}
+
+    .search-type-section > label,
+    .search-input-panel > label {
+        display: block;
+        color: #c8ced1;
+        font-size: 13px;
+        font-weight: 500;
+        margin-bottom: 12px;
+    }
+
+/* ================= RADIO BUTTONS ================= */
+
+.search-radio-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 25px;
+}
+
+    .search-radio-list input[type="radio"] {
+        accent-color: #c49a45;
+        cursor: pointer;
+        margin-right: 7px;
+    }
+
+    .search-radio-list label {
+        color: #c9cdd0;
+        font-size: 13px;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+
+/* ================= SEARCH INPUT ================= */
+
+.search-input-container {
+    margin-bottom: 25px;
+}
+
+.search-input-panel {
+    max-width: 600px;
+}
+
+.search-control {
+    width: 100%;
+    padding: 13px 15px;
+    background: #171d22;
+    border: 1px solid #353b40;
+    border-radius: 6px;
+    color: #eeeeee;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: 0.3s;
+}
+
+    .search-control:focus {
+        border-color: #c49a45;
+        box-shadow: 0 0 0 3px rgba(196,154,69,0.1);
+    }
+
+    .search-control::placeholder {
+        color: #777f85;
+    }
+
+/* ================= BUTTONS ================= */
+
+.search-buttons,
+.case-details-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search-btn-primary,
+.search-btn-secondary,
+.search-btn-danger {
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-btn-primary {
+    background: #c49a45;
+    color: #111;
+    border: 1px solid #c49a45;
+}
+
+    .search-btn-primary:hover {
+        background: #e0b75b;
+    }
+
+.search-btn-secondary {
+    background: #252c31;
+    color: #ddd;
+    border: 1px solid #41484d;
+}
+
+    .search-btn-secondary:hover {
+        background: #353d43;
+    }
+
+.search-btn-danger {
+    background: rgba(200,75,75,0.12);
+    color: #e7a0a0;
+    border: 1px solid #a63e3e;
+}
+
+    .search-btn-danger:hover {
+        background: #b83d3d;
+        color: white;
+    }
+
+/* ================= MESSAGE ================= */
+
+.search-message {
+    display: block;
+    text-align: center;
+    color: #e2b96d;
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+/* ================= RESULT PANELS ================= */
+
+.case-details-panel,
+.grid-results-panel {
+    background: #101519;
+    border: 1px solid #30363a;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+.result-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #343a3f;
+}
+
+    .result-heading h2 {
+        font-family: 'Cinzel', serif;
+        color: #d4af67;
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+
+        .result-heading h2 i {
+            margin-right: 10px;
+        }
+
+    .result-heading p {
+        color: #929a9e;
+        font-size: 12px;
+        margin-top: 7px;
+    }
+
+.result-badge,
+.result-count {
+    padding: 8px 14px;
+    background: rgba(196,154,69,0.08);
+    border: 1px solid #806735;
+    border-radius: 5px;
+    color: #d4af67;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* ================= CASE DETAILS TABLE ================= */
+
+.details-table-wrapper,
+.grid-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.case-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+    .case-details-table th,
+    .case-details-table td {
+        padding: 15px 18px;
+        border: 1px solid #30373c;
+        text-align: left;
+        vertical-align: top;
+        font-size: 13px;
+    }
+
+    .case-details-table th {
+        width: 18%;
+        background: #192026;
+        color: #d4af67;
+        font-weight: 600;
+    }
+
+    .case-details-table td {
+        background: #11171b;
+        color: #d7dadd;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+    }
+
+    .case-details-table tr:hover td {
+        background: #171f24;
+    }
+
+.case-details-actions {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #343a3f;
+    justify-content: flex-end;
+}
+
+/* ================= GRIDVIEW ================= */
+
+.case-grid {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+    .case-grid th {
+        background: #1b2328;
+        color: #d4af67;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 16px 14px;
+        text-align: left;
+        border-bottom: 2px solid #806735;
+    }
+
+    .case-grid td {
+        padding: 15px 14px;
+        color: #d6dadd;
+        font-size: 12px;
+        border-bottom: 1px solid #30373c;
+    }
+
+    .case-grid tr:nth-child(even) td {
+        background: #151c20;
+    }
+
+    .case-grid tr:hover td {
+        background: #20282d;
+    }
+
+.grid-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.grid-edit-btn,
+.grid-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.grid-edit-btn {
+    color: #d4af67;
+    background: rgba(196,154,69,0.1);
+    border: 1px solid rgba(196,154,69,0.3);
+}
+
+    .grid-edit-btn:hover {
+        background: #c49a45;
+        color: #111;
+    }
+
+.grid-delete-btn {
+    color: #e49a9a;
+    background: rgba(200,75,75,0.1);
+    border: 1px solid rgba(200,75,75,0.3);
+}
+
+    .grid-delete-btn:hover {
+        background: #b83d3d;
+        color: white;
+    }
+
+.empty-results {
+    padding: 30px;
+    text-align: center;
+    color: #a0a6aa;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .search-case-page {
+        padding: 25px 12px 50px;
+    }
+
+    .search-page-header h1 {
+        font-size: 23px;
+    }
+
+    .search-panel,
+    .case-details-panel,
+    .grid-results-panel {
+        padding: 20px 15px;
+    }
+
+    .search-radio-list {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-buttons,
+    .case-details-actions {
+        flex-direction: column;
+    }
+
+    .search-btn-primary,
+    .search-btn-secondary,
+    .search-btn-danger {
+        width: 100%;
+    }
+
+    .result-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+        .result-heading h2 {
+            font-size: 16px;
+        }
+}

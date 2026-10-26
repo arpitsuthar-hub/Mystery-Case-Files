@@ -1,0 +1,223 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Case.master.cs"
+    Inherits="Mystery_Case_Files.Master_Pages.Case" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Case Management | Mysterious Case Files</title>
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet" />
+
+    <!-- FONT AWESOME -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          rel="stylesheet" />
+
+    <!-- EXTERNAL MASTER CSS -->
+    <link href="<%= ResolveUrl("~/CSS/Master/Case.css") %>"
+          rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<body>
+
+    <form id="form1" runat="server">
+
+        <!-- ============================================
+             MASTER PAGE HEADER
+        ============================================= -->
+
+        <header class="case-header-master">
+
+            <div class="case-header-container">
+
+                <!-- LOGO -->
+
+                <div class="case-brand">
+
+                    <div class="case-brand-icon">
+                        <i class="fa-solid fa-fingerprint"></i>
+                    </div>
+
+                    <div class="case-brand-text">
+
+                        <h2>MYSTERIOUS CASE FILES</h2>
+
+                        <span>INVESTIGATION CONTROL CENTER</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HEADER RIGHT -->
+
+                <div class="case-header-right">
+
+                    <div class="case-admin-badge">
+
+                        <i class="fa-solid fa-user-shield"></i>
+
+                        <span>CHIEF DETECTIVE</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================================
+             NAVIGATION BAR
+        ============================================= -->
+
+        <nav class="case-navbar">
+
+            <div class="case-nav-container">
+
+                <div class="case-nav-links">
+
+                    <!-- HOME -->
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/Dashboard_Case.aspx") %>"
+                       class="case-nav-item">
+
+                        <i class="fa-solid fa-house"></i>
+
+                        <span>Home</span>
+
+                    </a>
+
+
+                    <!-- ADD CASE -->
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/AddNew_Case.aspx") %>"
+                       class="case-nav-item">
+
+                        <i class="fa-solid fa-folder-plus"></i>
+
+                        <span>Add Case</span>
+
+                    </a>
+
+
+                    <!-- SEARCH CASE -->
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/Search_Case.aspx") %>"
+                       class="case-nav-item">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <span>Search Case</span>
+
+                    </a>
+
+
+                    <!-- EDIT CASE -->
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/Assign_Case.aspx") %>"
+                       class="case-nav-item">
+
+                        <i class="fa-solid fa-pen-to-square"></i>
+
+                        <span>Assign Case</span>
+
+                    </a>
+
+
+                    <!-- ALL CASES -->
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/All_Case.aspx") %>"
+                       class="case-nav-item">
+
+                        <i class="fa-solid fa-folder-open"></i>
+
+                        <span>All Cases</span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- LOGOUT -->
+
+                <div class="case-nav-logout">
+
+                    <a href="<%= ResolveUrl("~/Chief-Detective_Module/Chief-Detective_Logout.aspx") %>"
+                       class="case-logout-btn">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        <span>Logout</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+
+        <!-- ============================================
+             MAIN CONTENT
+        ============================================= -->
+
+        <main class="case-main-content">
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1"
+                runat="server">
+            </asp:ContentPlaceHolder>
+
+        </main>
+
+
+        <!-- ============================================
+             FOOTER
+        ============================================= -->
+
+        <footer class="case-footer">
+
+            <div class="case-footer-container">
+
+                <div class="case-footer-left">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>MYSTERIOUS CASE FILES</span>
+
+                </div>
+
+                <div class="case-footer-center">
+
+                    CONFIDENTIAL INVESTIGATION SYSTEM
+
+                </div>
+
+                <div class="case-footer-right">
+
+                    &copy; <%= DateTime.Now.Year %> All Rights Reserved
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </form>
+
+</body>
+</html>
