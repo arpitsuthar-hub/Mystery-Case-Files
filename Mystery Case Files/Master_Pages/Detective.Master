@@ -1,19 +1,151 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Detective.master.cs" Inherits="Mystery_Case_Files.Master_Pages.Detective" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true"
+    CodeBehind="Detective.master.cs"
+    Inherits="Mystery_Case_Files.Master_Pages.Detective" %>
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head runat="server">
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mysterious Case Files | Detective Portal</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- External CSS -->
+    <link href="../CSS/Master/Detective_Master.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
+
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+
+        <!-- Background Overlay -->
+        <div class="background-overlay"></div>
+
+        <!-- Main Layout -->
+        <div class="detective-layout">
+
+            <!-- Top Header -->
+            <header class="top-header">
+
+                <div class="brand">
+                    <div class="brand-icon">
+                        <i class="fa-solid fa-user-secret"></i>
+                    </div>
+
+                    <div class="brand-text">
+                        <h1>MYSTERIOUS <span>CASE FILES</span></h1>
+                        <p>DETECTIVE INVESTIGATION PORTAL</p>
+                    </div>
+                </div>
+
+                <div class="header-status">
+                    <span class="status-dot"></span>
+                    <span>SECURE CONNECTION</span>
+                </div>
+
+            </header>
+
+            <!-- Navigation -->
+            <nav class="detective-navbar">
+
+                <div class="nav-heading">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>INVESTIGATION DESK</span>
+                </div>
+
+                <div class="nav-links">
+
+                    <a href="../Detective-Master_Module/Detective_Dashboard.aspx"
+                       class="nav-link">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Dashboard</span>
+                    </a>
+
+                    <a href="../Detective-Master_Module/Detective_Profile.aspx"
+                       class="nav-link">
+                        <i class="fa-solid fa-id-card"></i>
+                        <span>My Profile</span>
+                    </a>
+
+                    <a href="../Detective-Master_Module/Detective_AssignedCase.aspx"
+                       class="nav-link">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>Assigned Cases</span>
+                    </a>
+
+                    <a href="../Detective-Master_Module/Detective_SolvedCase.aspx"
+                       class="nav-link">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Solved Cases</span>
+                    </a>
+
+                    <a href="../Detective-Master_Module/Detective_PendingCase.aspx"
+                       class="nav-link">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <span>Pending Cases</span>
+                    </a>
+
+                </div>
+
+                <div class="nav-logout">
+                    <a href="../Detective-Master_Module/Detective_Logout.aspx"
+                       class="logout-link">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+
+            </nav>
+
+            <!-- Main Content -->
+            <main class="page-content">
+
+                <div class="content-topline">
+                    <div>
+                        <span class="section-label">CLASSIFIED ACCESS</span>
+                        <h2>Detective Workspace</h2>
+                    </div>
+
+                    <div class="classified-badge">
+                        <i class="fa-solid fa-lock"></i>
+                        CONFIDENTIAL
+                    </div>
+                </div>
+
+                <div class="content-container">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1"
+                        runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </main>
+
+            <!-- Footer -->
+            <footer class="master-footer">
+                <p>
+                    <i class="fa-solid fa-fingerprint"></i>
+                    MYSTERIOUS CASE FILES
+                    <span class="footer-divider">|</span>
+                    AUTHORIZED PERSONNEL ONLY
+                </p>
+
+                <p class="footer-copy">
+                    &copy; <%: DateTime.Now.Year %> Detective Investigation System
+                </p>
+            </footer>
+
         </div>
+
     </form>
 </body>
 </html>

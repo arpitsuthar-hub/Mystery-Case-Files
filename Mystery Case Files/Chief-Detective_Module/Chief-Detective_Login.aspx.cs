@@ -16,7 +16,18 @@ namespace Mystery_Case_Files.Chief_Detective_Module
 
         protected void btnAdminLogin_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Chief_Dashboard.aspx");
+            if(txtUsername.Text=="Chief" && txtPassword.Text=="Chief-Detective")
+            {
+                Response.Redirect("Chief_Dashboard.aspx");
+            }
+            else
+            {
+                Response.Write("<script>alert('Invaild User ID Or Password');</script>");
+
+                txtUsername.Text = "";
+                txtUsername.Focus();
+                txtPassword.Text = "";
+            }
         }
     }
 }

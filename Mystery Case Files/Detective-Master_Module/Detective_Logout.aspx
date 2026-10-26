@@ -481,7 +481,7 @@
             <asp:HyperLink
                 ID="lnkMainDashboard"
                 runat="server"
-                NavigateUrl="~/Main_Dashboard.aspx"
+                NavigateUrl="~/Main_Module/Main_Dashboard.aspx"
                 CssClass="dashboard-link">
 
                 <i class="fa-solid fa-house"></i>

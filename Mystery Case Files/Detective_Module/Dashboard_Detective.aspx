@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Detective Dashboard"
+﻿<%@ Page Title="Detective Management Dashboard"
     Language="C#"
     MasterPageFile="~/Master_Pages/Detective_Module.Master"
     AutoEventWireup="true"
@@ -9,388 +9,147 @@
     ContentPlaceHolderID="head"
     runat="server">
 
-    <link href="../CSS/Detective_Module/Dashboard_Detective.css"
-        rel="stylesheet"
-        type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" /> 
+    <link href="../CSS/Detective_Module/Dashboard_Detective.css?v=4" rel="stylesheet" type="text/css" />
 
 </asp:Content>
-
 
 <asp:Content ID="Content2"
     ContentPlaceHolderID="ContentPlaceHolder1"
     runat="server">
 
-    <div class="detective-dashboard">
-
-        <!-- DASHBOARD HEADER -->
-        <div class="dashboard-header">
-
-            <div class="dashboard-heading">
-                <span class="dashboard-icon">
-                    <i class="fa-solid fa-user-secret"></i>
-                </span>
-
-                <div>
-                    <h1>Detective Dashboard</h1>
-                    <p>
-                        Welcome to your investigation control center.
-                        Review your cases and manage your investigative activities.
-                    </p>
+    <main class="detective-dashboard">
+        <!-- ============================================== 01. DASHBOARD HEADER =============================================== -->
+        <header class="dashboard-header">
+            <div class="brand-area">
+                <div class="brand-icon"><i class="fa-solid fa-user-secret"></i></div>
+                <div class="brand-details"><span class="brand-eyebrow">MYSTERIOUS CASE FILES </span>
+                    <h1>Detective Module</h1>
+                    <p>Official Detective Personnel Management System </p>
                 </div>
             </div>
-
-            <div class="dashboard-status">
-                <span class="status-indicator"></span>
-                Detective Portal
+            <div class="header-status"><span class="online-indicator"></span>
+                <div class="status-text"><span class="status-title">SYSTEM STATUS</span> <span class="status-value">Operational</span> </div>
             </div>
-
-        </div>
-
-
-        <!-- WELCOME PANEL -->
-        <div class="welcome-panel">
-
-            <div class="welcome-content">
-                <span class="welcome-label">
-                    INVESTIGATION DIVISION
-                </span>
-
-                <h2>Every Clue Tells a Story.</h2>
-
-                <p>
-                    Examine the evidence, investigate every lead,
-                    and bring the truth to light.
-                </p>
-            </div>
-
-            <div class="welcome-decoration">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-
-        </div>
-
-
-        <!-- STATISTICS -->
-        <div class="statistics-grid">
-
-            <!-- Assigned Cases -->
-            <div class="stat-card assigned-card">
-
-                <div class="stat-card-top">
-                    <span class="stat-icon">
-                        <i class="fa-solid fa-folder-open"></i>
-                    </span>
-
-                    <span class="stat-label">
-                        CASE OVERVIEW
-                    </span>
+        </header>
+        <!-- ============================================== 02. HERO / WELCOME SECTION =============================================== -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-kicker"><span class="kicker-line"></span>PERSONNEL ADMINISTRATION </div>
+                <h2>The Truth Begins <span>With Investigation.</span> </h2>
+                <p class="hero-description">Manage detective registrations, maintain official personnel records, and access the detective directory through a centralized investigation management system. </p>
+                <div class="hero-actions">
+                    <asp:HyperLink ID="lnkRegisterDetective" runat="server" NavigateUrl="Register_Detective.aspx" CssClass="action-button action-primary"> <i class="fa-solid fa-user-plus"></i> <span>Register Detective</span> <i class="fa-solid fa-arrow-right button-arrow"></i> </asp:HyperLink>
+                    <asp:HyperLink ID="lnkViewDirectory" runat="server" NavigateUrl="Detective_Directory.aspx" CssClass="action-button action-secondary"> <i class="fa-solid fa-address-book"></i> <span>View Directory</span> </asp:HyperLink>
                 </div>
-
-                <h3>Assigned Cases</h3>
-
-                <div class="stat-value">--</div>
-
-                <p>Cases assigned to you</p>
-
+                <div class="hero-trust-line"><i class="fa-solid fa-shield-halved"></i><span>OFFICIAL PERSONNEL RECORDS </span><span class="trust-separator">/</span> <span>CONTROLLED ACCESS </span></div>
             </div>
-
-
-            <!-- Solved Cases -->
-            <div class="stat-card solved-card">
-
-                <div class="stat-card-top">
-                    <span class="stat-icon">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </span>
-
-                    <span class="stat-label">
-                        COMPLETED
-                    </span>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="visual-orbit orbit-one"></div>
+                <div class="visual-orbit orbit-two"></div>
+                <div class="visual-center"><i class="fa-solid fa-fingerprint"></i></div>
+                <div class="visual-caption"><span class="caption-line"></span><span>IDENTITY &amp; INVESTIGATION</span> </div>
+            </div>
+        </section>
+        <!-- ============================================== 03. STATISTICS SECTION =============================================== -->
+        <section class="dashboard-section statistics-section">
+            <div class="section-heading">
+                <div class="section-heading-content"><span class="section-eyebrow">PERSONNEL OVERVIEW </span>
+                    <h2>Department Statistics</h2>
+                    <p>An overview of detective personnel and investigative activity. </p>
                 </div>
-
-                <h3>Solved Cases</h3>
-
-                <div class="stat-value">--</div>
-
-                <p>Cases successfully solved</p>
-
+                <div class="section-heading-decoration"><i class="fa-solid fa-chart-line"></i></div>
             </div>
-
-
-            <!-- Pending Cases -->
-            <div class="stat-card pending-card">
-
-                <div class="stat-card-top">
-                    <span class="stat-icon">
-                        <i class="fa-solid fa-hourglass-half"></i>
-                    </span>
-
-                    <span class="stat-label">
-                        IN PROGRESS
-                    </span>
-                </div>
-
-                <h3>Pending Cases</h3>
-
-                <div class="stat-value">--</div>
-
-                <p>Cases awaiting investigation</p>
-
-            </div>
-
-
-            <!-- Quiz Score -->
-            <div class="stat-card quiz-card">
-
-                <div class="stat-card-top">
-                    <span class="stat-icon">
-                        <i class="fa-solid fa-brain"></i>
-                    </span>
-
-                    <span class="stat-label">
-                        PERFORMANCE
-                    </span>
-                </div>
-
-                <h3>Quiz Performance</h3>
-
-                <div class="stat-value">--</div>
-
-                <p>Your investigation quiz score</p>
-
-            </div>
-
-        </div>
-
-
-        <!-- MAIN DASHBOARD CONTENT -->
-        <div class="dashboard-content-grid">
-
-            <!-- RECENT CASES -->
-            <div class="dashboard-panel recent-cases-panel">
-
-                <div class="panel-header">
-
-                    <div class="panel-heading">
-                        <span class="panel-icon">
-                            <i class="fa-solid fa-folder"></i>
-                        </span>
-
-                        <div>
-                            <h2>Recent Cases</h2>
-                            <p>Your latest investigation assignments</p>
-                        </div>
+            <div class="statistics-grid">
+                <!-- Total Detectives -->
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon gold-icon"><i class="fa-solid fa-user-secret"></i></div>
+                        <span class="stat-reference">PERSONNEL</span> </div>
+                    <div class="stat-information"><span class="stat-label">Total Detectives </span>
+                        <asp:Label ID="lblTotalDetectives" runat="server" CssClass="stat-number" Text="00" />
                     </div>
-
-                    <span class="panel-badge">RECENT</span>
-
-                </div>
-
-
-                <div class="empty-state">
-
-                    <div class="empty-state-icon">
-                        <i class="fa-solid fa-folder-open"></i>
+                    <div class="stat-bottom"><span>Registered personnel</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                </article>
+                <!-- Active Detectives -->
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon green-icon"><i class="fa-solid fa-user-check"></i></div>
+                        <span class="stat-reference">STATUS</span> </div>
+                    <div class="stat-information"><span class="stat-label">Active Detectives </span>
+                        <asp:Label ID="lblActiveDetectives" runat="server" CssClass="stat-number" Text="00" />
                     </div>
-
-                    <h3>No Cases to Display</h3>
-
-                    <p>
-                        Your recently assigned cases will appear here
-                        once case records are connected.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <!-- CASE STATUS -->
-            <div class="dashboard-panel case-status-panel">
-
-                <div class="panel-header">
-
-                    <div class="panel-heading">
-                        <span class="panel-icon">
-                            <i class="fa-solid fa-chart-pie"></i>
-                        </span>
-
-                        <div>
-                            <h2>Case Status</h2>
-                            <p>Overview of your investigation progress</p>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="case-status-list">
-
-                    <div class="case-status-item">
-                        <span class="case-status-dot status-assigned"></span>
-
-                        <div class="case-status-info">
-                            <h4>Assigned</h4>
-                            <p>Cases awaiting your attention</p>
-                        </div>
-
-                        <span class="case-status-count">--</span>
-                    </div>
-
-
-                    <div class="case-status-item">
-                        <span class="case-status-dot status-progress"></span>
-
-                        <div class="case-status-info">
-                            <h4>In Progress</h4>
-                            <p>Cases currently under investigation</p>
-                        </div>
-
-                        <span class="case-status-count">--</span>
-                    </div>
-
-
-                    <div class="case-status-item">
-                        <span class="case-status-dot status-solved"></span>
-
-                        <div class="case-status-info">
-                            <h4>Solved</h4>
-                            <p>Investigations successfully completed</p>
-                        </div>
-
-                        <span class="case-status-count">--</span>
-                    </div>
-
-
-                    <div class="case-status-item">
-                        <span class="case-status-dot status-pending"></span>
-
-                        <div class="case-status-info">
-                            <h4>Pending</h4>
-                            <p>Investigations awaiting resolution</p>
-                        </div>
-
-                        <span class="case-status-count">--</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- QUICK ACCESS -->
-        <div class="quick-access-section">
-
-            <div class="section-header">
-
-                <div>
-                    <span class="section-eyebrow">
-                        INVESTIGATION TOOLS
-                    </span>
-
-                    <h2>Quick Access</h2>
-
-                    <p>
-                        Access the main features of your detective portal.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="quick-access-grid">
-
+                    <div class="stat-bottom"><span>Available personnel</span> <i class="fa-solid fa-circle-check"></i></div>
+                </article>
                 <!-- Assigned Cases -->
-                <a href="Assigned_Cases.aspx"
-                   class="quick-access-card">
-
-                    <span class="quick-access-icon">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </span>
-
-                    <div class="quick-access-info">
-                        <h3>Assigned Cases</h3>
-                        <p>View and investigate your assigned cases.</p>
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon blue-icon"><i class="fa-solid fa-folder-open"></i></div>
+                        <span class="stat-reference">INVESTIGATION</span> </div>
+                    <div class="stat-information"><span class="stat-label">Assigned Cases </span>
+                        <asp:Label ID="lblAssignedCases" runat="server" CssClass="stat-number" Text="00" />
                     </div>
-
-                    <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
-
-                </a>
-
-
-                <!-- Solved Cases -->
-                <a href="Solved_Cases.aspx"
-                   class="quick-access-card">
-
-                    <span class="quick-access-icon">
-                        <i class="fa-solid fa-file-circle-check"></i>
-                    </span>
-
-                    <div class="quick-access-info">
-                        <h3>Solved Cases</h3>
-                        <p>Review your successfully completed cases.</p>
+                    <div class="stat-bottom"><span>Cases under investigation</span> <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                </article>
+                <!-- Cases Solved -->
+                <article class="stat-card">
+                    <div class="stat-top">
+                        <div class="stat-icon purple-icon"><i class="fa-solid fa-file-circle-check"></i></div>
+                        <span class="stat-reference">RESOLUTION</span> </div>
+                    <div class="stat-information"><span class="stat-label">Cases Solved </span>
+                        <asp:Label ID="lblSolvedCases" runat="server" CssClass="stat-number" Text="00" />
                     </div>
-
-                    <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
-
-                </a>
-
-
-                <!-- Pending Cases -->
-                <a href="Pending_Cases.aspx"
-                   class="quick-access-card">
-
-                    <span class="quick-access-icon">
-                        <i class="fa-solid fa-clock"></i>
-                    </span>
-
-                    <div class="quick-access-info">
-                        <h3>Pending Cases</h3>
-                        <p>Continue working on unresolved investigations.</p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
-
-                </a>
-
-
-                <!-- Profile -->
-                <a href="Detective_Profile.aspx"
-                   class="quick-access-card">
-
-                    <span class="quick-access-icon">
-                        <i class="fa-solid fa-id-card"></i>
-                    </span>
-
-                    <div class="quick-access-info">
-                        <h3>My Profile</h3>
-                        <p>View your detective account information.</p>
-                    </div>
-
-                    <i class="fa-solid fa-arrow-right quick-access-arrow"></i>
-
-                </a>
-
+                    <div class="stat-bottom"><span>Successfully resolved cases</span> <i class="fa-solid fa-check-double"></i></div>
+                </article>
             </div>
-
-        </div>
-
-
-        <!-- SECURITY FOOTER -->
-        <div class="dashboard-footer">
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-            <p>
-                CONFIDENTIAL INVESTIGATION SYSTEM
-                <span> | </span>
-                AUTHORIZED PERSONNEL ONLY
-            </p>
-
-        </div>
-
-    </div>
-
+        </section>
+        <!-- ============================================== 04. DETECTIVE MANAGEMENT SECTION =============================================== -->
+        <section class="dashboard-section management-section">
+            <div class="section-heading">
+                <div class="section-heading-content"><span class="section-eyebrow">PERSONNEL OPERATIONS </span>
+                    <h2>Detective Management</h2>
+                    <p>Manage registrations and access official detective records. </p>
+                </div>
+                <span class="section-count">02 OPERATIONS </span></div>
+            <div class="management-grid">
+                <!-- Register Detective -->
+                <article class="management-card">
+                    <div class="management-card-header">
+                        <div class="management-icon"><i class="fa-solid fa-user-plus"></i></div>
+                        <span class="management-number">01</span> </div>
+                    <span class="management-category">PERSONNEL REGISTRATION </span>
+                    <h3>Register Detective</h3>
+                    <p>Register new detective personnel and maintain their official information within the system. </p>
+                    <asp:HyperLink ID="lnkManageRegistration" runat="server" NavigateUrl="Register_Detective.aspx" CssClass="management-link"> <span>Open Registration</span> <i class="fa-solid fa-arrow-right"></i> </asp:HyperLink>
+                </article>
+                <!-- Detective Directory -->
+                <article class="management-card">
+                    <div class="management-card-header">
+                        <div class="management-icon"><i class="fa-solid fa-address-book"></i></div>
+                        <span class="management-number">02</span> </div>
+                    <span class="management-category">PERSONNEL RECORDS </span>
+                    <h3>Detective Directory</h3>
+                    <p>View the registered detective directory and access personnel records when required. </p>
+                    <asp:HyperLink ID="lnkManageDirectory" runat="server" NavigateUrl="Detective_Directory.aspx" CssClass="management-link"> <span>View Personnel</span> <i class="fa-solid fa-arrow-right"></i> </asp:HyperLink>
+                </article>
+            </div>
+        </section>
+     
+        <!-- ============================================== 05. SECURITY INFORMATION =============================================== -->
+        <section class="security-notice">
+            <div class="security-notice-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="security-notice-content">
+                <h3>Personnel Information Security</h3>
+                <p>Detective personnel information and investigation records should be accessed only by authorized users. Verify information before updating official records. </p>
+            </div>
+            <div class="security-notice-status"><span class="security-dot"></span><span>SECURE ACCESS</span> </div>
+        </section>
+        <!-- ============================================== 06. FOOTER =============================================== -->
+        <footer class="dashboard-footer">
+            <div class="footer-brand"><i class="fa-solid fa-user-secret"></i><span>MYSTERIOUS CASE FILES</span> </div>
+            <p>Official Detective Personnel Management System </p>
+            <span class="footer-classification"><i class="fa-solid fa-lock"></i>AUTHORIZED PERSONNEL </span></footer>
+    </main>
 </asp:Content>

@@ -10,7 +10,7 @@
     <!-- PAGE HEADER -->
     <div class="page-header">
         <div class="header-icon">
-            <i class="fa-solid fa-user-magnifying-glass"></i>
+            <i class="fa-solid fa-user-magnifying-glass "></i>
         </div>
 
         <div class="header-content">

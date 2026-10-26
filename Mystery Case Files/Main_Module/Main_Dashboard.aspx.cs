@@ -13,5 +13,15 @@ namespace Mystery_Case_Files
         {
 
         }
+
+        protected void btnChiefLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Chief-Detective_Module/Chief-Detective_Login.aspx");
+        }
+
+        protected void btnDetectiveLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Detective-Master_Module/Detective_Login.aspx");
+        }
     }
 }

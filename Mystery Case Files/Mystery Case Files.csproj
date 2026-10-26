@@ -90,6 +90,7 @@
     <Content Include="CSS\Detective_Module\Dashboard_Detective.css" />
     <Content Include="CSS\Detective_Module\Edit_Detective.css" />
     <Content Include="CSS\Detective_Module\Search_Detective.css" />
+    <Content Include="CSS\Master\Detective_Master.css" />
     <Content Include="CSS\Master\Detective_Module.css" />
     <Content Include="CSS\Master\Case.css" />
     <Content Include="Detective-Master_Module\Detective_AssignedCase.aspx" />
@@ -406,7 +407,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="CSS\Detective_Master\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

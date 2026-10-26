@@ -24,13 +24,22 @@ namespace Mystery_Case_Files.Chief_Detective_Module
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// lnkDetectiveManagement control.
+        /// lnkLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkDetectiveManagement;
+        protected global::System.Web.UI.WebControls.HyperLink lnkLogout;
+
+        /// <summary>
+        /// lnkDetectiveModule control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink lnkDetectiveModule;
 
         /// <summary>
         /// lblTotalDetectives control.
@@ -42,13 +51,13 @@ namespace Mystery_Case_Files.Chief_Detective_Module
         protected global::System.Web.UI.WebControls.Label lblTotalDetectives;
 
         /// <summary>
-        /// lnkCaseManagement control.
+        /// lnkCaseModule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkCaseManagement;
+        protected global::System.Web.UI.WebControls.HyperLink lnkCaseModule;
 
         /// <summary>
         /// lblTotalCases control.
@@ -60,13 +69,13 @@ namespace Mystery_Case_Files.Chief_Detective_Module
         protected global::System.Web.UI.WebControls.Label lblTotalCases;
 
         /// <summary>
-        /// lnkDetectiveQuiz control.
+        /// lnkQuizModule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkDetectiveQuiz;
+        protected global::System.Web.UI.WebControls.HyperLink lnkQuizModule;
 
         /// <summary>
         /// lblTotalQuizzes control.

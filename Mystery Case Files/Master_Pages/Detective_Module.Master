@@ -81,7 +81,7 @@
 
             <div class="nav-inner">
 
-                <a href="../Detective_Module/Home_Detective.aspx"
+                <a href="../Detective_Module/Dashboard_Detective.aspx"
                     class="nav-link">
 
                     <i class="fa-solid fa-house"></i>
