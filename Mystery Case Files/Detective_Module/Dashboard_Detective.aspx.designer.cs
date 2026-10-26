@@ -15,22 +15,13 @@ namespace Mystery_Case_Files.Detective_Module
     {
 
         /// <summary>
-        /// lnkRegisterDetective control.
+        /// lblCurrentDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkRegisterDetective;
-
-        /// <summary>
-        /// lnkViewDirectory control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkViewDirectory;
+        protected global::System.Web.UI.WebControls.Label lblCurrentDate;
 
         /// <summary>
         /// lblTotalDetectives control.
@@ -42,22 +33,13 @@ namespace Mystery_Case_Files.Detective_Module
         protected global::System.Web.UI.WebControls.Label lblTotalDetectives;
 
         /// <summary>
-        /// lblActiveDetectives control.
+        /// lblActiveCases control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblActiveDetectives;
-
-        /// <summary>
-        /// lblAssignedCases control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAssignedCases;
+        protected global::System.Web.UI.WebControls.Label lblActiveCases;
 
         /// <summary>
         /// lblSolvedCases control.
@@ -69,21 +51,21 @@ namespace Mystery_Case_Files.Detective_Module
         protected global::System.Web.UI.WebControls.Label lblSolvedCases;
 
         /// <summary>
-        /// lnkManageRegistration control.
+        /// lblPendingCases control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkManageRegistration;
+        protected global::System.Web.UI.WebControls.Label lblPendingCases;
 
         /// <summary>
-        /// lnkManageDirectory control.
+        /// lblSystemDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkManageDirectory;
+        protected global::System.Web.UI.WebControls.Label lblSystemDate;
     }
 }

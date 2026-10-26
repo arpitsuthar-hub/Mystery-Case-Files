@@ -1,28 +1,39 @@
 ﻿/* =========================================================
-   MYSTERY CASE FILES
-   DETECTIVE MODULE MASTER PAGE
+   MYSTERIOUS CASE FILES
+   DETECTIVE MODULE — MASTER PAGE STYLESHEET
 
-   THEME: CINEMATIC NOIR / BLACK & GOLD
+   Theme       : Cinematic Detective Noir
+   Colors      : Black, Charcoal, Antique Gold
+   Typography  : Cinzel + Poppins
 ========================================================= */
 /* =========================================================
    01. ROOT VARIABLES
 ========================================================= */
 :root {
-    --bg: #05090c;
-    --panel: #0c1013;
-    --panel-light: #11181c;
-    --gold: #c49a45;
-    --gold-light: #f0cb75;
-    --gold-dark: #70501f;
-    --text: #f0e8d9;
-    --muted: #aaa9a4;
-    --border: rgba(196, 154, 69, 0.35);
-    --transition: all 0.3s ease;
+    --dm-bg: #080b0e;
+    --dm-bg-secondary: #0d1115;
+    --dm-panel: #11171c;
+    --dm-panel-light: #171e24;
+    --dm-gold: #c49a45;
+    --dm-gold-light: #e5c477;
+    --dm-gold-dark: #806329;
+    --dm-text: #eee9df;
+    --dm-text-secondary: #a8a59d;
+    --dm-text-muted: #727b82;
+    --dm-border: rgba(196, 154, 69, 0.22);
+    --dm-border-light: rgba(255, 255, 255, 0.08);
+    --dm-success: #68c99a;
+    --dm-danger: #dc7777;
+    --dm-header-height: 84px;
+    --dm-nav-height: 54px;
+    --dm-font-heading: "Cinzel", Georgia, serif;
+    --dm-font-body: "Poppins", Arial, sans-serif;
+    --dm-transition: 0.25s ease;
 }
 
 
 /* =========================================================
-   02. GLOBAL RESET
+   02. RESET
 ========================================================= */
 
 *,
@@ -32,514 +43,797 @@
 }
 
 html {
-    width: 100%;
     min-height: 100%;
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
 
+html,
 body {
     width: 100%;
-    min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    background: radial-gradient( ellipse at top, #101619 0%, #05090c 65% );
-    color: var(--text);
-    font-family: "Poppins", Arial, sans-serif;
 }
 
+    body.detective-module-page {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: var(--dm-bg);
+        color: var(--dm-text);
+        font-family: var(--dm-font-body);
+        font-size: 14px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+        body.detective-module-page img {
+            max-width: 100%;
+        }
+
+        body.detective-module-page a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body.detective-module-page button,
+        body.detective-module-page input,
+        body.detective-module-page select,
+        body.detective-module-page textarea {
+            font: inherit;
+        }
+
+        body.detective-module-page button,
+        body.detective-module-page a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body.detective-module-page ::selection {
+            background: rgba(196, 154, 69, 0.35);
+            color: #fff;
+        }
+
+
+/* =========================================================
+   03. MAIN ASP.NET FORM
+========================================================= */
+
 #form1 {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     margin: 0;
     padding: 0;
+    background: var(--dm-bg);
 }
 
 
 /* =========================================================
-   03. HEADER
+   04. FULL-PAGE BACKGROUND LAYER
+
+   Enabled only for the detective dashboard.
+
+   The image covers the complete page behind:
+   - Header
+   - Navigation
+   - Main content
+   - Master footer
+========================================================= */
+
+.detective-page-background {
+    display: none;
+}
+
+body.detective-module-page:has(.detective-dashboard)
+.detective-page-background {
+    position: absolute;
+    z-index: 0;
+    display: block;
+    inset: 0;
+    width: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    background-color: #070a0d;
+    background-image: linear-gradient( 90deg, rgba(4, 7, 10, 0.78) 0%, rgba(4, 7, 10, 0.58) 42%, rgba(4, 7, 10, 0.42) 100% ), linear-gradient( 0deg, rgba(4, 7, 10, 0.82) 0%, rgba(4, 7, 10, 0.12) 65%, rgba(4, 7, 10, 0.38) 100% ), url("../../Images/Main_Dashboard/Hero12.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Keep page elements above the background image */
+
+.detective-page-layout {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+
+/* =========================================================
+   05. TOP HEADER
 ========================================================= */
 
 .detective-header {
     position: relative;
-    z-index: 5;
+    z-index: 100;
+    flex: 0 0 auto;
     width: 100%;
-    border-bottom: 1px solid var(--border);
-    background: linear-gradient( 100deg, rgba(5, 9, 12, 0.98), rgba(12, 16, 19, 0.96) );
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    background: linear-gradient( 110deg, rgba(15, 20, 24, 0.94), rgba(7, 10, 13, 0.90) );
+    border-bottom: 1px solid var(--dm-border);
+    box-shadow: 0 5px 22px rgba(0, 0, 0, 0.20);
 }
 
-    .detective-header::before {
-        content: "";
+    .detective-header::after {
         position: absolute;
-        top: 0;
+        right: 0;
+        bottom: -1px;
         left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient( 90deg, transparent, var(--gold-light), transparent );
+        height: 1px;
+        background: linear-gradient( 90deg, transparent, rgba(196, 154, 69, 0.65), transparent );
+        content: "";
+        pointer-events: none;
     }
 
 .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25px;
+    gap: 24px;
     width: 100%;
-    max-width: 1600px;
-    min-height: 110px;
-    margin: 0 auto;
-    padding: 20px 4%;
+    min-height: var(--dm-header-height);
+    padding: 14px 5%;
 }
 
 
 /* =========================================================
-   04. BRAND
+   06. BRAND
 ========================================================= */
 
-.brand {
-    display: flex;
+.detective-header .brand {
+    display: inline-flex;
     align-items: center;
-    gap: 17px;
+    gap: 15px;
     min-width: 0;
-    color: var(--text);
-    text-decoration: none;
+    color: var(--dm-text);
+    transition: color var(--dm-transition), opacity var(--dm-transition);
 }
 
-.brand-icon {
+    .detective-header .brand:hover {
+        color: var(--dm-gold-light);
+    }
+
+    .detective-header .brand:focus-visible {
+        outline: 2px solid var(--dm-gold);
+        outline-offset: 5px;
+    }
+
+.detective-header .brand-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62px;
-    height: 62px;
-    flex-shrink: 0;
-    border: 1px solid var(--gold-dark);
-    border-radius: 9px;
-    background: rgba(196, 154, 69, 0.08);
-    color: var(--gold-light);
-    font-size: 29px;
-    box-shadow: inset 0 0 20px rgba(196, 154, 69, 0.04);
-    transition: var(--transition);
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba(196, 154, 69, 0.55);
+    border-radius: 4px;
+    background: linear-gradient( 145deg, rgba(196, 154, 69, 0.17), rgba(196, 154, 69, 0.035) );
+    color: var(--dm-gold-light);
+    font-size: 21px;
+    box-shadow: inset 0 0 16px rgba(196, 154, 69, 0.04), 0 0 16px rgba(0, 0, 0, 0.2);
 }
 
-.brand:hover .brand-icon {
-    border-color: var(--gold-light);
-    background: rgba(196, 154, 69, 0.15);
-    transform: translateY(-2px);
-}
-
-.brand-text {
+.detective-header .brand-text {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 2px;
     min-width: 0;
 }
 
-.brand-small {
-    color: var(--gold-light);
+.detective-header .brand-small {
+    color: var(--dm-text-secondary);
+    font-family: var(--dm-font-body);
     font-size: 9px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 3px;
+    line-height: 1.5;
 }
 
-.brand-title {
-    color: #f5eee2;
-    font-family: "Cinzel", Georgia, serif;
-    font-size: clamp(20px, 2.2vw, 30px);
-    font-weight: 700;
+.detective-header .brand-title {
+    color: var(--dm-gold-light);
+    font-family: var(--dm-font-heading);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
     line-height: 1.4;
-    overflow-wrap: anywhere;
 }
 
 
 /* =========================================================
-   05. SYSTEM STATUS
+   07. SYSTEM STATUS
 ========================================================= */
 
-.header-status {
+.detective-header .header-status {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     flex-shrink: 0;
-    padding: 12px 16px;
-    border: 1px solid var(--gold-dark);
-    border-radius: 6px;
-    background: rgba(5, 7, 8, 0.78);
-    color: var(--gold-light);
+    padding: 10px 15px;
+    border: 1px solid var(--dm-border);
+    border-radius: 3px;
+    background: rgba(196, 154, 69, 0.035);
+}
+
+.detective-header .status-dot {
+    position: relative;
+    flex: 0 0 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--dm-success);
+    box-shadow: 0 0 9px rgba(104, 201, 154, 0.65);
+}
+
+    .detective-header .status-dot::after {
+        position: absolute;
+        inset: -4px;
+        border: 1px solid rgba(104, 201, 154, 0.35);
+        border-radius: 50%;
+        content: "";
+        animation: dm-status-pulse 2s infinite;
+    }
+
+.detective-header .status-label {
+    color: var(--dm-text-secondary);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+}
+
+.detective-header .status-value {
+    color: var(--dm-success);
     font-size: 9px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-.status-dot {
-    width: 9px;
-    height: 9px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    background: #8bc77b;
-    box-shadow: 0 0 12px rgba(139, 199, 123, 0.65);
+@keyframes dm-status-pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.75;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
 
 /* =========================================================
-   06. NAVIGATION BAR
+   08. NAVIGATION BAR
 ========================================================= */
 
 .detective-nav {
     position: relative;
-    z-index: 4;
+    z-index: 90;
+    flex: 0 0 auto;
     width: 100%;
-    border-bottom: 1px solid rgba(196, 154, 69, 0.2);
-    background: rgba(8, 12, 15, 0.96);
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+    background: rgba(12, 16, 19, 0.94);
+    border-bottom: 1px solid var(--dm-border-light);
 }
 
 .nav-inner {
     display: flex;
     align-items: stretch;
-    gap: 8px;
+    gap: 5px;
     width: 100%;
-    max-width: 1600px;
-    min-height: 65px;
-    margin: 0 auto;
-    padding: 0 4%;
+    min-height: var(--dm-nav-height);
+    padding: 0 5%;
 }
-
-
-/* =========================================================
-   07. NAVIGATION LINKS
-========================================================= */
 
 .nav-link {
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 11px;
-    min-height: 65px;
-    padding: 0 22px;
+    gap: 9px;
+    flex: 0 0 auto;
+    min-height: var(--dm-nav-height);
+    padding: 0 17px;
     border-bottom: 2px solid transparent;
-    color: #c8c4bc;
-    font-size: 12px;
+    color: var(--dm-text-secondary);
+    font-size: 11px;
     font-weight: 500;
-    text-decoration: none;
+    letter-spacing: 0.25px;
     white-space: nowrap;
-    transition: var(--transition);
+    transition: color var(--dm-transition), background var(--dm-transition), border-color var(--dm-transition);
 }
 
     .nav-link i {
-        color: var(--gold);
-        font-size: 15px;
-        transition: var(--transition);
+        color: var(--dm-gold);
+        font-size: 13px;
+        transition: color var(--dm-transition), transform var(--dm-transition);
     }
 
     .nav-link:hover {
-        border-bottom-color: var(--gold-light);
-        background: rgba(196, 154, 69, 0.06);
-        color: var(--gold-light);
+        background: rgba(196, 154, 69, 0.055);
+        border-bottom-color: var(--dm-gold);
+        color: var(--dm-text);
     }
 
         .nav-link:hover i {
-            color: var(--gold-light);
-            transform: translateY(-2px);
+            color: var(--dm-gold-light);
+            transform: translateY(-1px);
         }
 
     .nav-link:focus-visible {
-        outline: 2px solid var(--gold-light);
+        outline: 2px solid var(--dm-gold);
         outline-offset: -4px;
     }
 
+.nav-spacer {
+    flex: 1 1 auto;
+    min-width: 10px;
+}
+
+.nav-link.nav-logout {
+    margin-left: auto;
+    color: #d4a0a0;
+}
+
+    .nav-link.nav-logout i {
+        color: var(--dm-danger);
+    }
+
+    .nav-link.nav-logout:hover {
+        background: rgba(220, 119, 119, 0.08);
+        border-bottom-color: var(--dm-danger);
+        color: #ffe0e0;
+    }
+
 
 /* =========================================================
-   08. MAIN CONTENT
+   09. MAIN CONTENT LAYOUT
 ========================================================= */
 
 .detective-main {
-    flex: 1;
+    position: relative;
+    flex: 1 0 auto;
     width: 100%;
-    max-width: 1600px;
     min-width: 0;
-    margin: 0 auto;
+    min-height: 0;
+    margin: 0;
     padding: 35px 4% 45px;
+    background: var(--dm-bg);
+}
+
+    /* Dashboard: remove all outer content spacing */
+
+    .detective-main:has(.detective-dashboard) {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+        /* Dashboard fills the complete content width */
+
+        .detective-main:has(.detective-dashboard) > .detective-dashboard {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+        }
+
+
+/* =========================================================
+   10. COMMON CONTENT HELPERS
+========================================================= */
+
+.detective-module-page .dm-page-title {
+    margin: 0 0 8px;
+    color: var(--dm-gold-light);
+    font-family: var(--dm-font-heading);
+    font-size: clamp(24px, 3vw, 34px);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.detective-module-page .dm-page-subtitle {
+    margin: 0 0 28px;
+    color: var(--dm-text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.detective-module-page .dm-panel {
+    padding: 24px;
+    border: 1px solid var(--dm-border);
+    border-radius: 4px;
+    background: linear-gradient( 145deg, rgba(20, 26, 31, 0.96), rgba(12, 16, 20, 0.98) );
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
 }
 
 
-    /* =========================================================
-   09. CONTENT DEFAULTS
+/* =========================================================
+   11. COMMON FORM ELEMENTS
 ========================================================= */
 
-    .detective-main h1,
-    .detective-main h2,
-    .detective-main h3,
-    .detective-main h4 {
-        color: #f0e8d9;
-        font-family: "Cinzel", Georgia, serif;
+.detective-module-page input[type="text"],
+.detective-module-page input[type="email"],
+.detective-module-page input[type="password"],
+.detective-module-page input[type="number"],
+.detective-module-page input[type="date"],
+.detective-module-page input[type="tel"],
+.detective-module-page select,
+.detective-module-page textarea {
+    width: 100%;
+    max-width: 100%;
+    min-height: 43px;
+    padding: 10px 13px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    outline: none;
+    background: #0b1014;
+    color: var(--dm-text);
+    transition: border-color var(--dm-transition), box-shadow var(--dm-transition);
+}
+
+.detective-module-page textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+    .detective-module-page input:focus,
+    .detective-module-page select:focus,
+    .detective-module-page textarea:focus {
+        border-color: var(--dm-gold);
+        box-shadow: 0 0 0 3px rgba(196, 154, 69, 0.09);
     }
 
-    .detective-main p {
-        line-height: 1.8;
+    .detective-module-page input::placeholder,
+    .detective-module-page textarea::placeholder {
+        color: #707981;
     }
 
-    .detective-main input,
-    .detective-main select,
-    .detective-main textarea,
-    .detective-main button {
-        font-family: "Poppins", Arial, sans-serif;
+.detective-module-page label {
+    color: var(--dm-text-secondary);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   12. COMMON BUTTONS
+========================================================= */
+
+.detective-module-page .dm-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 43px;
+    padding: 11px 20px;
+    border: 1px solid var(--dm-gold);
+    border-radius: 3px;
+    background: var(--dm-gold);
+    color: #11100c;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background var(--dm-transition), color var(--dm-transition), border-color var(--dm-transition), transform var(--dm-transition);
+}
+
+    .detective-module-page .dm-button:hover {
+        background: var(--dm-gold-light);
+        border-color: var(--dm-gold-light);
+        transform: translateY(-1px);
+    }
+
+    .detective-module-page .dm-button:focus-visible {
+        outline: 2px solid var(--dm-gold-light);
+        outline-offset: 3px;
+    }
+
+.detective-module-page .dm-button-secondary {
+    background: transparent;
+    color: var(--dm-gold-light);
+}
+
+    .detective-module-page .dm-button-secondary:hover {
+        background: rgba(196, 154, 69, 0.1);
+        color: #fff;
     }
 
 
 /* =========================================================
-   10. FOOTER
+   13. COMMON TABLES
+========================================================= */
+
+.detective-module-page .dm-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--dm-border);
+    border-radius: 4px;
+}
+
+.detective-module-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detective-module-page th,
+.detective-module-page td {
+    padding: 13px 15px;
+    border-bottom: 1px solid var(--dm-border-light);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.detective-module-page th {
+    background: #151b20;
+    color: var(--dm-gold-light);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.detective-module-page td {
+    color: var(--dm-text-secondary);
+    font-size: 12px;
+}
+
+.detective-module-page tbody tr {
+    background: rgba(15, 20, 24, 0.85);
+    transition: background var(--dm-transition);
+}
+
+    .detective-module-page tbody tr:hover {
+        background: rgba(196, 154, 69, 0.055);
+    }
+
+    .detective-module-page tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+
+/* =========================================================
+   14. MASTER PAGE FOOTER
 ========================================================= */
 
 .detective-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
     width: 100%;
-    margin-top: auto;
-    padding: 22px 20px;
-    border-top: 1px solid var(--border);
-    background: rgba(5, 9, 12, 0.95);
+    background: linear-gradient( 100deg, rgba(13, 17, 21, 0.94), rgba(8, 11, 14, 0.94) );
+    border-top: 1px solid var(--dm-border);
+}
+
+.footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    min-height: 70px;
+    padding: 15px 5%;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--dm-gold-light);
+    font-family: var(--dm-font-heading);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+    .footer-brand i {
+        font-size: 16px;
+    }
+
+.footer-copyright {
+    margin: 0;
+    color: var(--dm-text-muted);
+    font-size: 10px;
     text-align: center;
 }
 
-    .detective-footer p {
-        margin: 0;
-        color: var(--gold-light);
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 1.5px;
-        line-height: 1.8;
-    }
-
-        .detective-footer p i {
-            margin-right: 7px;
-        }
-
-.footer-divider {
-    margin: 0 8px;
-    color: var(--gold-dark);
-}
-
-.footer-copy {
-    color: var(--muted);
+.footer-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dm-text-secondary);
     font-size: 9px;
-    line-height: 1.7;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
-
-/* =========================================================
-   11. RESPONSIVE - LAPTOP
-========================================================= */
-
-@media screen and (max-width: 1000px) {
-
-    .header-inner {
-        padding: 18px 3%;
-    }
-
-    .nav-inner {
-        padding: 0 3%;
-    }
-
-    .nav-link {
-        padding: 0 15px;
-        font-size: 11px;
-    }
-
-    .detective-main {
-        padding: 30px 3% 40px;
-    }
-}
-
-
-/* =========================================================
-   12. RESPONSIVE - TABLET
-========================================================= */
-
-@media screen and (max-width: 760px) {
-
-    .header-inner {
-        gap: 15px;
-        min-height: 95px;
-        padding: 16px 20px;
-    }
-
-    .brand {
-        gap: 12px;
-    }
-
-    .brand-icon {
-        width: 52px;
-        height: 52px;
-        font-size: 24px;
-    }
-
-    .brand-small {
-        font-size: 8px;
-        letter-spacing: 2px;
-    }
-
-    .brand-title {
-        font-size: 21px;
-    }
-
-    .header-status {
-        padding: 10px;
-        font-size: 8px;
-    }
-
-    .nav-inner {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 0;
-        padding: 0 12px;
-    }
-
-    .nav-link {
-        flex: 1 1 auto;
-        min-height: 58px;
-        padding: 0 12px;
-        font-size: 10px;
-    }
-
-    .detective-main {
-        padding: 25px 20px 35px;
-    }
-}
-
-
-/* =========================================================
-   13. RESPONSIVE - MOBILE
-========================================================= */
-
-@media screen and (max-width: 520px) {
-
-    .header-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-        padding: 18px 15px;
-    }
-
-    .brand {
-        width: 100%;
-    }
-
-    .brand-icon {
-        width: 46px;
-        height: 46px;
-        font-size: 21px;
-    }
-
-    .brand-small {
-        font-size: 7px;
-        letter-spacing: 1.5px;
-    }
-
-    .brand-title {
-        font-size: 19px;
-    }
-
-    .header-status {
-        align-self: flex-start;
-        padding: 8px 10px;
-        font-size: 8px;
-    }
-
-
-    /* MOBILE NAVIGATION */
-
-    .nav-inner {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 7px;
-        padding: 12px;
-    }
-
-    .nav-link {
-        justify-content: flex-start;
-        gap: 9px;
-        min-height: 48px;
-        padding: 10px;
-        border: 1px solid rgba(196, 154, 69, 0.2);
-        border-radius: 6px;
-        background: rgba(196, 154, 69, 0.025);
-        font-size: 10px;
-        white-space: normal;
-    }
-
-        .nav-link:hover {
-            border-color: var(--gold-dark);
-        }
-
-        .nav-link i {
-            font-size: 13px;
-        }
-
-
-    /* MAIN CONTENT */
-
-    .detective-main {
-        padding: 22px 14px 30px;
-    }
-
-
-    /* FOOTER */
-
-    .detective-footer {
-        padding: 18px 12px;
-    }
-
-        .detective-footer p {
-            font-size: 9px;
-            letter-spacing: 1px;
-        }
-
-    .footer-copy {
-        font-size: 8px;
-    }
-}
-
-
-/* =========================================================
-   14. EXTRA SMALL MOBILE
-========================================================= */
-
-@media screen and (max-width: 350px) {
-
-    .brand-title {
-        font-size: 17px;
-    }
-
-    .brand-small {
-        font-size: 6px;
-        letter-spacing: 1px;
-    }
-
-    .nav-inner {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    .nav-link {
-        min-height: 43px;
-    }
-
-    .detective-main {
-        padding: 18px 10px 25px;
-    }
+.footer-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--dm-success);
+    box-shadow: 0 0 8px rgba(104, 201, 154, 0.45);
 }
 
 
 /* =========================================================
    15. ACCESSIBILITY
+========================================================= */
+
+.detective-module-page a:focus-visible,
+.detective-module-page button:focus-visible {
+    outline: 2px solid var(--dm-gold-light);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   16. RESPONSIVE — TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .header-inner {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .nav-inner {
+        padding-right: 3%;
+        padding-left: 3%;
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--dm-gold-dark) transparent;
+    }
+
+    .nav-link {
+        padding-right: 13px;
+        padding-left: 13px;
+        font-size: 10px;
+    }
+
+    .detective-main {
+        padding: 28px 3% 35px;
+    }
+
+        .detective-main:has(.detective-dashboard) {
+            padding: 0;
+        }
+
+    .footer-inner {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+}
+
+
+/* =========================================================
+   17. RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+        --dm-header-height: auto;
+        --dm-nav-height: 48px;
+    }
+
+    .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+        padding: 17px 5%;
+    }
+
+    .detective-header .brand-icon {
+        flex-basis: 42px;
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .detective-header .brand-small {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+    .detective-header .brand-title {
+        font-size: 17px;
+    }
+
+    .detective-header .header-status {
+        align-self: flex-start;
+        padding: 8px 10px;
+    }
+
+    .nav-inner {
+        gap: 0;
+        padding: 0 3%;
+    }
+
+    .nav-link {
+        min-height: var(--dm-nav-height);
+        padding: 0 12px;
+        font-size: 10px;
+    }
+
+        .nav-link i {
+            font-size: 12px;
+        }
+
+    .detective-main {
+        padding: 23px 4% 30px;
+    }
+
+        .detective-main:has(.detective-dashboard) {
+            padding: 0;
+        }
+
+    .detective-module-page .dm-panel {
+        padding: 17px;
+    }
+
+    .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+        padding: 18px 5%;
+    }
+
+    .footer-copyright {
+        text-align: left;
+    }
+}
+
+
+/* =========================================================
+   18. RESPONSIVE — SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .detective-header .brand-title {
+        font-size: 15px;
+        letter-spacing: 1px;
+    }
+
+    .detective-header .brand-small {
+        letter-spacing: 1.4px;
+    }
+
+    .nav-link {
+        gap: 7px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
+
+/* =========================================================
+   19. REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -554,32 +848,79 @@ body {
     }
 }
 
-/* =========================================
-   LOGOUT NAVIGATION LINK
-========================================= */
-.logout-link {
-    margin-left: auto;
-    color: #e5a09a;
+
+
+
+
+/* =========================================================
+   FULL-WIDTH DETECTIVE DASHBOARD
+   Remove inherited margins, padding and width restrictions
+========================================================= */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
 }
 
-.logout-link i {
-    color: #e57373;
-}
-
-.logout-link:hover {
-    color: #ff8a80;
-    background: rgba(180, 50, 50, 0.10);
-    border-bottom-color: #e57373;
-}
-
-    .logout-link:hover i {
-        color: #ff8a80;
+    body.detective-module-page {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-/* Mobile navigation */
-@media screen and (max-width: 520px) {
-    .logout-link {
-        margin-left: 0;
-    }
+        /* ASP.NET form must occupy the complete viewport */
+
+        body.detective-module-page form,
+        body.detective-module-page #form1 {
+            width: 100% !important;
+            max-width: none !important;
+            min-height: 100vh;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box;
+        }
+
+/* Remove width restrictions from the master content area */
+
+.detective-main {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
+    /* Dashboard must stretch across the entire available viewport */
+
+    .detective-main:has(.detective-dashboard) {
+        display: block !important;
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box;
+    }
+
+        .detective-main:has(.detective-dashboard) > .detective-dashboard {
+            display: block;
+            width: 100% !important;
+            max-width: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box;
+        }
+
+/* Prevent dashboard child elements from creating page overflow */
+
+.detective-dashboard *,
+.detective-dashboard *::before,
+.detective-dashboard *::after {
+    box-sizing: border-box;
+}

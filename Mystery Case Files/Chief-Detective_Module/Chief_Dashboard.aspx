@@ -78,7 +78,7 @@
                     <asp:HyperLink
                         ID="lnkLogout"
                         runat="server"
-                        NavigateUrl="~/Main_Dashboard.aspx"
+                        NavigateUrl="~/Main_Module/Main_Dashboard.aspx"
                         CssClass="logout-link"
                         onclick="return confirm('Are you sure you want to leave the Chief Detective Dashboard?');">
 
