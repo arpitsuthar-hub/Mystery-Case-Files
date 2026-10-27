@@ -9,7 +9,7 @@
     ContentPlaceHolderID="head"
     runat="server">
 
-    <link href="../CSS/Case-Management/Dashboard_Case.css"
+    <link href="../CSS/Case-Management/Dashboard_Case.css?v=2"
         rel="stylesheet" />
 
 </asp:Content>

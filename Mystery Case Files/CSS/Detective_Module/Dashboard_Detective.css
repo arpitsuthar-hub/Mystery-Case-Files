@@ -864,7 +864,7 @@ body {
         text-align: center;
     }
 
-    .detective-dashboard .motto-line {
+    .detective-dashboard .motto-line {z
         width: 75px;
         height: 1px;
         background: linear-gradient( 90deg, transparent, var(--dd-gold), transparent );
