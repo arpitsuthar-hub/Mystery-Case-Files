@@ -44,7 +44,7 @@
      ========================================================= -->
 
     <link rel="stylesheet"
-        href="~/CSS/Main_Dashboard.css" runat="server" />
+        href="~/CSS/Main_Dashboard.css?v=1" runat="server" />
 
 
 </head>

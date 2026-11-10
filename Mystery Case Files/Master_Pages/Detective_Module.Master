@@ -1,47 +1,35 @@
-﻿<%@ Master Language="C#"
-    AutoEventWireup="true"
+﻿<%@ Master Language="C#" AutoEventWireup="true"
     CodeBehind="Detective_Module.Master.cs"
     Inherits="Mystery_Case_Files.Master_Pages.Detective_Master" %>
 
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head runat="server">
 
     <meta charset="utf-8" />
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0" />
-
-    <meta name="theme-color" content="#080b0e" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-        <asp:ContentPlaceHolder
-            ID="TitleContent"
-            runat="server">
-            Mysterious Case Files | Detective Module
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server">
+            Mysterious Case Files
         </asp:ContentPlaceHolder>
     </title>
 
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com" />
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
 
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin="anonymous" />
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet" />
+    <!-- MASTER CSS -->
+    <link href="../CSS/Master/Detective_Module.css?v=2"
+        rel="stylesheet" />
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-          rel="stylesheet" />
-
-    <link href="<%= ResolveUrl("~/CSS/Master/Detective_Module.css") %>"
-          rel="stylesheet"
-          type="text/css" />
-
-    <asp:ContentPlaceHolder
-        ID="head"
-        runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 
 </head>
@@ -50,64 +38,53 @@
 
     <form id="form1" runat="server">
 
-        <!-- =========================================
-             FULL-PAGE BACKGROUND
-        ========================================== -->
+        <div class="dm-background"></div>
+        <div class="dm-background-overlay"></div>
 
-        <div class="detective-page-background"
-             aria-hidden="true">
-        </div>
+        <div class="dm-shell">
+
+            <!-- =====================================
+                 HEADER
+            ====================================== -->
+
+            <header class="dm-header">
+
+                <!-- LOGO -->
+                <a href="<%= ResolveUrl("~/Detective_Module/Home_Detective.aspx") %>"
+                    class="dm-logo">
+
+                    <div class="dm-logo-icon">
+                        <i class="fa-solid fa-user-secret"></i>
+                    </div>
+
+                </a>
 
 
-        <!-- =========================================
-             PAGE LAYOUT
-        ========================================== -->
+                <!-- CENTER BRAND -->
+                <div class="dm-brand">
 
-        <div class="detective-page-layout">
+                    <h1>MYSTERIOUS CASE FILES</h1>
 
-            <!-- =========================================
-                 DETECTIVE HEADER
-            ========================================== -->
+                    <span>DETECTIVE UNIT</span>
 
-            <header class="detective-header">
+                    <div class="dm-brand-line"></div>
 
-                <div class="header-inner">
+                </div>
 
-                    <a class="brand"
-                       href="<%= ResolveUrl("~/Detective_Module/Home_Detective.aspx") %>"
-                       aria-label="Mysterious Case Files home">
 
-                        <span class="brand-icon">
-                            <i class="fa-solid fa-user-secret"
-                               aria-hidden="true"></i>
-                        </span>
+                <!-- SYSTEM STATUS -->
+                <div class="dm-header-status">
 
-                        <span class="brand-text">
+                    <span class="dm-status-indicator"></span>
 
-                            <span class="brand-small">
-                                MYSTERIOUS CASE FILES
-                            </span>
+                    <div class="dm-status-text">
 
-                            <span class="brand-title">
-                                DETECTIVE UNIT
-                            </span>
-
-                        </span>
-
-                    </a>
-
-                    <div class="header-status">
-
-                        <span class="status-dot"
-                              aria-hidden="true">
-                        </span>
-
-                        <span class="status-label">
+                        <span class="dm-status-label">
                             INVESTIGATION SYSTEM
                         </span>
 
-                        <span class="status-value">
-                            ONLINE
+                        <span class="dm-status-value">
+                            OPERATIONAL
                         </span>
 
                     </div>
@@ -117,126 +94,210 @@
             </header>
 
 
-            <!-- =========================================
-                 NAVIGATION
-            ========================================== -->
+            <!-- =====================================
+                 WORKSPACE
+            ====================================== -->
 
-            <nav class="detective-nav"
-                 aria-label="Detective navigation">
+            <div class="dm-workspace">
 
-                <div class="nav-inner">
 
-                    <a class="nav-link"
-                       href="<%= ResolveUrl("~/Detective_Module/Dashboard_Detective.aspx") %>">
+                <!-- =================================
+                     LEFT SIDEBAR
+                ================================== -->
 
-                        <i class="fa-solid fa-gauge-high"
-                           aria-hidden="true"></i>
+                <aside class="dm-sidebar">
 
-                        <span>Dashboard</span>
 
-                    </a>
+                    <!-- SIDEBAR HEADING -->
+                    <div class="dm-sidebar-heading">
 
-                    <a class="nav-link"
-                       href="<%= ResolveUrl("~/Detective_Module/AddNew_Detective.aspx") %>">
+                        <span class="dm-sidebar-caption">
+                            INVESTIGATION
+                        </span>
 
-                        <i class="fa-solid fa-user-plus"
-                           aria-hidden="true"></i>
+                        <h3>MAIN MENU</h3>
 
-                        <span>Register Detective</span>
+                    </div>
 
-                    </a>
 
-                    <a class="nav-link"
-                       href="<%= ResolveUrl("~/Detective_Module/Search_Detective.aspx") %>">
+                    <!-- NAVIGATION LINKS -->
+                    <nav class="dm-sidebar-nav">
 
-                        <i class="fa-solid fa-magnifying-glass"
-                           aria-hidden="true"></i>
+                        <a href="<%= ResolveUrl("~/Detective_Module/Dashboard_Detective.aspx") %>"
+                            class="dm-nav-link">
 
-                        <span>Search Detective</span>
+                            <i class="fa-solid fa-gauge-high"></i>
 
-                    </a>
+                            <span>Dashboard</span>
 
-                    <a class="nav-link"
-                       href="<%= ResolveUrl("~/Detective_Module/All_Detective.aspx") %>">
+                            <i class="fa-solid fa-angle-right dm-nav-arrow"></i>
 
-                        <i class="fa-solid fa-users"
-                           aria-hidden="true"></i>
+                        </a>
 
-                        <span>Detective Directory</span>
 
-                    </a>
+                        <a href="<%= ResolveUrl("~/Detective_Module/AddNew_Detective.aspx") %>"
+                            class="dm-nav-link">
 
-                    <span class="nav-spacer"></span>
+                            <i class="fa-solid fa-user-plus"></i>
 
-                    <a class="nav-link nav-logout"
-                       href="<%= ResolveUrl("~/Chief-Detective_Module/Chief-Detective_Logout.aspx") %>">
+                            <span>Register Detective</span>
 
-                        <i class="fa-solid fa-right-from-bracket"
-                           aria-hidden="true"></i>
+                            <i class="fa-solid fa-angle-right dm-nav-arrow"></i>
+
+                        </a>
+
+
+                        <a href="<%= ResolveUrl("~/Detective_Module/Search_Detective.aspx") %>"
+                            class="dm-nav-link">
+
+                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                            <span>Search Detective</span>
+
+                            <i class="fa-solid fa-angle-right dm-nav-arrow"></i>
+
+                        </a>
+
+
+                        <a href="<%= ResolveUrl("~/Detective_Module/All_Detective.aspx") %>"
+                            class="dm-nav-link">
+
+                            <i class="fa-solid fa-address-book"></i>
+
+                            <span>Detective Directory</span>
+
+                            <i class="fa-solid fa-angle-right dm-nav-arrow"></i>
+
+                        </a>
+
+                    </nav>
+
+
+                    <!-- SIDEBAR DIVIDER -->
+                    <div class="dm-sidebar-divider"></div>
+
+
+                    <!-- FIELD NOTES -->
+                    <div class="dm-field-notes">
+
+                        <div class="dm-notes-heading">
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                            <span>FIELD NOTES</span>
+
+                        </div>
+
+                        <p>
+                            Observe Everything.
+                            Trust Nothing.
+                            Question Everything.
+                        </p>
+
+                        <div class="dm-notes-decoration">
+                            <i class="fa-solid fa-fingerprint"></i>
+                            <span>EVERY CLUE MATTERS</span>
+                        </div>
+
+                    </div>
+
+
+                    <!-- SIDEBAR BOTTOM -->
+                    <div class="dm-sidebar-bottom">
+
+                        <div class="dm-sidebar-system-icon">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+
+                        <div class="dm-sidebar-system-info">
+
+                            <span>SECURITY STATUS</span>
+
+                            <strong>
+                                <span class="dm-status-indicator"></span>
+                                SYSTEM SECURE
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LOGOUT -->
+                    <a href="<%= ResolveUrl("~/Chief-Detective_Module/Chief-Detective_Logout.aspx") %>"
+                        class="dm-logout">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
 
                         <span>Logout</span>
 
                     </a>
 
+                </aside>
+
+
+                <!-- =================================
+                     MAIN CONTENT
+                ================================== -->
+
+                <main class="dm-main">
+
+                    <div class="dm-content-wrapper">
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1"
+                            runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+
+                </main>
+
+
+            </div>
+
+
+            <!-- =====================================
+                 FOOTER
+            ====================================== -->
+
+            <footer class="dm-footer">
+
+                <div class="dm-footer-left">
+
+                    <i class="fa-solid fa-fingerprint"></i>
+
+                    <span>
+                        MYSTERIOUS CASE FILES
+                    </span>
+
                 </div>
 
-            </nav>
+
+                <div class="dm-footer-center">
+
+                    <span>
+                        © <%= DateTime.Now.Year %>
+                        Mysterious Case Files
+                    </span>
+
+                </div>
 
 
-            <!-- =========================================
-                 MAIN CONTENT
-            ========================================== -->
+                <div class="dm-footer-right">
 
-            <main class="detective-main">
+                    <span class="dm-footer-status-dot"></span>
 
-                <asp:ContentPlaceHolder
-                    ID="ContentPlaceHolder1"
-                    runat="server">
-                </asp:ContentPlaceHolder>
-
-            </main>
-
-
-            <!-- =========================================
-                 MASTER PAGE FOOTER
-            ========================================== -->
-
-            <footer class="detective-footer">
-
-                <div class="footer-inner">
-
-                    <div class="footer-brand">
-
-                        <i class="fa-solid fa-fingerprint"
-                           aria-hidden="true"></i>
-
-                        <span>MYSTERIOUS CASE FILES</span>
-
-                    </div>
-
-                    <p class="footer-copyright">
-                        &copy; <%: DateTime.Now.Year %>
-                        Mysterious Case Files.
-                        All rights reserved.
-                    </p>
-
-                    <div class="footer-status">
-
-                        <span class="footer-status-dot"
-                              aria-hidden="true">
-                        </span>
-
-                        <span>SECURE SYSTEM</span>
-
-                    </div>
+                    <span>SECURE INVESTIGATION SYSTEM</span>
 
                 </div>
 
             </footer>
+
 
         </div>
 
     </form>
 
 </body>
+
 </html>

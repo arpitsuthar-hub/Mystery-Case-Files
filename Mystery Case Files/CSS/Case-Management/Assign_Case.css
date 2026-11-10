@@ -1,93 +1,180 @@
 ﻿/* =========================================================
    MYSTERIOUS CASE FILES
-   ASSIGN CASE PAGE
+   ASSIGN INVESTIGATION CASE
 
-   THEME: CINEMATIC NOIR / BLACK & GOLD
+   THEME:
+   VINTAGE DETECTIVE OFFICE
+   DARK WALNUT / ANTIQUE GOLD
+   CINEMATIC GLASS INTERFACE
 ========================================================= */
 
 
 /* =========================================================
-   01. PAGE
+   01. ROOT VARIABLES
+========================================================= */
+
+:root {
+    --assign-gold: #c69b58;
+    --assign-gold-light: #e6c58b;
+    --assign-gold-dark: #886334;
+    --assign-text: #eee3d1;
+    --assign-muted: #b3a48d;
+    --assign-border: rgba(205, 163, 100, 0.28);
+    --assign-border-soft: rgba(255, 225, 177, 0.12);
+    --assign-glass: rgba(15, 11, 8, 0.83);
+    --assign-glass-light: rgba(35, 25, 16, 0.78);
+    --assign-transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   02. PAGE BACKGROUND
 ========================================================= */
 
 .assign-page {
-    min-height: 100vh;
-    padding: 40px 25px 70px;
-    background: #080b0e;
-    color: #e8e2d6;
+    position: relative;
+    isolation: isolate;
+    min-height: 100%;
+    width: 100%;
+    padding: 38px 35px 55px;
+    color: var(--assign-text);
     font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient( rgba(8, 6, 4, 0.43), rgba(8, 6, 4, 0.72) ), url("../../Images/Detective_Room.jpeg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .assign-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
     max-width: 1150px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 
 /* =========================================================
-   02. HEADER
+   03. PAGE HEADER
 ========================================================= */
 
 .assign-header {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 32px;
 }
 
-.assign-header-icon {
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 18px;
+.assign-eyebrow {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(196,154,69,0.08);
-    border: 1px solid #806735;
+    gap: 13px;
+    color: var(--assign-gold);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+    .assign-eyebrow span {
+        width: 35px;
+        height: 1px;
+        background: var(--assign-gold-dark);
+    }
+
+.assign-title-icon {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 19px auto 15px;
+    border: 1px solid rgba(205, 163, 100, 0.55);
     border-radius: 50%;
-    color: #c49a45;
+    background: radial-gradient( circle, rgba(198, 155, 88, 0.18), rgba(20, 12, 7, 0.7) );
+    color: var(--assign-gold-light);
     font-size: 25px;
+    box-shadow: 0 0 25px rgba(198, 155, 88, 0.12), inset 0 0 15px rgba(198, 155, 88, 0.08);
 }
 
 .assign-header h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 30px;
-    color: #d4af67;
-    letter-spacing: 2px;
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: clamp(25px, 3vw, 36px);
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--assign-gold-light);
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.9);
 }
 
-.assign-header p {
-    margin-top: 10px;
-    color: #939ba0;
-    font-size: 13px;
+.assign-header > p {
+    max-width: 650px;
+    margin: 11px auto 0;
+    color: #c0b29e;
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-.assign-header-line {
-    width: 100px;
-    height: 3px;
-    background: #c49a45;
-    margin: 20px auto;
+.assign-header-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    color: var(--assign-gold);
+    font-size: 10px;
 }
+
+    .assign-header-divider span {
+        width: 55px;
+        height: 1px;
+        background: linear-gradient( 90deg, transparent, var(--assign-gold-dark) );
+    }
+
+        .assign-header-divider span:last-child {
+            transform: rotate(180deg);
+        }
 
 
 /* =========================================================
-   03. MAIN CARD
+   04. MAIN CARD
 ========================================================= */
 
 .assign-card {
-    background: #101519;
-    border: 1px solid #30363a;
+    position: relative;
+    padding: 35px 38px;
+    background: linear-gradient( 135deg, rgba(29, 20, 13, 0.94), rgba(12, 10, 8, 0.91) );
+    border: 1px solid var(--assign-border);
     border-radius: 12px;
-    padding: 35px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.62), inset 0 1px 0 rgba(255, 226, 180, 0.07);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
 }
+
+
+    /* Subtle gold line at top */
+
+    .assign-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 12%;
+        right: 12%;
+        height: 1px;
+        background: linear-gradient( 90deg, transparent, rgba(220, 174, 105, 0.65), transparent );
+    }
+
+
+/* =========================================================
+   05. CARD HEADER
+========================================================= */
 
 .assign-card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding-bottom: 25px;
+    padding-bottom: 27px;
     margin-bottom: 30px;
-    border-bottom: 1px solid #343a3f;
+    border-bottom: 1px solid var(--assign-border-soft);
 }
 
 .assign-card-title {
@@ -96,51 +183,96 @@
     gap: 17px;
 }
 
-    .assign-card-title > i {
-        font-size: 30px;
-        color: #c49a45;
-    }
+.assign-card-icon {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--assign-border);
+    border-radius: 9px;
+    background: rgba(198, 155, 88, 0.09);
+    color: var(--assign-gold-light);
+    font-size: 23px;
+}
 
-    .assign-card-title h2 {
-        font-family: 'Cinzel', serif;
-        color: #d4af67;
-        font-size: 21px;
-    }
-
-    .assign-card-title p {
-        color: #8e979c;
-        font-size: 12px;
-        margin-top: 6px;
-    }
-
-.assign-badge {
-    padding: 9px 15px;
-    background: rgba(196,154,69,0.08);
-    border: 1px solid #806735;
-    border-radius: 5px;
-    color: #d4af67;
-    font-size: 10px;
+.assign-card-overline {
+    display: block;
+    color: var(--assign-gold);
+    font-size: 9px;
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.assign-card-title h2 {
+    font-family: 'Cinzel', Georgia, serif;
+    color: #e8d1a8;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.assign-card-title p {
+    margin-top: 6px;
+    color: var(--assign-muted);
+    font-size: 11px;
+}
+
+.assign-confidential {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 13px;
+    color: var(--assign-gold-light);
+    border: 1px solid rgba(198, 155, 88, 0.38);
+    border-radius: 5px;
+    background: rgba(198, 155, 88, 0.07);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     white-space: nowrap;
 }
 
 
 /* =========================================================
-   04. SECTION
+   06. MESSAGE
+========================================================= */
+
+.assign-message {
+    display: block;
+    margin: 0 0 22px;
+    padding: 11px 15px;
+    color: var(--assign-gold-light);
+    text-align: center;
+    font-size: 12px;
+    background: rgba(198, 155, 88, 0.08);
+    border: 1px solid rgba(198, 155, 88, 0.22);
+    border-radius: 6px;
+}
+
+
+/* =========================================================
+   07. FORM SECTIONS
 ========================================================= */
 
 .assign-section {
-    margin-bottom: 35px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #2d3439;
+    margin-bottom: 30px;
+    padding-bottom: 29px;
+    border-bottom: 1px solid var(--assign-border-soft);
 }
+
+    .assign-section.last-section {
+        margin-bottom: 0;
+        padding-bottom: 25px;
+        border-bottom: none;
+    }
 
 .assign-section-heading {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 }
 
 .step-number {
@@ -148,32 +280,42 @@
     height: 43px;
     flex-shrink: 0;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: rgba(196,154,69,0.1);
-    border: 1px solid #806735;
-    border-radius: 8px;
-    color: #d4af67;
-    font-family: 'Cinzel', serif;
+    justify-content: center;
+    border: 1px solid rgba(198, 155, 88, 0.5);
+    border-radius: 7px;
+    background: rgba(198, 155, 88, 0.09);
+    color: var(--assign-gold-light);
+    font-family: 'Cinzel', Georgia, serif;
     font-size: 17px;
     font-weight: 700;
 }
 
+.section-kicker {
+    display: block;
+    color: var(--assign-gold-dark);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+}
+
 .assign-section-heading h3 {
-    color: #e0d4bb;
+    color: #e8d4b5;
+    font-family: 'Cinzel', Georgia, serif;
     font-size: 16px;
     font-weight: 600;
 }
 
 .assign-section-heading p {
-    color: #8c969c;
-    font-size: 12px;
-    margin-top: 4px;
+    margin-top: 5px;
+    color: #a99a84;
+    font-size: 11px;
 }
 
 
 /* =========================================================
-   05. FORM GRID
+   08. FORM GRID
 ========================================================= */
 
 .assign-grid {
@@ -194,212 +336,319 @@
     }
 
     .assign-group label {
-        color: #c8ced1;
-        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #d8cbb7;
+        font-size: 12px;
         font-weight: 500;
     }
 
+        .assign-group label i {
+            color: var(--assign-gold);
+            font-size: 12px;
+        }
+
 .required {
-    color: #e16b6b;
+    color: #e48a75;
+    font-weight: 700;
+}
+
+.assign-group small {
+    color: #9c8e79;
+    font-size: 10px;
+    line-height: 1.6;
 }
 
 
 /* =========================================================
-   06. INPUT CONTROLS
+   09. INPUT CONTROLS
 ========================================================= */
 
 .assign-control {
     width: 100%;
+    min-width: 0;
     padding: 13px 15px;
-    background: #171d22;
-    border: 1px solid #353b40;
+    background: rgba(10, 9, 7, 0.73);
+    border: 1px solid rgba(192, 153, 98, 0.25);
     border-radius: 6px;
-    color: #eeeeee;
+    color: #eee3d1;
     font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     outline: none;
-    transition: 0.3s;
+    transition: border-color var(--assign-transition), background var(--assign-transition), box-shadow var(--assign-transition);
 }
 
     .assign-control:focus {
-        border-color: #c49a45;
-        box-shadow: 0 0 0 3px rgba(196,154,69,0.1);
+        background: rgba(18, 14, 10, 0.95);
+        border-color: var(--assign-gold);
+        box-shadow: 0 0 0 3px rgba(198, 155, 88, 0.09), 0 0 18px rgba(198, 155, 88, 0.07);
     }
 
     .assign-control::placeholder {
-        color: #777f85;
+        color: #827561;
     }
 
 select.assign-control {
     cursor: pointer;
 }
 
-.assign-textarea {
-    min-height: 110px;
-    resize: vertical;
-}
+    select.assign-control option {
+        background: #1b140e;
+        color: #eee3d1;
+    }
 
-.assign-group small {
-    color: #778187;
-    font-size: 11px;
-    line-height: 1.5;
+.assign-textarea {
+    min-height: 115px;
+    resize: vertical;
+    line-height: 1.7;
 }
 
 .assign-readonly {
     display: block;
     width: 100%;
     padding: 13px 15px;
-    background: #111619;
-    border: 1px solid #353b40;
+    background: rgba(198, 155, 88, 0.07);
+    border: 1px solid rgba(198, 155, 88, 0.25);
     border-radius: 6px;
-    color: #d4af67;
-    font-size: 13px;
+    color: var(--assign-gold-light);
+    font-size: 12px;
     font-weight: 600;
 }
 
 
 /* =========================================================
-   07. CASE / DETECTIVE INFO
+   10. CASE / DETECTIVE INFORMATION
 ========================================================= */
 
 .case-info-panel,
 .detective-info-panel {
     margin-top: 25px;
     padding: 23px;
-    background: #151c20;
-    border: 1px solid #343c40;
+    background: linear-gradient( 135deg, rgba(64, 43, 24, 0.35), rgba(15, 12, 9, 0.7) );
+    border: 1px solid rgba(198, 155, 88, 0.28);
     border-radius: 8px;
+    box-shadow: inset 0 1px 0 rgba(255, 225, 177, 0.04);
 }
 
-.info-panel-title {
+.info-panel-heading {
     display: flex;
     align-items: center;
-    gap: 10px;
-    color: #d4af67;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding-bottom: 15px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid #343c40;
+    gap: 13px;
+    padding-bottom: 17px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--assign-border-soft);
 }
+
+    .info-panel-heading > i {
+        width: 38px;
+        height: 38px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px;
+        background: rgba(198, 155, 88, 0.1);
+        color: var(--assign-gold-light);
+        font-size: 17px;
+    }
+
+    .info-panel-heading h4 {
+        color: #e4d0ad;
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .info-panel-heading span {
+        display: block;
+        margin-top: 4px;
+        color: var(--assign-gold-dark);
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+    }
 
 .case-info-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
+    gap: 22px;
 }
 
 .info-item {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 8px;
     min-width: 0;
 }
 
-    .info-item span {
-        color: #8e989e;
-        font-size: 11px;
+    .info-item > span:first-child {
+        color: #a7977f;
+        font-size: 10px;
     }
 
     .info-item > span:last-child {
-        color: #e3e5e6;
-        font-size: 13px;
+        color: #e8d9c0;
+        font-size: 12px;
         font-weight: 500;
         overflow-wrap: anywhere;
     }
 
 
 /* =========================================================
-   08. MESSAGE
-========================================================= */
-
-.assign-message {
-    display: block;
-    text-align: center;
-    color: #d4af67;
-    font-size: 13px;
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   09. BUTTONS
+   11. ACTION BUTTONS
 ========================================================= */
 
 .assign-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid var(--assign-border-soft);
+}
+
+.assign-action-note {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #a9987e;
+    font-size: 10px;
+}
+
+    .assign-action-note i {
+        color: var(--assign-gold);
+        font-size: 14px;
+    }
+
+.assign-action-buttons {
+    display: flex;
     flex-wrap: wrap;
-    gap: 15px;
-    padding-top: 5px;
+    justify-content: flex-end;
+    gap: 12px;
 }
 
 .assign-btn-primary,
 .assign-btn-secondary {
-    padding: 13px 30px;
-    border-radius: 6px;
+    min-height: 43px;
+    padding: 11px 23px;
+    border-radius: 5px;
     font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+    font-size: 11px;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all var(--assign-transition);
 }
 
 .assign-btn-primary {
-    background: #c49a45;
-    color: #111;
-    border: 1px solid #c49a45;
+    background: linear-gradient( 135deg, #d5ae70, #a77c43 );
+    border: 1px solid #d5ae70;
+    color: #171008;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
 }
 
     .assign-btn-primary:hover {
-        background: #e0b75b;
+        background: linear-gradient( 135deg, #ebc98f, #c3975a );
         transform: translateY(-2px);
+        box-shadow: 0 8px 22px rgba(198, 155, 88, 0.2);
     }
 
 .assign-btn-secondary {
-    background: #252c31;
-    color: #ddd;
-    border: 1px solid #41484d;
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(215, 195, 160, 0.25);
+    color: #d1c2a9;
 }
 
     .assign-btn-secondary:hover {
-        background: #353d43;
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(215, 195, 160, 0.5);
+        color: #fff0d5;
     }
 
 
 /* =========================================================
-   10. RESPONSIVE
+   12. BOTTOM CONFIDENTIAL NOTE
 ========================================================= */
 
-@media (max-width: 900px) {
+.assign-bottom-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    margin-top: 22px;
+    color: rgba(214, 192, 158, 0.65);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+    text-align: center;
+}
+
+    .assign-bottom-note i {
+        color: var(--assign-gold-dark);
+    }
+
+
+/* =========================================================
+   13. RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .assign-page {
+        padding: 30px 22px 45px;
+    }
+
+    .assign-card {
+        padding: 28px 25px;
+    }
 
     .case-info-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
+
 @media (max-width: 768px) {
 
     .assign-page {
-        padding: 25px 12px 50px;
+        padding: 25px 13px 40px;
+        background-attachment: scroll;
+        background-position: center top;
+    }
+
+    .assign-eyebrow {
+        font-size: 8px;
+        letter-spacing: 1.5px;
     }
 
     .assign-header h1 {
-        font-size: 23px;
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    .assign-header > p {
+        font-size: 11px;
     }
 
     .assign-card {
-        padding: 22px 16px;
+        padding: 23px 17px;
     }
 
     .assign-card-header {
-        flex-direction: column;
         align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .assign-card-title h2 {
+        font-size: 16px;
+    }
+
+    .assign-confidential {
+        margin-left: 72px;
     }
 
     .assign-grid {
         grid-template-columns: 1fr;
+        gap: 19px;
     }
 
     .assign-group.full-width {
@@ -407,11 +656,17 @@ select.assign-control {
     }
 
     .case-info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
     }
 
     .assign-actions {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .assign-action-buttons {
+        flex-direction: column-reverse;
     }
 
     .assign-btn-primary,
@@ -419,7 +674,58 @@ select.assign-control {
         width: 100%;
     }
 
+    .assign-action-note {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .assign-bottom-note {
+        font-size: 8px;
+        line-height: 1.7;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .assign-card-title {
+        align-items: flex-start;
+    }
+
+    .assign-card-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 19px;
+    }
+
+    .assign-card-overline {
+        font-size: 8px;
+    }
+
+    .assign-card-title h2 {
+        font-size: 14px;
+    }
+
     .assign-section-heading h3 {
         font-size: 14px;
+    }
+
+    .assign-section-heading p {
+        font-size: 10px;
+    }
+
+    .case-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-info-panel,
+    .detective-info-panel {
+        padding: 17px;
+    }
+
+    .step-number {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
     }
 }

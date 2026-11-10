@@ -1,77 +1,115 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true"
+﻿<%@ Master Language="C#"
+    AutoEventWireup="true"
     CodeBehind="Case.master.cs"
     Inherits="Mystery_Case_Files.Master_Pages.Case" %>
 
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head runat="server">
 
     <meta charset="utf-8" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
 
-    <title>Case Management | Mysterious Case Files</title>
+    <title>Mysterious Case Files | Case Management</title>
 
     <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap"
           rel="stylesheet" />
 
     <!-- FONT AWESOME -->
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           rel="stylesheet" />
 
-    <!-- EXTERNAL MASTER CSS -->
-    <link href="<%= ResolveUrl("~/CSS/Master/Case.css") %>"
+    <!-- MASTER CSS -->
+
+    <link href="<%= ResolveUrl("~/CSS/Master/Case.css") %>?v=5"
           rel="stylesheet" />
 
-    <asp:ContentPlaceHolder ID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head"
+        runat="server">
     </asp:ContentPlaceHolder>
 
 </head>
+
 
 <body>
 
     <form id="form1" runat="server">
 
-        <!-- ============================================
-             MASTER PAGE HEADER
-        ============================================= -->
+
+        <!-- ==========================================
+             BACKGROUND IMAGE
+        =========================================== -->
+
+        <div class="case-background"></div>
+
+        <div class="case-background-overlay"></div>
+
+
+
+        <!-- ==========================================
+             MAIN APPLICATION HEADER
+        =========================================== -->
 
         <header class="case-header-master">
 
-            <div class="case-header-container">
 
-                <!-- LOGO -->
+            <!-- BRAND / LOGO -->
 
-                <div class="case-brand">
+            <div class="case-brand">
 
-                    <div class="case-brand-icon">
-                        <i class="fa-solid fa-fingerprint"></i>
-                    </div>
+                <div class="case-brand-icon">
 
-                    <div class="case-brand-text">
-
-                        <h2>MYSTERIOUS CASE FILES</h2>
-
-                        <span>INVESTIGATION CONTROL CENTER</span>
-
-                    </div>
+                    <i class="fa-solid fa-fingerprint"></i>
 
                 </div>
 
 
-                <!-- HEADER RIGHT -->
+                <div class="case-brand-text">
 
-                <div class="case-header-right">
+                    <h1>
+                        MYSTERIOUS CASE FILES
+                    </h1>
 
-                    <div class="case-admin-badge">
+                    <span>
+                        CASE MANAGEMENT
+                    </span>
 
-                        <i class="fa-solid fa-user-shield"></i>
+                </div>
 
-                        <span>CHIEF DETECTIVE</span>
+            </div>
 
-                    </div>
+
+
+            <!-- HEADER RIGHT SIDE -->
+
+            <div class="case-header-right">
+
+                <div class="case-header-status">
+
+                    <span class="case-status-indicator"></span>
+
+                    <span>
+                        INVESTIGATION SYSTEM
+                    </span>
+
+                </div>
+
+                <div class="case-header-divider"></div>
+
+                <div class="case-header-badge">
+
+                    <i class="fa-solid fa-user-secret"></i>
+
+                    <span>
+                        CASE CONTROL
+                    </span>
 
                 </div>
 
@@ -80,144 +118,302 @@
         </header>
 
 
-        <!-- ============================================
-             NAVIGATION BAR
-        ============================================= -->
 
-        <nav class="case-navbar">
+        <!-- ==========================================
+             APPLICATION WORKSPACE
+        =========================================== -->
 
-            <div class="case-nav-container">
+        <div class="case-workspace">
 
-                <div class="case-nav-links">
 
-                    <!-- HOME -->
+
+            <!-- ======================================
+                 LEFT SIDEBAR
+            ======================================= -->
+
+            <aside class="case-sidebar">
+
+
+                <!-- SIDEBAR HEADING -->
+
+                <div class="case-sidebar-heading">
+
+                    <span class="case-sidebar-eyebrow">
+                        INVESTIGATION UNIT
+                    </span>
+
+                    <h2>
+                        Navigation
+                    </h2>
+
+                    <div class="case-sidebar-heading-line"></div>
+
+                </div>
+
+
+
+                <!-- ==================================
+                     NAVIGATION LINKS
+                =================================== -->
+
+                <nav class="case-sidebar-nav">
+
+
+                    <!-- DASHBOARD -->
 
                     <a href="<%= ResolveUrl("~/Case-Management_Module/Dashboard_Case.aspx") %>"
-                       class="case-nav-item">
+                       class="case-nav-link">
 
-                        <i class="fa-solid fa-house"></i>
+                        <span class="case-nav-icon">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </span>
 
-                        <span>Home</span>
+                        <span class="case-nav-text">
+                            Dashboard
+                        </span>
+
+                        <i class="fa-solid fa-angle-right case-nav-arrow"></i>
 
                     </a>
 
 
-                    <!-- ADD CASE -->
+
+                    <!-- ADD NEW CASE -->
 
                     <a href="<%= ResolveUrl("~/Case-Management_Module/AddNew_Case.aspx") %>"
-                       class="case-nav-item">
+                       class="case-nav-link">
 
-                        <i class="fa-solid fa-folder-plus"></i>
+                        <span class="case-nav-icon">
+                            <i class="fa-solid fa-folder-plus"></i>
+                        </span>
 
-                        <span>Add Case</span>
+                        <span class="case-nav-text">
+                            Register New Case
+                        </span>
+
+                        <i class="fa-solid fa-angle-right case-nav-arrow"></i>
 
                     </a>
+
 
 
                     <!-- SEARCH CASE -->
 
                     <a href="<%= ResolveUrl("~/Case-Management_Module/Search_Case.aspx") %>"
-                       class="case-nav-item">
+                       class="case-nav-link">
 
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span class="case-nav-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </span>
 
-                        <span>Search Case</span>
+                        <span class="case-nav-text">
+                            Search Case
+                        </span>
+
+                        <i class="fa-solid fa-angle-right case-nav-arrow"></i>
 
                     </a>
 
 
-                    <!-- EDIT CASE -->
+
+                    <!-- ASSIGN CASE -->
 
                     <a href="<%= ResolveUrl("~/Case-Management_Module/Assign_Case.aspx") %>"
-                       class="case-nav-item">
+                       class="case-nav-link">
 
-                        <i class="fa-solid fa-pen-to-square"></i>
+                        <span class="case-nav-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </span>
 
-                        <span>Assign Case</span>
+                        <span class="case-nav-text">
+                            Assign Case
+                        </span>
+
+                        <i class="fa-solid fa-angle-right case-nav-arrow"></i>
 
                     </a>
+
 
 
                     <!-- ALL CASES -->
 
                     <a href="<%= ResolveUrl("~/Case-Management_Module/All_Case.aspx") %>"
-                       class="case-nav-item">
+                       class="case-nav-link">
 
-                        <i class="fa-solid fa-folder-open"></i>
+                        <span class="case-nav-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </span>
 
-                        <span>All Cases</span>
+                        <span class="case-nav-text">
+                            All Cases
+                        </span>
+
+                        <i class="fa-solid fa-angle-right case-nav-arrow"></i>
 
                     </a>
+
+
+                </nav>
+
+
+
+                <!-- SIDEBAR DIVIDER -->
+
+                <div class="case-sidebar-divider">
+
+                    <span></span>
 
                 </div>
 
 
-                <!-- LOGOUT -->
 
-                <div class="case-nav-logout">
+                <!-- ==================================
+                     PAGE-SPECIFIC INFORMATION
+                =================================== -->
+
+                <section class="case-page-information">
+
+
+                    <div class="case-info-heading">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        <span>
+                            FIELD INFORMATION
+                        </span>
+
+                    </div>
+
+
+                    <div class="case-info-content">
+
+                        <!--
+                            Default information.
+                            Individual pages can replace this
+                            using PageInfoContent.
+                        -->
+
+                        <asp:ContentPlaceHolder
+                            ID="PageInfoContent"
+                            runat="server">
+
+                            <div class="case-info-default">
+
+                                <i class="fa-solid fa-fingerprint"></i>
+
+                                <h3>
+                                    Investigation Desk
+                                </h3>
+
+                                <p>
+                                    Manage investigation records,
+                                    organize case information and
+                                    monitor investigation activities.
+                                </p>
+
+                            </div>
+
+                        </asp:ContentPlaceHolder>
+
+                    </div>
+
+
+                    <div class="case-info-decoration">
+
+                        <span></span>
+                        <i class="fa-solid fa-eye"></i>
+                        <span></span>
+
+                    </div>
+
+
+                </section>
+
+
+
+                <!-- ==================================
+                     SIDEBAR BOTTOM
+                =================================== -->
+
+                <div class="case-sidebar-bottom">
+
+
+                    <!-- SYSTEM STATUS -->
+
+                    <div class="case-sidebar-system">
+
+                        <span class="case-system-icon">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                        </span>
+
+
+                        <div class="case-system-info">
+
+                            <span>
+                                SYSTEM STATUS
+                            </span>
+
+                            <strong>
+                                Operational
+                            </strong>
+
+                        </div>
+
+
+                        <span class="case-system-dot"></span>
+
+                    </div>
+
+
+
+                    <!-- LOGOUT -->
 
                     <a href="<%= ResolveUrl("~/Chief-Detective_Module/Chief-Detective_Logout.aspx") %>"
                        class="case-logout-btn">
 
                         <i class="fa-solid fa-right-from-bracket"></i>
 
-                        <span>Logout</span>
+                        <span>
+                            Logout
+                        </span>
 
                     </a>
 
-                </div>
-
-            </div>
-
-        </nav>
-
-
-        <!-- ============================================
-             MAIN CONTENT
-        ============================================= -->
-
-        <main class="case-main-content">
-
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1"
-                runat="server">
-            </asp:ContentPlaceHolder>
-
-        </main>
-
-
-        <!-- ============================================
-             FOOTER
-        ============================================= -->
-
-        <footer class="case-footer">
-
-            <div class="case-footer-container">
-
-                <div class="case-footer-left">
-
-                    <i class="fa-solid fa-shield-halved"></i>
-
-                    <span>MYSTERIOUS CASE FILES</span>
 
                 </div>
 
-                <div class="case-footer-center">
 
-                    CONFIDENTIAL INVESTIGATION SYSTEM
+            </aside>
+
+
+
+            <!-- ======================================
+                 MAIN PAGE CONTENT
+            ======================================= -->
+
+            <main class="case-main-content">
+
+                <div class="case-content-wrapper">
+
+                    <asp:ContentPlaceHolder
+                        ID="ContentPlaceHolder1"
+                        runat="server">
+                    </asp:ContentPlaceHolder>
 
                 </div>
 
-                <div class="case-footer-right">
+            </main>
 
-                    &copy; <%= DateTime.Now.Year %> All Rights Reserved
 
-                </div>
 
-            </div>
+        </div>
 
-        </footer>
+
 
     </form>
 
 </body>
+
 </html>

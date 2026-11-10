@@ -7,580 +7,674 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-          rel="stylesheet" />
+    <link href="../CSS/Case-Management/AddNew_Case.css?v=1"
+        rel="stylesheet" />
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
 
-    <link href="../CSS/Case-Management/AddNew_Case.css" rel="stylesheet" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
 </asp:Content>
 
 
-<asp:Content ID="Content2"
-    ContentPlaceHolderID="ContentPlaceHolder1"
-    runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div class="case-page">
 
+        <div class="case-page-overlay"></div>
+
         <div class="case-container">
 
-            <!-- PAGE HEADER -->
+            <!-- PAGE HEADING -->
 
-            <div class="case-header">
+            <div class="case-page-header">
 
-                <h1>
+                <div class="case-heading-icon">
                     <i class="fa-solid fa-folder-plus"></i>
-                    Register New Case
-                </h1>
+                </div>
 
-                <p>
-                    Create and register a new criminal investigation case
-                </p>
+                <div class="case-heading-content">
 
-                <div class="header-line"></div>
+                    <span class="case-eyebrow">
+                        CASE INVESTIGATION DEPARTMENT
+                    </span>
+
+                    <h1>REGISTER NEW CASE</h1>
+
+                    <p>
+                        Every investigation begins with a single piece of evidence.
+                    </p>
+
+                </div>
+
+                <div class="case-header-stamp">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>CLASSIFIED</span>
+                </div>
 
             </div>
 
 
-            <div class="case-form">
+            <!-- CASE FORM -->
 
-                <asp:Label ID="LabelMessage"
-                    runat="server"
-                    CssClass="message">
-                </asp:Label>
+            <div class="case-form-wrapper">
 
+                <div class="case-form-top">
 
-                <!-- =====================================
-                     SECTION 1 : CASE INFORMATION
-                ====================================== -->
+                    <div>
+                        <span class="form-reference">NEW INVESTIGATION</span>
+                        <h2>Case Registration File</h2>
+                    </div>
 
-                <div class="form-section">
-
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-folder-open"></i>
-                        Case Information
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Case Number</label>
-
-                            <asp:Label ID="Label1"
-                                runat="server"
-                                CssClass="readonly-box"
-                                Text="CASE-101">
-                            </asp:Label>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Registration Date</label>
-
-                            <asp:Label ID="Label2"
-                                runat="server"
-                                CssClass="readonly-box">
-                            </asp:Label>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>
-                                Case Name
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBox1"
-                                runat="server"
-                                CssClass="form-control"
-                                MaxLength="150"
-                                placeholder="Enter case title">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Case Category
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:DropDownList ID="DropDownListCategory"
-                                runat="server"
-                                CssClass="form-control">
-
-                                <asp:ListItem Value="">Select Category</asp:ListItem>
-                                <asp:ListItem>Murder</asp:ListItem>
-                                <asp:ListItem>Mysterious Death</asp:ListItem>
-                                <asp:ListItem>Missing Person</asp:ListItem>
-                                <asp:ListItem>Kidnapping</asp:ListItem>
-                                <asp:ListItem>Robbery</asp:ListItem>
-                                <asp:ListItem>Serial Killing</asp:ListItem>
-                                <asp:ListItem>Suspicious Suicide</asp:ListItem>
-                                <asp:ListItem>Unsolved Mystery</asp:ListItem>
-                                <asp:ListItem>Other</asp:ListItem>
-
-                            </asp:DropDownList>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
-                                Difficulty Level
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:DropDownList ID="DropDownListDifficulty"
-                                runat="server"
-                                CssClass="form-control">
-
-                                <asp:ListItem Value="">Select Difficulty</asp:ListItem>
-                                <asp:ListItem>Easy</asp:ListItem>
-                                <asp:ListItem>Normal</asp:ListItem>
-                                <asp:ListItem>Intermediate</asp:ListItem>
-                                <asp:ListItem>Hard</asp:ListItem>
-                                <asp:ListItem>Critical</asp:ListItem>
-
-                            </asp:DropDownList>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Case Priority</label>
-
-                            <asp:DropDownList ID="DropDownListPriority"
-                                runat="server"
-                                CssClass="form-control">
-
-                                <asp:ListItem>Low</asp:ListItem>
-                                <asp:ListItem Selected="True">Medium</asp:ListItem>
-                                <asp:ListItem>High</asp:ListItem>
-                                <asp:ListItem>Urgent</asp:ListItem>
-
-                            </asp:DropDownList>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Case Status</label>
-
-                            <asp:DropDownList ID="DropDownListStatus"
-                                runat="server"
-                                CssClass="form-control">
-
-                                <asp:ListItem>Open</asp:ListItem>
-                                <asp:ListItem>Under Investigation</asp:ListItem>
-                                <asp:ListItem>Closed</asp:ListItem>
-
-                            </asp:DropDownList>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>
-                                Case Details
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBox3"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter complete case description...">
-                            </asp:TextBox>
-
-                        </div>
-
+                    <div class="form-top-icon">
+                        <i class="fa-solid fa-file-shield"></i>
                     </div>
 
                 </div>
 
 
+                <div class="case-form-body" id="caseEntryForm">
 
-                <!-- =====================================
-                     SECTION 2 : INCIDENT DETAILS
-                ====================================== -->
 
-                <div class="form-section">
+                    <!-- MESSAGE -->
 
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-location-dot"></i>
-                        Incident Details
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Incident Date</label>
-
-                            <asp:TextBox ID="TextBoxIncidentDate"
-                                runat="server"
-                                TextMode="Date"
-                                CssClass="form-control">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Incident Time</label>
-
-                            <asp:TextBox ID="TextBoxIncidentTime"
-                                runat="server"
-                                TextMode="Time"
-                                CssClass="form-control">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Incident Location</label>
-
-                            <asp:TextBox ID="TextBoxLocation"
-                                runat="server"
-                                CssClass="form-control"
-                                placeholder="Enter incident location">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>City</label>
-
-                            <asp:TextBox ID="TextBoxCity"
-                                runat="server"
-                                CssClass="form-control"
-                                placeholder="Enter city">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Crime Scene Description</label>
-
-                            <asp:TextBox ID="TextBoxCrimeScene"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Describe the crime scene...">
-                            </asp:TextBox>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =====================================
-                     SECTION 3 : PEOPLE INVOLVED
-                ====================================== -->
-
-                <div class="form-section">
-
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-users"></i>
-                        People Involved
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group full-width">
-
-                            <label>
-                                Victim Details
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBox2"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter victim names and details...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Suspect Details</label>
-
-                            <asp:TextBox ID="TextBox5"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter possible suspects and their information...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Witness Information</label>
-
-                            <asp:TextBox ID="TextBoxWitness"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter witness names and statements...">
-                            </asp:TextBox>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =====================================
-                     SECTION 4 : EVIDENCE
-                ====================================== -->
-
-                <div class="form-section">
-
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-fingerprint"></i>
-                        Evidence & Clues
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group full-width">
-
-                            <label>
-                                Evidence Details
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBox4"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Describe the evidence collected...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Investigation Clues</label>
-
-                            <asp:TextBox ID="TextBoxClues"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter important clues...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Case Cover Image</label>
-
-                            <asp:FileUpload ID="FileUploadCase"
-                                runat="server"
-                                CssClass="file-upload"
-                                accept=".jpg,.jpeg,.png,.webp" />
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =====================================
-                     SECTION 5 : INVESTIGATION STORY
-                ====================================== -->
-
-                <div class="form-section">
-
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-book-open"></i>
-                        Investigation Story
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group full-width">
-
-                            <label>Case Background Story</label>
-
-                            <asp:TextBox ID="TextBoxStory"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Write the mysterious background story...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Suspicious Circumstances</label>
-
-                            <asp:TextBox ID="TextBoxSuspicious"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Describe suspicious activities and circumstances...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Investigation Questions</label>
-
-                            <asp:TextBox ID="TextBoxQuestions"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter questions the detective must solve...">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>Investigation Hint</label>
-
-                            <asp:TextBox ID="TextBoxHint"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Enter an optional hint...">
-                            </asp:TextBox>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =====================================
-                     SECTION 6 : CASE SOLUTION
-                ====================================== -->
-
-                <div class="form-section">
-
-                    <h2 class="section-title">
-                        <i class="fa-solid fa-user-secret"></i>
-                        Confidential Case Solution
-                    </h2>
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>
-                                Correct Culprit / Answer
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBoxCulprit"
-                                runat="server"
-                                CssClass="form-control"
-                                placeholder="Enter correct culprit name">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Maximum Case Score</label>
-
-                            <asp:TextBox ID="TextBoxScore"
-                                runat="server"
-                                TextMode="Number"
-                                CssClass="form-control"
-                                Text="100">
-                            </asp:TextBox>
-
-                        </div>
-
-
-                        <div class="form-group full-width">
-
-                            <label>
-                                Final Case Explanation
-                                <span class="required">*</span>
-                            </label>
-
-                            <asp:TextBox ID="TextBoxSolution"
-                                runat="server"
-                                TextMode="MultiLine"
-                                CssClass="form-control"
-                                placeholder="Explain who committed the crime, how and why...">
-                            </asp:TextBox>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =====================================
-                     FORM BUTTONS
-                ====================================== -->
-
-                <div class="form-actions">
-
-                    <asp:Button ID="Button1"
+                    <asp:Label ID="LabelMessage"
                         runat="server"
-                        Text="Register Case"
-                        CssClass="btn btn-save"
-                         />
+                        CssClass="case-message"
+                        EnableViewState="false">
+                    </asp:Label>
 
-                    <asp:Button ID="ButtonReset"
-                        runat="server"
-                        Text="Reset Form"
-                        CssClass="btn btn-reset"
-                        CausesValidation="false"
-                        />
+
+
+                    <!-- SECTION 01: BASIC DETAILS -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">01</div>
+
+                            <div>
+                                <h3>Case Identification</h3>
+                                <p>Basic information about the investigation.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Case Number</label>
+
+                                <div class="readonly-field">
+                                    <i class="fa-solid fa-hashtag"></i>
+
+                                    <asp:Label ID="Label1"
+                                        runat="server"
+                                        Text="Generated Automatically">
+                                    </asp:Label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Registration Date</label>
+
+                                <div class="readonly-field">
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    <asp:Label ID="Label2"
+                                        runat="server">
+                                    </asp:Label>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>
+                                    Case Name <span class="required">*</span>
+                                </label>
+
+                                <asp:TextBox ID="TextBox1"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter investigation / case title">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Case Category</label>
+
+                                <asp:DropDownList ID="DropDownListCategory"
+                                    runat="server"
+                                    CssClass="form-control">
+
+                                    <asp:ListItem Text="Select Category" Value="" />
+                                    <asp:ListItem Text="Murder" Value="Murder" />
+                                    <asp:ListItem Text="Kidnapping" Value="Kidnapping" />
+                                    <asp:ListItem Text="Cyber Crime" Value="Cyber Crime" />
+                                    <asp:ListItem Text="Theft / Robbery" Value="Theft / Robbery" />
+                                    <asp:ListItem Text="Fraud" Value="Fraud" />
+                                    <asp:ListItem Text="Missing Person" Value="Missing Person" />
+                                    <asp:ListItem Text="Assault" Value="Assault" />
+                                    <asp:ListItem Text="Other" Value="Other" />
+
+                                </asp:DropDownList>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Investigation Difficulty</label>
+
+                                <asp:DropDownList ID="DropDownListDifficulty"
+                                    runat="server"
+                                    CssClass="form-control">
+
+                                    <asp:ListItem Text="Select Difficulty" Value="" />
+                                    <asp:ListItem Text="Low" Value="Low" />
+                                    <asp:ListItem Text="Medium" Value="Medium" />
+                                    <asp:ListItem Text="High" Value="High" />
+                                    <asp:ListItem Text="Critical" Value="Critical" />
+
+                                </asp:DropDownList>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Case Priority</label>
+
+                                <asp:DropDownList ID="DropDownListPriority"
+                                    runat="server"
+                                    CssClass="form-control">
+
+                                    <asp:ListItem Text="Select Priority" Value="" />
+                                    <asp:ListItem Text="Low" Value="Low" />
+                                    <asp:ListItem Text="Normal" Value="Normal" />
+                                    <asp:ListItem Text="High" Value="High" />
+                                    <asp:ListItem Text="Urgent" Value="Urgent" />
+
+                                </asp:DropDownList>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Case Status</label>
+
+                                <asp:DropDownList ID="DropDownListStatus"
+                                    runat="server"
+                                    CssClass="form-control">
+
+                                    <asp:ListItem Text="Open" Value="Open" />
+                                    <asp:ListItem Text="Under Investigation" Value="Under Investigation" />
+                                    <asp:ListItem Text="Solved" Value="Solved" />
+                                    <asp:ListItem Text="Closed" Value="Closed" />
+
+                                </asp:DropDownList>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Case Description</label>
+
+                                <asp:TextBox ID="TextBox3"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="4"
+                                    placeholder="Describe the case and circumstances...">
+                                </asp:TextBox>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SECTION 02: INCIDENT DETAILS -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">02</div>
+
+                            <div>
+                                <h3>Incident Information</h3>
+                                <p>Record the location, date and time of the incident.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Incident Date</label>
+
+                                <asp:TextBox ID="TextBoxIncidentDate"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    TextMode="Date">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Incident Time</label>
+
+                                <asp:TextBox ID="TextBoxIncidentTime"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    TextMode="Time">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Incident Location</label>
+
+                                <asp:TextBox ID="TextBoxLocation"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter exact location">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>City</label>
+
+                                <asp:TextBox ID="TextBoxCity"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter city">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Crime Scene Details</label>
+
+                                <asp:TextBox ID="TextBoxCrimeScene"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Describe the crime scene...">
+                                </asp:TextBox>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SECTION 03: PEOPLE INVOLVED -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">03</div>
+
+                            <div>
+                                <h3>People Involved</h3>
+                                <p>Information about the victim, suspects and witnesses.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Victim Information</label>
+
+                                <asp:TextBox ID="TextBox2"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter victim details">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Suspect Information</label>
+
+                                <asp:TextBox ID="TextBox5"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter suspect details">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Witness Information</label>
+
+                                <asp:TextBox ID="TextBoxWitness"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Enter witness names and statements...">
+                                </asp:TextBox>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SECTION 04: EVIDENCE -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">04</div>
+
+                            <div>
+                                <h3>Evidence & Investigation</h3>
+                                <p>Document the collected evidence and important clues.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group full-width">
+
+                                <label>Evidence Collected</label>
+
+                                <asp:TextBox ID="TextBox4"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Describe collected evidence...">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Important Clues</label>
+
+                                <asp:TextBox ID="TextBoxClues"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Record important clues discovered during investigation...">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Upload Case Evidence</label>
+
+                                <div class="upload-box">
+
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                    <div class="upload-text">
+                                        <strong>Upload Investigation File</strong>
+                                        <span>Choose an image, document or evidence file.</span>
+                                    </div>
+
+                                    <asp:FileUpload ID="FileUploadCase"
+                                        runat="server"
+                                        CssClass="form-control file-control" />
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SECTION 05: INVESTIGATION NOTES -->
+
+                    <div class="form-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">05</div>
+
+                            <div>
+                                <h3>Investigation Notes</h3>
+                                <p>Record theories, suspicious observations and questions.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group full-width">
+
+                                <label>Case Story / Investigation Summary</label>
+
+                                <asp:TextBox ID="TextBoxStory"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="4"
+                                    placeholder="Write the complete investigation story...">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Suspicious Activities</label>
+
+                                <asp:TextBox ID="TextBoxSuspicious"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Describe suspicious activities or behaviour...">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Investigation Questions</label>
+
+                                <asp:TextBox ID="TextBoxQuestions"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Questions that remain unanswered...">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Important Hints</label>
+
+                                <asp:TextBox ID="TextBoxHint"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="3"
+                                    placeholder="Enter important hints...">
+                                </asp:TextBox>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- SECTION 06: CASE CONCLUSION -->
+
+                    <div class="form-section conclusion-section">
+
+                        <div class="section-heading">
+
+                            <div class="section-number">06</div>
+
+                            <div>
+                                <h3>Case Conclusion</h3>
+                                <p>Final investigation details and resolution.</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label>Identified Culprit</label>
+
+                                <asp:TextBox ID="TextBoxCulprit"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter culprit name">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>Investigation Score</label>
+
+                                <asp:TextBox ID="TextBoxScore"
+                                    runat="server"
+                                    CssClass="form-control"
+                                    placeholder="Enter score">
+                                </asp:TextBox>
+
+                            </div>
+
+
+                            <div class="form-group full-width">
+
+                                <label>Final Case Solution</label>
+
+                                <asp:TextBox ID="TextBoxSolution"
+                                    runat="server"
+                                    CssClass="form-control textarea-control"
+                                    TextMode="MultiLine"
+                                    Rows="4"
+                                    placeholder="Explain how the case was solved...">
+                                </asp:TextBox>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- FORM ACTIONS -->
+
+                    <div class="form-actions">
+
+                        <div class="form-security-note">
+                            <i class="fa-solid fa-lock"></i>
+
+                            <span>
+                                Investigation records are confidential.
+                            </span>
+                        </div>
+
+
+                        <div class="form-buttons">
+
+                            <asp:Button ID="ButtonReset"
+                                runat="server"
+                                Text="RESET FORM"
+                                CssClass="btn-reset"
+                                CausesValidation="false"
+                                OnClientClick="document.getElementById('caseEntryForm').querySelectorAll('input, textarea, select').forEach(function(el){ if(el.type !== 'file') { el.value = el.defaultValue; } else { el.value = ''; } }); return false;" />
+
+
+                            <asp:Button ID="Button1"
+                                runat="server"
+                                Text="REGISTER CASE"
+                                CssClass="btn-register" />
+
+                        </div>
+
+                    </div>
+
 
                 </div>
+
+            </div>
+
+
+            <!-- BOTTOM SIGNATURE -->
+
+            <div class="case-page-footer">
+
+                <span>
+                    <i class="fa-solid fa-fingerprint"></i>
+                    MYSTERIOUS CASE FILES
+                </span>
+
+                <span>CONFIDENTIAL INVESTIGATION RECORD</span>
 
             </div>
 

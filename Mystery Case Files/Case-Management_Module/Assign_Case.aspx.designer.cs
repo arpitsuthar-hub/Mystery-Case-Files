@@ -195,15 +195,6 @@ namespace Mystery_Case_Files.Case_Management_Module
         protected global::System.Web.UI.WebControls.TextBox TextBoxInstructions;
 
         /// <summary>
-        /// ButtonAssignCase control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAssignCase;
-
-        /// <summary>
         /// ButtonReset control.
         /// </summary>
         /// <remarks>
@@ -211,5 +202,14 @@ namespace Mystery_Case_Files.Case_Management_Module
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonReset;
+
+        /// <summary>
+        /// ButtonAssignCase control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAssignCase;
     }
 }

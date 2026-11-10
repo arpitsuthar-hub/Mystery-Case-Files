@@ -9,7 +9,7 @@
     ContentPlaceHolderID="head"
     runat="server">
 
-    <link href="../CSS/Case-Management/Dashboard_Case.css?v=2"
+    <link href="../CSS/Case-Management/Dashboard_Case.css"
         rel="stylesheet" />
 
 </asp:Content>
@@ -19,467 +19,531 @@
     ContentPlaceHolderID="ContentPlaceHolder1"
     runat="server">
 
+
     <div class="case-home">
 
-        <!-- =========================================
-             DASHBOARD HEADER
-        ========================================== -->
 
-        <div class="case-home-header">
+        <!-- ==========================================
+             01. DASHBOARD HEADER
+        =========================================== -->
+
+        <section class="case-home-header">
 
             <div class="case-home-heading">
 
-                <div class="case-home-icon">
-                    <i class="fa-solid fa-folder-open"></i>
-                </div>
+                <div class="case-home-title">
 
-                <div>
                     <span class="case-eyebrow">
-                        MYSTERIOUS CASE FILES
+                        INVESTIGATION CONTROL CENTER
                     </span>
 
-                    <h1>CASE MANAGEMENT</h1>
+                    <h1>
+                        CASE MANAGEMENT
+                    </h1>
 
                     <p>
-                        Investigation records, case assignments
-                        and operational overview.
+                        Investigations. Assignments. Results.
                     </p>
+
                 </div>
 
             </div>
+
+
+            <!-- CURRENT DATE -->
 
             <div class="case-date-card">
 
-                <i class="fa-regular fa-calendar-days"></i>
+                <div class="case-date-icon">
 
-                <div>
-                    <span>Today's Date</span>
+                    <i class="fa-regular fa-calendar-days"></i>
 
-                    <asp:Label ID="LabelCurrentDate"
+                </div>
+
+                <div class="case-date-content">
+
+                    <span>
+                        Today's Date
+                    </span>
+
+                    <asp:Label
+                        ID="LabelCurrentDate"
                         runat="server"
                         CssClass="case-current-date">
                     </asp:Label>
+
                 </div>
 
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- =========================================
-             STATISTICS
-        ========================================== -->
 
-        <div class="case-stats-grid">
+        <!-- ==========================================
+             02. CASE STATISTICS
+        =========================================== -->
 
-            <!-- TOTAL CASES -->
+        <section class="case-stats-grid">
 
-            <div class="case-stat-card">
 
-                <div class="case-stat-top">
-                    <div class="case-stat-icon gold">
-                        <i class="fa-solid fa-folder"></i>
-                    </div>
+            <!-- ALL RECORDS -->
+
+            <div class="case-stat-card stat-gold">
+
+                <div class="case-stat-icon gold">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                </div>
+
+                <div class="case-stat-content">
 
                     <span class="case-stat-label">
                         ALL RECORDS
                     </span>
+
+                    <h2>
+                        <asp:Label
+                            ID="LabelTotalCases"
+                            runat="server"
+                            Text="0">
+                        </asp:Label>
+                    </h2>
+
+                    <p>
+                        Total Registered Cases
+                    </p>
+
                 </div>
 
-                <h2>
-                    <asp:Label ID="LabelTotalCases"
-                        runat="server"
-                        Text="0">
-                    </asp:Label>
-                </h2>
+                <div class="case-stat-arrow">
 
-                <p>Total Registered Cases</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
 
             </div>
 
 
-            <!-- OPEN CASES -->
 
-            <div class="case-stat-card">
+            <!-- ACTIVE CASES -->
 
-                <div class="case-stat-top">
-                    <div class="case-stat-icon blue">
-                        <i class="fa-solid fa-folder-open"></i>
-                    </div>
+            <div class="case-stat-card stat-blue">
+
+                <div class="case-stat-icon blue">
+
+                    <i class="fa-solid fa-folder-open"></i>
+
+                </div>
+
+                <div class="case-stat-content">
 
                     <span class="case-stat-label">
                         ACTIVE
                     </span>
+
+                    <h2>
+                        <asp:Label
+                            ID="LabelOpenCases"
+                            runat="server"
+                            Text="0">
+                        </asp:Label>
+                    </h2>
+
+                    <p>
+                        Open Cases
+                    </p>
+
                 </div>
 
-                <h2>
-                    <asp:Label ID="LabelOpenCases"
-                        runat="server"
-                        Text="0">
-                    </asp:Label>
-                </h2>
+                <div class="case-stat-arrow">
 
-                <p>Open Cases</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
 
             </div>
+
 
 
             <!-- ASSIGNED CASES -->
 
-            <div class="case-stat-card">
+            <div class="case-stat-card stat-purple">
 
-                <div class="case-stat-top">
-                    <div class="case-stat-icon purple">
-                        <i class="fa-solid fa-user-shield"></i>
-                    </div>
+                <div class="case-stat-icon purple">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <div class="case-stat-content">
 
                     <span class="case-stat-label">
                         ALLOCATED
                     </span>
+
+                    <h2>
+                        <asp:Label
+                            ID="LabelAssignedCases"
+                            runat="server"
+                            Text="0">
+                        </asp:Label>
+                    </h2>
+
+                    <p>
+                        Assigned Cases
+                    </p>
+
                 </div>
 
-                <h2>
-                    <asp:Label ID="LabelAssignedCases"
-                        runat="server"
-                        Text="0">
-                    </asp:Label>
-                </h2>
+                <div class="case-stat-arrow">
 
-                <p>Assigned Cases</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
 
             </div>
 
 
-            <!-- SOLVED CASES -->
 
-            <div class="case-stat-card">
+            <!-- COMPLETED CASES -->
 
-                <div class="case-stat-top">
-                    <div class="case-stat-icon green">
-                        <i class="fa-solid fa-circle-check"></i>
-                    </div>
+            <div class="case-stat-card stat-green">
+
+                <div class="case-stat-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+                <div class="case-stat-content">
 
                     <span class="case-stat-label">
                         COMPLETED
                     </span>
+
+                    <h2>
+                        <asp:Label
+                            ID="LabelSolvedCases"
+                            runat="server"
+                            Text="0">
+                        </asp:Label>
+                    </h2>
+
+                    <p>
+                        Solved Cases
+                    </p>
+
                 </div>
 
-                <h2>
-                    <asp:Label ID="LabelSolvedCases"
-                        runat="server"
-                        Text="0">
-                    </asp:Label>
-                </h2>
+                <div class="case-stat-arrow">
 
-                <p>Solved Cases</p>
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </div>
 
             </div>
 
-        </div>
+
+        </section>
 
 
-        <!-- =========================================
-             QUICK ACTIONS
-        ========================================== -->
 
-        <div class="case-section">
+        <!-- ==========================================
+             03. QUICK ACTIONS
+        =========================================== -->
+
+        <section class="case-section quick-actions-section">
+
 
             <div class="case-section-heading">
 
                 <div>
-                    <span class="case-section-eyebrow">
-                        CASE OPERATIONS
-                    </span>
 
-                    <h2>Quick Actions</h2>
+                    <h2>
+                        QUICK ACTIONS
+                    </h2>
+
+                    <p>
+                        Manage investigation records
+                    </p>
+
                 </div>
 
-                <span class="case-section-description">
-                    Manage investigation records
-                </span>
-
             </div>
+
 
 
             <div class="case-actions-grid">
 
-                <!-- ADD CASE -->
 
-                <a href="AddNew_Case.aspx"
+                <!-- REGISTER NEW CASE -->
+
+                <a href="<%= ResolveUrl("~/Case-Management_Module/AddNew_Case.aspx") %>"
                     class="case-action-card">
 
                     <div class="case-action-icon">
+
                         <i class="fa-solid fa-folder-plus"></i>
+
                     </div>
 
                     <div class="case-action-content">
-                        <h3>Register New Case</h3>
+
+                        <h3>
+                            Register New Case
+                        </h3>
 
                         <p>
-                            Create a new case record and
-                            enter investigation details.
+                            Create a new case record
+                            and enter details.
                         </p>
+
                     </div>
 
-                    <i class="fa-solid fa-arrow-right case-action-arrow"></i>
+                    <div class="case-action-arrow">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
 
-                <!-- SEARCH CASE -->
 
-                <a href="Search_Case.aspx"
+                <!-- SEARCH CASES -->
+
+                <a href="<%= ResolveUrl("~/Case-Management_Module/Search_Case.aspx") %>"
                     class="case-action-card">
 
                     <div class="case-action-icon">
+
                         <i class="fa-solid fa-magnifying-glass"></i>
+
                     </div>
 
                     <div class="case-action-content">
-                        <h3>Search Cases</h3>
+
+                        <h3>
+                            Search Cases
+                        </h3>
 
                         <p>
-                            Find cases using their ID,
-                            name, category or registration date.
+                            Find cases by ID, name
+                            or category.
                         </p>
+
                     </div>
 
-                    <i class="fa-solid fa-arrow-right case-action-arrow"></i>
+                    <div class="case-action-arrow">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
 
-                <!-- ASSIGN CASE -->
 
-                <a href="Assign_Case.aspx"
+                <!-- ASSIGN INVESTIGATION -->
+
+                <a href="<%= ResolveUrl("~/Case-Management_Module/Assign_Case.aspx") %>"
                     class="case-action-card">
 
                     <div class="case-action-icon">
-                        <i class="fa-solid fa-user-tag"></i>
+
+                        <i class="fa-solid fa-user-group"></i>
+
                     </div>
 
                     <div class="case-action-content">
-                        <h3>Assign Investigation</h3>
+
+                        <h3>
+                            Assign Investigation
+                        </h3>
 
                         <p>
-                            Assign registered cases to
-                            detectives from relevant departments.
+                            Allocate cases to detectives.
                         </p>
+
                     </div>
 
-                    <i class="fa-solid fa-arrow-right case-action-arrow"></i>
+                    <div class="case-action-arrow">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
 
-                <!-- ALL CASES -->
 
-                <a href="All_Case.aspx"
+                <!-- ALL CASE RECORDS -->
+
+                <a href="<%= ResolveUrl("~/Case-Management_Module/All_Case.aspx") %>"
                     class="case-action-card">
 
                     <div class="case-action-icon">
-                        <i class="fa-solid fa-table-list"></i>
+
+                        <i class="fa-solid fa-list-ul"></i>
+
                     </div>
 
                     <div class="case-action-content">
-                        <h3>All Case Records</h3>
+
+                        <h3>
+                            All Case Records
+                        </h3>
 
                         <p>
-                            Browse registered cases and
-                            review their current status.
+                            View all registered cases.
                         </p>
+
                     </div>
 
-                    <i class="fa-solid fa-arrow-right case-action-arrow"></i>
+                    <div class="case-action-arrow">
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </div>
 
                 </a>
 
+
             </div>
 
-        </div>
+        </section>
 
 
-        <!-- =========================================
-             RECENT CASES
-        ========================================== -->
 
-        <div class="case-section recent-cases-section">
+        <!-- ==========================================
+             04. RECENT CASES
+             CENTERED FULL-WIDTH SECTION
+        =========================================== -->
 
-            <div class="case-section-heading">
+        <section class="case-section recent-cases-section">
 
-                <div>
-                    <span class="case-section-eyebrow">
-                        LATEST RECORDS
+
+            <div class="case-recent-panel">
+
+
+                <!-- RECENT CASES HEADER -->
+
+                <div class="case-recent-header">
+
+                    <div class="case-recent-title">
+
+                        <span class="case-section-eyebrow">
+                            INVESTIGATION DATABASE
+                        </span>
+
+                        <h2>
+                            RECENT CASES
+                        </h2>
+
+                    </div>
+
+
+                    <a href="<%= ResolveUrl("~/Case-Management_Module/All_Case.aspx") %>"
+                        class="case-view-all">
+
+                        View All
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- CASE TABLE -->
+
+                <div class="case-table-wrapper">
+
+                    <asp:GridView
+                        ID="GridViewRecentCases"
+                        runat="server"
+                        AutoGenerateColumns="False"
+                        CssClass="case-recent-grid"
+                        GridLines="None"
+                        DataKeyNames="case_no"
+                        EmptyDataText="No recent case records found."
+                       >
+
+                        <Columns>
+
+                            <asp:BoundField
+                                DataField="case_no"
+                                HeaderText="CASE ID" />
+
+                            <asp:BoundField
+                                DataField="case_name"
+                                HeaderText="CASE NAME" />
+
+                            <asp:BoundField
+                                DataField="case_category"
+                                HeaderText="CATEGORY" />
+
+                            <asp:BoundField
+                                DataField="case_registerdate"
+                                HeaderText="REGISTERED ON"
+                                DataFormatString="{0:dd MMM yyyy}" />
+
+                            <asp:TemplateField
+                                HeaderText="ACTION">
+
+                                <ItemTemplate>
+
+                                    <asp:LinkButton
+                                        ID="ButtonViewCase"
+                                        runat="server"
+                                        Text="View"
+                                        CommandName="ViewCase"
+                                        CommandArgument='<%# Container.DataItemIndex %>'
+                                        CssClass="case-view-button">
+                                    </asp:LinkButton>
+
+                                </ItemTemplate>
+
+                            </asp:TemplateField>
+
+                        </Columns>
+
+                    </asp:GridView>
+
+                </div>
+
+
+                <!-- TABLE FOOTNOTE -->
+
+                <div class="case-table-footer">
+
+                    <span>
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        CONFIDENTIAL INVESTIGATION RECORDS
+
                     </span>
 
-                    <h2>Recently Registered Cases</h2>
-                </div>
+                    <span class="case-table-footer-right">
 
-                <a href="All_Case.aspx"
-                    class="case-view-all">
+                        AUTHORIZED ACCESS ONLY
 
-                    View All Cases
-
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
-
-            <div class="case-table-wrapper">
-
-                <asp:GridView ID="GridViewRecentCases"
-                    runat="server"
-                    AutoGenerateColumns="false"
-                    CssClass="case-recent-grid"
-                    GridLines="None"
-                    DataKeyNames="case_no"
-                    EmptyDataText="No case records are available."
-                    >
-
-                    <Columns>
-
-                        <asp:BoundField
-                            DataField="case_no"
-                            HeaderText="CASE ID" />
-
-
-                        <asp:BoundField
-                            DataField="case_name"
-                            HeaderText="CASE NAME" />
-
-
-                        <asp:BoundField
-                            DataField="case_category"
-                            HeaderText="CATEGORY" />
-
-
-                        <asp:BoundField
-                            DataField="case_registerdate"
-                            HeaderText="REGISTERED ON"
-                            DataFormatString="{0:dd MMM yyyy}"
-                            HtmlEncode="false" />
-
-
-                        
-
-
-                        <asp:TemplateField HeaderText="ACTION">
-
-                            <ItemTemplate>
-
-                                <asp:LinkButton
-                                    ID="ButtonViewCase"
-                                    runat="server"
-                                    Text="View Details"
-                                    CssClass="case-view-button"
-                                    CommandName="ViewCase"
-                                    
-                                    CausesValidation="false" />
-
-                            </ItemTemplate>
-
-                        </asp:TemplateField>
-
-                    </Columns>
-
-                </asp:GridView>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================================
-             STATUS OVERVIEW
-        ========================================== -->
-
-        <div class="case-section">
-
-            <div class="case-section-heading">
-
-                <div>
-                    <span class="case-section-eyebrow">
-                        INVESTIGATION MONITORING
                     </span>
 
-                    <h2>Case Status Overview</h2>
                 </div>
+
 
             </div>
 
-
-            <div class="case-status-grid">
-
-                <div class="case-status-card">
-
-                    <span class="status-indicator status-open"></span>
-
-                    <div>
-                        <h3>Open</h3>
-                        <p>Awaiting assignment or investigation</p>
-                    </div>
-
-                </div>
+        </section>
 
 
-                <div class="case-status-card">
-
-                    <span class="status-indicator status-assigned"></span>
-
-                    <div>
-                        <h3>Assigned</h3>
-                        <p>Allocated to a detective</p>
-                    </div>
-
-                </div>
-
-
-                <div class="case-status-card">
-
-                    <span class="status-indicator status-investigation"></span>
-
-                    <div>
-                        <h3>Under Investigation</h3>
-                        <p>Investigation currently in progress</p>
-                    </div>
-
-                </div>
-
-
-                <div class="case-status-card">
-
-                    <span class="status-indicator status-solved"></span>
-
-                    <div>
-                        <h3>Solved</h3>
-                        <p>Investigation successfully completed</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================================
-             FOOTER
-        ========================================== -->
-
-        <div class="case-home-footer">
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-            <span>
-                MYSTERIOUS CASE FILES
-                <span class="footer-divider">|</span>
-                CASE MANAGEMENT CONTROL CENTER
-            </span>
-
-        </div>
 
     </div>
+
 
 </asp:Content>

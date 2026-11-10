@@ -104,7 +104,14 @@
     <Content Include="Images\Chief_Dashboard\Detective_Module.png" />
     <Content Include="Images\Chief_Dashboard\Header_Module.png" />
     <Content Include="Images\Chief_Dashboard\Quiz_Module.png" />
+    <Content Include="Images\download %281%29.jpeg" />
+    <Content Include="Images\download %282%29.jpeg" />
+    <Content Include="Images\download.jpeg" />
+    <Content Include="Images\Home Sweet Castle.jpeg" />
+    <Content Include="Images\Library Ghost — Poesie Perfume and Tea.jpeg" />
     <Content Include="Images\Main_Dashboard\Hero16.jpg" />
+    <Content Include="Images\Master_Pages\Case_Headquaters.jpeg" />
+    <Content Include="Images\Master_Pages\Detective_Headquaters.jpeg" />
     <Content Include="Quiz_Module\All_Quiz.aspx" />
     <Content Include="Detective_Module\AddNew_Detective.aspx" />
     <Content Include="Detective_Module\All_Detective.aspx" />

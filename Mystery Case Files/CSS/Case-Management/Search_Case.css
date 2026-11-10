@@ -1,267 +1,639 @@
 ﻿/* =========================================================
    MYSTERIOUS CASE FILES
    SEARCH CASE PAGE
-   THEME: CINEMATIC NOIR / BLACK & GOLD
+
+   THEME:
+   Antique Investigation Map
+   Cinematic Noir
+   Dark Sepia / Antique Gold / Smoked Glass
+========================================================= */
+
+
+/* =========================================================
+   01. ROOT VARIABLES
+========================================================= */
+
+:root {
+    --search-gold: #c49a50;
+    --search-gold-light: #e8c887;
+    --search-gold-dark: #80602e;
+    --search-text: #f3ead9;
+    --search-muted: #b5a58d;
+    --search-glass: rgba(12, 9, 6, 0.82);
+    --search-glass-light: rgba(20, 15, 10, 0.75);
+    --search-border: rgba(196, 154, 80, 0.30);
+    --search-border-soft: rgba(237, 211, 165, 0.13);
+    --search-heading-font: 'Cinzel', Georgia, serif;
+    --search-body-font: 'Poppins', Arial, sans-serif;
+    --search-shadow: 0 15px 45px rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   02. MAIN PAGE BACKGROUND
 ========================================================= */
 
 .search-case-page {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
     min-height: 100vh;
-    padding: 40px 25px 70px;
-    background: #080b0e;
-    color: #e8e2d6;
-    font-family: 'Poppins', sans-serif;
+    padding: 38px 30px 25px;
+    color: var(--search-text);
+    font-family: var(--search-body-font);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.50) ), url("../../Images/Main_Dashboard/Hero14.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
 }
+
+
+/* Background lighting */
+
+.search-background-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient( ellipse at 45% 35%, rgba(176, 111, 42, 0.10), transparent 55% ), linear-gradient( 90deg, rgba(0, 0, 0, 0.25), transparent 50%, rgba(0, 0, 0, 0.30) );
+}
+
+
+/* =========================================================
+   03. MAIN CONTAINER
+========================================================= */
 
 .search-case-container {
-    max-width: 1300px;
-    margin: auto;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
 }
 
-/* ================= PAGE HEADER ================= */
+
+/* =========================================================
+   04. PAGE HEADER
+========================================================= */
 
 .search-page-header {
-    text-align: center;
-    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 27px;
+    margin-bottom: 28px;
+    background: rgba(8, 6, 4, 0.78);
+    border: 1px solid var(--search-border);
+    border-radius: 11px;
+    box-shadow: var(--search-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    overflow: hidden;
 }
+
+
+    .search-page-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--search-gold);
+    }
+
+
+.search-header-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 
 .search-header-icon {
     width: 65px;
     height: 65px;
-    margin: 0 auto 18px;
+    min-width: 65px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background: rgba(196,154,69,0.08);
-    border: 1px solid #806735;
-    border-radius: 50%;
-    color: #c49a45;
+    justify-content: center;
+    color: var(--search-gold-light);
     font-size: 25px;
+    background: rgba(196, 154, 80, 0.10);
+    border: 1px solid rgba(196, 154, 80, 0.40);
+    border-radius: 10px;
 }
 
-.search-page-header h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 30px;
-    color: #d4af67;
-    letter-spacing: 2px;
+
+.search-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--search-gold);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
 }
 
-.search-page-header p {
-    margin-top: 10px;
-    color: #939ba0;
-    font-size: 13px;
+
+.search-header-content h1 {
+    margin: 0;
+    color: #f3e3c5;
+    font-family: var(--search-heading-font);
+    font-size: 27px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
 }
 
-.search-header-line {
-    width: 100px;
-    height: 3px;
-    background: #c49a45;
-    margin: 20px auto;
+
+.search-header-content p {
+    margin: 7px 0 0;
+    color: var(--search-muted);
+    font-size: 11px;
+    letter-spacing: 0.3px;
 }
 
-/* ================= SEARCH PANEL ================= */
+
+.search-header-stamp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 16px;
+    color: var(--search-gold-light);
+    border: 1px solid rgba(196, 154, 80, 0.40);
+    transform: rotate(3deg);
+}
+
+
+    .search-header-stamp i {
+        font-size: 22px;
+    }
+
+
+    .search-header-stamp span {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+
+/* =========================================================
+   05. SEARCH PANEL
+========================================================= */
 
 .search-panel {
-    background: #101519;
-    border: 1px solid #30363a;
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+    padding: 28px 30px 20px;
+    margin-bottom: 25px;
+    background: var(--search-glass);
+    border: 1px solid var(--search-border);
+    border-radius: 11px;
+    box-shadow: var(--search-shadow);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
 }
+
+
+    .search-panel::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient( 90deg, transparent, var(--search-gold), transparent );
+    }
+
+
+/* =========================================================
+   06. PANEL HEADING
+========================================================= */
 
 .panel-heading {
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: #d4af67;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
+    justify-content: space-between;
+    gap: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 23px;
+    border-bottom: 1px solid var(--search-border-soft);
+}
+
+
+.panel-heading-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+.panel-heading-icon {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--search-gold-light);
+    font-size: 17px;
+    background: rgba(196, 154, 80, 0.10);
+    border: 1px solid rgba(196, 154, 80, 0.30);
+    border-radius: 8px;
+}
+
+
+.panel-heading h2 {
+    margin: 0;
+    color: #e9d6b2;
+    font-family: var(--search-heading-font);
+    font-size: 16px;
     font-weight: 600;
     letter-spacing: 1px;
-    padding-bottom: 18px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid #343a3f;
 }
+
+
+.panel-heading p {
+    margin: 5px 0 0;
+    color: var(--search-muted);
+    font-size: 10px;
+}
+
+
+.panel-reference {
+    padding: 8px 12px;
+    color: var(--search-gold-light);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    background: rgba(196, 154, 80, 0.08);
+    border: 1px solid rgba(196, 154, 80, 0.25);
+    border-radius: 4px;
+}
+
+
+/* =========================================================
+   07. SEARCH TYPE
+========================================================= */
 
 .search-type-section {
     margin-bottom: 25px;
 }
 
-    .search-type-section > label,
-    .search-input-panel > label {
-        display: block;
-        color: #c8ced1;
-        font-size: 13px;
-        font-weight: 500;
-        margin-bottom: 12px;
+
+.field-label {
+    display: block;
+    margin-bottom: 12px;
+    color: #d9c7a6;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+    .field-label i {
+        margin-right: 7px;
+        color: var(--search-gold);
     }
 
-/* ================= RADIO BUTTONS ================= */
+
+.search-radio-wrapper {
+    padding: 15px 17px;
+    background: rgba(0, 0, 0, 0.30);
+    border: 1px solid var(--search-border-soft);
+    border-radius: 7px;
+}
+
 
 .search-radio-list {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 12px 25px;
+    gap: 15px 30px;
 }
 
+
+    /* Radio buttons */
+
     .search-radio-list input[type="radio"] {
-        accent-color: #c49a45;
+        width: 15px;
+        height: 15px;
+        margin: 0 8px 0 0;
+        vertical-align: middle;
+        accent-color: var(--search-gold);
         cursor: pointer;
-        margin-right: 7px;
     }
+
 
     .search-radio-list label {
-        color: #c9cdd0;
-        font-size: 13px;
+        color: #d8cbb5;
+        font-size: 11px;
         cursor: pointer;
-        margin-right: 15px;
+        vertical-align: middle;
     }
 
-/* ================= SEARCH INPUT ================= */
+
+    .search-radio-list span {
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+    }
+
+
+/* =========================================================
+   08. SEARCH INPUT
+========================================================= */
 
 .search-input-container {
     margin-bottom: 25px;
 }
 
+
 .search-input-panel {
-    max-width: 600px;
+    width: 100%;
+    max-width: 650px;
 }
+
+
+.search-input-box {
+    display: flex;
+    align-items: center;
+    min-height: 47px;
+    padding: 0 14px;
+    background: rgba(0, 0, 0, 0.40);
+    border: 1px solid rgba(196, 154, 80, 0.25);
+    border-radius: 6px;
+    transition: 0.3s ease;
+}
+
+
+    .search-input-box:focus-within {
+        border-color: var(--search-gold);
+        background: rgba(0, 0, 0, 0.58);
+        box-shadow: 0 0 0 3px rgba(196, 154, 80, 0.10);
+    }
+
+
+    .search-input-box > i {
+        width: 23px;
+        color: var(--search-gold);
+        font-size: 13px;
+    }
+
 
 .search-control {
     width: 100%;
-    padding: 13px 15px;
-    background: #171d22;
-    border: 1px solid #353b40;
-    border-radius: 6px;
-    color: #eeeeee;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
+    min-height: 45px;
+    padding: 10px 8px;
+    color: #f1e7d7;
+    font-family: var(--search-body-font);
+    font-size: 12px;
+    background: transparent;
+    border: none;
     outline: none;
-    transition: 0.3s;
 }
 
-    .search-control:focus {
-        border-color: #c49a45;
-        box-shadow: 0 0 0 3px rgba(196,154,69,0.1);
-    }
 
     .search-control::placeholder {
-        color: #777f85;
+        color: rgba(218, 201, 174, 0.45);
+        font-size: 11px;
     }
 
-/* ================= BUTTONS ================= */
 
-.search-buttons,
-.case-details-actions {
+    .search-control option {
+        color: #f4eee3;
+        background: #17120d;
+    }
+
+
+input[type="date"] {
+    color-scheme: dark;
+}
+
+
+/* =========================================================
+   09. SEARCH BUTTONS
+========================================================= */
+
+.search-buttons {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    align-items: center;
+    gap: 13px;
 }
+
 
 .search-btn-primary,
 .search-btn-secondary,
 .search-btn-danger {
-    padding: 12px 28px;
-    border-radius: 6px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
+    min-height: 43px;
+    padding: 11px 23px;
+    border-radius: 5px;
+    font-family: var(--search-body-font);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
+
+
+/* Primary */
 
 .search-btn-primary {
-    background: #c49a45;
-    color: #111;
-    border: 1px solid #c49a45;
+    color: #171109;
+    background: linear-gradient( 135deg, #e5c47e, #bd8b43 );
+    border: 1px solid #e4c17a;
+    box-shadow: 0 4px 15px rgba(196, 154, 80, 0.12);
 }
+
 
     .search-btn-primary:hover {
-        background: #e0b75b;
+        color: #080705;
+        background: linear-gradient( 135deg, #f3d99e, #d2a356 );
+        box-shadow: 0 6px 20px rgba(196, 154, 80, 0.27);
+        transform: translateY(-2px);
     }
+
+
+/* Secondary */
 
 .search-btn-secondary {
-    background: #252c31;
-    color: #ddd;
-    border: 1px solid #41484d;
+    color: #d8cbb7;
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid rgba(255, 255, 255, 0.20);
 }
+
 
     .search-btn-secondary:hover {
-        background: #353d43;
+        color: white;
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.38);
     }
+
+
+/* Danger */
 
 .search-btn-danger {
-    background: rgba(200,75,75,0.12);
-    color: #e7a0a0;
-    border: 1px solid #a63e3e;
+    color: #e8a4a0;
+    background: rgba(180, 55, 48, 0.10);
+    border: 1px solid rgba(200, 75, 75, 0.45);
 }
 
+
     .search-btn-danger:hover {
-        background: #b83d3d;
         color: white;
+        background: #a93737;
+        border-color: #bd4a4a;
     }
 
-/* ================= MESSAGE ================= */
+
+/* =========================================================
+   10. SEARCH PANEL FOOTER
+========================================================= */
+
+.search-panel-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 15px;
+    color: rgba(211, 195, 165, 0.58);
+    font-size: 9px;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+
+    .search-panel-footer i {
+        color: var(--search-gold);
+    }
+
+
+/* =========================================================
+   11. MESSAGE
+========================================================= */
 
 .search-message {
     display: block;
+    margin: 15px 0 22px;
+    padding: 12px 15px;
+    color: var(--search-gold-light);
+    font-size: 12px;
     text-align: center;
-    color: #e2b96d;
-    font-size: 14px;
-    margin: 15px 0;
+    background: rgba(196, 154, 80, 0.08);
+    border: 1px solid rgba(196, 154, 80, 0.20);
+    border-radius: 6px;
 }
 
-/* ================= RESULT PANELS ================= */
+
+/* =========================================================
+   12. RESULT PANELS
+========================================================= */
 
 .case-details-panel,
 .grid-results-panel {
-    background: #101519;
-    border: 1px solid #30363a;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+    width: 100%;
+    padding: 28px;
+    margin-bottom: 25px;
+    background: var(--search-glass);
+    border: 1px solid var(--search-border);
+    border-radius: 11px;
+    box-shadow: var(--search-shadow);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    overflow: hidden;
 }
+
+
+/* =========================================================
+   13. RESULT HEADING
+========================================================= */
 
 .result-heading {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    padding-bottom: 18px;
-    border-bottom: 1px solid #343a3f;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 19px;
+    border-bottom: 1px solid var(--search-border-soft);
 }
 
-    .result-heading h2 {
-        font-family: 'Cinzel', serif;
-        color: #d4af67;
-        font-size: 19px;
-        letter-spacing: 1px;
-    }
 
-        .result-heading h2 i {
-            margin-right: 10px;
-        }
+.result-heading-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
 
-    .result-heading p {
-        color: #929a9e;
-        font-size: 12px;
-        margin-top: 7px;
-    }
+
+.result-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--search-gold-light);
+    font-size: 19px;
+    background: rgba(196, 154, 80, 0.10);
+    border: 1px solid rgba(196, 154, 80, 0.30);
+    border-radius: 8px;
+}
+
+
+.result-eyebrow {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--search-gold);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+
+.result-heading h2 {
+    margin: 0;
+    color: #e9d7b7;
+    font-family: var(--search-heading-font);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+}
+
+
+.result-heading p {
+    margin: 6px 0 0;
+    color: var(--search-muted);
+    font-size: 10px;
+}
+
+
+/* Badges */
 
 .result-badge,
 .result-count {
-    padding: 8px 14px;
-    background: rgba(196,154,69,0.08);
-    border: 1px solid #806735;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    color: var(--search-gold-light);
+    background: rgba(196, 154, 80, 0.08);
+    border: 1px solid rgba(196, 154, 80, 0.35);
     border-radius: 5px;
-    color: #d4af67;
-    font-size: 11px;
+    font-size: 9px;
     font-weight: 600;
     letter-spacing: 1px;
 }
 
-/* ================= CASE DETAILS TABLE ================= */
+
+/* =========================================================
+   14. CASE DETAILS TABLE
+========================================================= */
 
 .details-table-wrapper,
 .grid-table-wrapper {
@@ -269,151 +641,337 @@
     overflow-x: auto;
 }
 
+
 .case-details-table {
     width: 100%;
+    min-width: 750px;
     border-collapse: collapse;
-    min-width: 650px;
 }
+
 
     .case-details-table th,
     .case-details-table td {
-        padding: 15px 18px;
-        border: 1px solid #30373c;
+        padding: 14px 16px;
         text-align: left;
         vertical-align: top;
-        font-size: 13px;
+        border: 1px solid rgba(196, 154, 80, 0.17);
+        font-size: 11px;
+        line-height: 1.8;
     }
+
 
     .case-details-table th {
         width: 18%;
-        background: #192026;
-        color: #d4af67;
+        color: var(--search-gold-light);
         font-weight: 600;
+        background: rgba(100, 68, 32, 0.22);
     }
 
+
     .case-details-table td {
-        background: #11171b;
-        color: #d7dadd;
+        color: #e2d8c8;
+        background: rgba(0, 0, 0, 0.25);
         white-space: pre-wrap;
         overflow-wrap: anywhere;
     }
 
+
     .case-details-table tr:hover td {
-        background: #171f24;
+        background: rgba(196, 154, 80, 0.07);
     }
 
+
+/* =========================================================
+   15. CASE DETAILS ACTIONS
+========================================================= */
+
 .case-details-actions {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid #343a3f;
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 23px;
+    padding-top: 20px;
+    border-top: 1px solid var(--search-border-soft);
 }
 
-/* ================= GRIDVIEW ================= */
+
+/* =========================================================
+   16. GRIDVIEW
+========================================================= */
 
 .case-grid {
     width: 100%;
     min-width: 850px;
     border-collapse: collapse;
+    border-spacing: 0;
 }
 
+
     .case-grid th {
-        background: #1b2328;
-        color: #d4af67;
-        font-size: 12px;
-        font-weight: 600;
-        padding: 16px 14px;
+        padding: 15px 13px;
+        color: var(--search-gold-light);
+        background: rgba(100, 68, 32, 0.30);
+        border-bottom: 2px solid var(--search-gold-dark);
         text-align: left;
-        border-bottom: 2px solid #806735;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.7px;
     }
+
 
     .case-grid td {
-        padding: 15px 14px;
-        color: #d6dadd;
-        font-size: 12px;
-        border-bottom: 1px solid #30373c;
+        padding: 14px 13px;
+        color: #e2d8c8;
+        background: rgba(0, 0, 0, 0.24);
+        border-bottom: 1px solid rgba(196, 154, 80, 0.14);
+        font-size: 11px;
     }
+
 
     .case-grid tr:nth-child(even) td {
-        background: #151c20;
+        background: rgba(45, 32, 20, 0.34);
     }
 
+
     .case-grid tr:hover td {
-        background: #20282d;
+        background: rgba(196, 154, 80, 0.10);
     }
+
+
+/* =========================================================
+   17. GRID ACTION BUTTONS
+========================================================= */
 
 .grid-actions {
     display: flex;
+    align-items: center;
     gap: 8px;
 }
+
 
 .grid-edit-btn,
 .grid-delete-btn {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-size: 11px;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 11px;
+    border-radius: 4px;
+    font-size: 10px;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
+
+
+/* Edit */
 
 .grid-edit-btn {
-    color: #d4af67;
-    background: rgba(196,154,69,0.1);
-    border: 1px solid rgba(196,154,69,0.3);
+    color: var(--search-gold-light);
+    background: rgba(196, 154, 80, 0.09);
+    border: 1px solid rgba(196, 154, 80, 0.32);
 }
+
 
     .grid-edit-btn:hover {
-        background: #c49a45;
-        color: #111;
+        color: #151008;
+        background: var(--search-gold);
     }
+
+
+/* Delete */
 
 .grid-delete-btn {
-    color: #e49a9a;
-    background: rgba(200,75,75,0.1);
-    border: 1px solid rgba(200,75,75,0.3);
+    color: #e8a4a0;
+    background: rgba(180, 55, 48, 0.09);
+    border: 1px solid rgba(200, 75, 75, 0.35);
 }
+
 
     .grid-delete-btn:hover {
-        background: #b83d3d;
         color: white;
+        background: #a93737;
     }
+
+
+/* =========================================================
+   18. EMPTY RESULTS
+========================================================= */
 
 .empty-results {
-    padding: 30px;
+    padding: 45px 20px;
     text-align: center;
-    color: #a0a6aa;
+    color: var(--search-muted);
 }
 
-/* ================= RESPONSIVE ================= */
 
-@media (max-width: 768px) {
-
-    .search-case-page {
-        padding: 25px 12px 50px;
+    .empty-results i {
+        margin-bottom: 13px;
+        color: var(--search-gold);
+        font-size: 30px;
     }
 
-    .search-page-header h1 {
-        font-size: 23px;
+
+    .empty-results h3 {
+        margin: 0 0 8px;
+        color: #e7d4b1;
+        font-family: var(--search-heading-font);
+        font-size: 15px;
+    }
+
+
+    .empty-results p {
+        margin: 0;
+        font-size: 11px;
+    }
+
+
+/* =========================================================
+   19. PAGE FOOTER
+========================================================= */
+
+.search-page-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 5px 5px;
+    color: rgba(224, 202, 165, 0.62);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 1.3px;
+}
+
+
+    .search-page-footer i {
+        margin-right: 7px;
+        color: var(--search-gold);
+    }
+
+
+/* =========================================================
+   20. SCROLLBAR
+========================================================= */
+
+.search-case-page::-webkit-scrollbar,
+.details-table-wrapper::-webkit-scrollbar,
+.grid-table-wrapper::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+
+.search-case-page::-webkit-scrollbar-track,
+.details-table-wrapper::-webkit-scrollbar-track,
+.grid-table-wrapper::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.55);
+}
+
+
+.search-case-page::-webkit-scrollbar-thumb,
+.details-table-wrapper::-webkit-scrollbar-thumb,
+.grid-table-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(196, 154, 80, 0.65);
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   21. RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .search-case-page {
+        padding: 25px 18px;
+    }
+
+    .search-page-header {
+        padding: 19px;
+    }
+
+    .search-header-content h1 {
+        font-size: 22px;
     }
 
     .search-panel,
     .case-details-panel,
     .grid-results-panel {
-        padding: 20px 15px;
+        padding: 22px;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .search-case-page {
+        padding: 18px 10px;
+        background-attachment: scroll;
+    }
+
+    .search-page-header {
+        padding: 16px;
+    }
+
+    .search-header-main {
+        gap: 12px;
+    }
+
+    .search-header-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        font-size: 19px;
+    }
+
+    .search-header-content h1 {
+        font-size: 16px;
+        letter-spacing: 0.8px;
+    }
+
+    .search-header-content p {
+        font-size: 9px;
+    }
+
+    .search-eyebrow {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+    }
+
+    .search-header-stamp {
+        display: none;
+    }
+
+    .search-panel,
+    .case-details-panel,
+    .grid-results-panel {
+        padding: 18px 13px;
+    }
+
+    .panel-heading {
+        align-items: flex-start;
+    }
+
+        .panel-heading h2 {
+            font-size: 13px;
+        }
+
+    .panel-reference {
+        display: none;
     }
 
     .search-radio-list {
         flex-direction: column;
-        gap: 12px;
+        align-items: flex-start;
+        gap: 13px;
     }
 
     .search-buttons,
     .case-details-actions {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .search-btn-primary,
@@ -428,6 +986,17 @@
     }
 
         .result-heading h2 {
-            font-size: 16px;
+            font-size: 13px;
         }
+
+    .result-badge,
+    .result-count {
+        align-self: flex-start;
+    }
+
+    .search-page-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 8px;
+    }
 }
